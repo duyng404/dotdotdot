@@ -1,0 +1,62 @@
+! terminal colors ----------------------------------------------
+
+! tangoesque scheme
+*background: #000000
+*foreground: #FFFFFF
+! Black (not tango) + DarkGrey
+*color0:  #000000
+*color8:  #555753
+! DarkRed + Red
+*color1:  #ff6565
+*color9:  #ff8d8d
+! DarkGreen + Green
+*color2:  #93d44f
+*color10: #c8e7a8
+! DarkYellow + Yellow
+*color3:  #eab93d
+*color11: #ffc123
+! DarkBlue + Blue
+*color4:  #204a87
+*color12: #3465a4
+! DarkMagenta + Magenta
+*color5:  #ce5c00
+*color13: #f57900
+!DarkCyan + Cyan (both not tango)
+*color6:  #89b6e2
+*color14: #46a4ff
+! LightGrey + White
+*color7:  #cccccc
+*color15: #ffffff
+
+! scrollbar style - rxvt (default), plain (most compact), next, xterm
+! URxvt.scrollstyle:plain
+URxvt.scrollBar: false 
+
+! URxvt ---------------------------------
+URxvt.depth: 32
+URxvt.background: [90]#000000
+! URxvt.letterSpace:0
+URxvt.lineSpace: 2
+URxvt.font: -gohu-gohufont-medium-r-*-*-14-*-*-*-*-*-iso10646-1
+URxvt.boldFont: -gohu-gohufont-bold-r-*-*-14-*-*-*-*-*-iso10646-1
+!URxvt.font: -*-ttyp0-medium-r-normal-*-16-*-*-*-*-*-iso10646-*
+!URxvt.font: xft:Ubuntu Mono:size=12
+!URxvt.boldFont: xft:Ubuntu Mono:bold:size=12
+!URxvt.italicFont: xft:Ubuntu Mono:italic:size=12
+URxvt.inheritPixmap:false
+URxvt.xftAntialias:true
+
+! supposed to be a copypaste fix
+URxvt.perl-ext-common: default,clipboard
+URxvt.iso14755: False
+
+!background image ? Does not work for some reason
+!URxvt*background.expr: load "/home/ferb/a.jpg"
+!URxvt.backgroundPixmap: /home/ferb/a.jpg;root
+
+! Xft -----------------------------------------
+Xft.dpi:96
+Xft.antialias: true
+Xft.rgba: rgb
+Xft.hinting: true
+Xft.hintstyle: hintslight
