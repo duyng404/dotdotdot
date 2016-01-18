@@ -1,0 +1,11 @@
+[user]
+	name = ferb96
+	email = fduy96@gmail.com
+[core]
+	editor = vim
+[push]
+	default = upstream
+[merge]
+	conflictstyle = diff3
+[credential]
+	helper = cache --timeout=3600
