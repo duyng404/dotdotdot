@@ -11,12 +11,11 @@ alias urxvt="urxvt --background-expr 'align 0.5, 0.5 , keep {merge load \"/home/
 alias dkm='sudo $(history -p !!)'
 
 # Change command prompt
-#source ~/.git-prompt.sh
-#export GIT_PS1_SHOWDIRTYSTATE=1
+source ~/.git-prompt.sh
+export GIT_PS1_SHOWDIRTYSTATE=1
 # '\u' adds the name of the current user to the prompt
 # '\$(__git_ps1)' adds git-related stuff
 # '\W' adds the name of the current directory
 # export PS1="$purple\u$green\$(__git_ps1)$blue \W $ $reset"
 export TERMINAL="urxvt --background-expr 'align 0.5, 0.5 , keep {merge load \"/home/ferb/a.jpg\", solid \"[90]#000000\"}'"
-# export PS1="$mintgreen\u$purple\$(__git_ps1)$blue \w \$$reset "
-export PS1="$mintgreen\u$blue \w \$$reset "
+export PS1="$mintgreen\u$purple\$(__git_ps1)$blue \w \$$reset "
