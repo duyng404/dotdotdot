@@ -22,3 +22,6 @@ imap kj <Esc>
 
 " save with admin priviledges
 command W w !sudo tee % > /dev/null
+
+" toggle indent-safe paste mode
+set pastetoggle=<F2>
