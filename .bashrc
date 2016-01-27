@@ -7,7 +7,6 @@ reset="\[\033[0m\]"
 
 # ALIASES ------------------------
 alias ls="ls --color"
-alias urxvt="urxvt --background-expr 'align 0.5, 0.5 , keep {merge load \"/home/ferb/a.jpg\", solid \"[90]#000000\"}'"
 alias dkm='sudo $(history -p !!)'
 alias reboot='sudo systemctl reboot'
 alias pwroff='sudo systemctl poweroff'
@@ -21,3 +20,11 @@ export GIT_PS1_SHOWDIRTYSTATE=1
 # export PS1="$purple\u$green\$(__git_ps1)$blue \W $ $reset"
 export TERMINAL="urxvt --background-expr 'align 0.5, 0.5 , keep {merge load \"/home/ferb/a.jpg\", solid \"[90]#000000\"}'"
 export PS1="$mintgreen\u$purple\$(__git_ps1)$blue \w \$$reset "
+
+
+# LEMON BAR ----------------------------
+PANEL_FIFO=/tmp/panel-fifo
+PANEL_HEIGHT=24
+PANEL_FONT="-*-gohufont-medium-*-*-*-14-*-*-*-*-*-iso10646-1"
+PANEL_WM_NAME=bspwm_panel
+export PANEL_FIFO PANEL_HEIGHT PANEL_FONT PANEL_WM_NAME

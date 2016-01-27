@@ -1,35 +1,41 @@
-#  -------- MY BSPWM HOTKEYS -------------------
+###  -------- MY BSPWM HOTKEYS -------------------
+##################################################
+
 # quit bspwm normally
-alt + ctrl + Delete
+super + ctrl + BackSpace
 	pkill -x panel; bspc quit
 
 # Close window
 super + q
-	bspc window -c
+	bspc node -c
 
 # Kill window
 super + shift + q
 	bspc node -k
 
-# focus the window in the given direction
-super + {_,ctrl + }{h,j,k,l}
-	bspc window -{f,s} {left,down,up,right}
+# focus or move the window in the given direction
+super + {h,j,k,l}
+	bspc node -f {west,south,north,east}
 
 # focus or send to the given desktop
 super + {_,ctrl + }{1-9,0}
-	bspc {desktop -f,window -d} '^{1-9,10}'
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+# cycle through desktop
+super + {bracketleft,bracketright}
+	bspc desktop -f {prev.occupied,next.occupied}
 
 # Make all windows occupy the same area.
 super + b
-	bspc desktop -B
+	bspc node @/ -B
 
 # Rotate the tree of the selected desktop.
 super + o
-	bspc desktop -R 90
+	bspc node @/ -R 90
 
 # Flip the layout current desktop horizontally. That's weird.
-super + bracketright
-	bspc desktop -F vertical
+super + backslash
+	bspc node @/ -F vertical
 
 # alternate between the tiled and monocle layout
 super + m
@@ -37,45 +43,48 @@ super + m
 
 # set the window state
 super + {i,shift + i,u,f}
-	bspc window -t {tiled,pseudo_tiled,floating,fullscreen}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # focus the previously focused window
-alt + Tab
-	bspc window -f last
+super + Tab
+	bspc node -f last
 
-# Resize the selected window.
-#super + alt + {h,j,k,l}
-#	bspc window -e {left -120,down +120,up -120,right +120}
-#super + alt + shift + {h,j,k,l}
-#	bspc window -e {right -120,up +120,down -120,left +120}
+#Resize the selected window.
+super + shift + {h,j,k,l}
+	bspc node {@west -r -50,@south -r +50,@north -r -50,@east -r +50}
+super + ctrl + shift + {h,j,k,l}
+	bspc node {@east -r -50,@north -r +50,@south -r -50,@west -r +50}
 
 # Select the previously focused desktop.
-super + Tab
-  bspc desktop -f last
+super + grave
+  bspc desktop -f next.occupied
 
 # move a floating window
 super + {Left,Down,Up,Right}
-	xdo move {-x -20,-y +20,-y -20,-x +20}
+	xdo move {-x -50,-y +50,-y -50,-x +50}
 
 # Preselect the splitting area of the selected window.
-super + alt + {h,j,k,l}
-  dir={left,down,up,right}; \
-  cur=$(bspc query -T -w focused.!automatic | jshon -e splitDir -u 2>&-); \
+super + ctrl + {h,j,k,l}
+  dir={west,south,north,east}; \
+  cur=$(bspc query -T -n focused | jshon -e presel -e splitDir -u 2>&-); \
   [ "$dir" = "$cur" ] && dir=cancel; \
-  bspc window -p "$dir"
+  bspc node -p "$dir"
 
 # Transplant the selected window to the last preselection.
-super + p
-  bspc window -w last.!automatic
+super + semicolon
+  bspc node -n last.!automatic
 
 # cancel the preselection for the focused node
-super + alt + p
-	bspc window -p cancel
+super + ctrl + p
+	bspc node -p cancel
 
+# focus
 ~button1
 	bspc pointer -g focus
 
-# ---- Mouse Resize -------------------------
+####################################################
+### ---------- Mouse Resize -------------------------
+#####################################################
 super + button{1-3}
 	bspc pointer -g {move,resize_side,resize_corner}
 
@@ -86,14 +95,39 @@ super + !button{1-3}
 super + @button{1-3}
 	bspc pointer -u
 
-# ---- Launch apps -------------------------
+# resize using super + shift
+super + shift + button1
+	bspc pointer -g resize_corner
+
+super + shift + !button1
+	bspc pointer -t %i %i
+
+super + @button1
+	bspc pointer -u
+
+############################################
+### ------------ Media --------------------
+############################################
+XF86AudioPlay
+	mpc toggle
+
+XF86AudioPrev
+	mpc prev
+
+XF86AudioNext
+	mpc next
+
+############################################
+### ---- Launch apps -------------------------
+############################################
+
 # Google chrome - I created a cute alias for it
 super + F9
 	crrr
 
 # terminal emulator
 super + Return
-	myurxvt.sh
+	urxvt
 
 # program launcher
 super + space
@@ -101,7 +135,7 @@ super + space
 	#dmenu_run
 
 # window switcher
-super + alt + space
+super + ctrl + space
 	rofi -show window
 
 # make sxhkd reload its configuration files:

@@ -8,7 +8,7 @@ bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 bspc config focus_by_distance    true
 bspc config history_aware_focus  true
-bspc config auto_cancel true
+bspc config initial_polarity second_child
 
 #bspc monitor -d I II III IV V VI VII VIII IX X
 bspc monitor -d ICHI NI SAN SHI 
@@ -21,10 +21,6 @@ bspc config urgent_border_color "#C90515"
 bspc config focused_locked_border_color "#8c644c"
 
 bspc rule -a Gimp desktop=^8 state=floating follow=on
-#bspc rule -a Chromium desktop=^2
-bspc rule -a Chromium desktop=^1
-bspc rule -a mplayer2 state=floating
-bspc rule -a Kupfer.py focus=on
-bspc rule -a Screenkey manage=off
+bspc rule -a chromium desktop=^1 follow=on
 
 panel &
