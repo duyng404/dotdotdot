@@ -1,7 +1,7 @@
 #  -------- MY BSPWM HOTKEYS -------------------
 # quit bspwm normally
 alt + ctrl + Delete
-	bspc quit
+	pkill -x panel; bspc quit
 
 # Close window
 super + q
@@ -26,6 +26,10 @@ super + b
 # Rotate the tree of the selected desktop.
 super + o
 	bspc desktop -R 90
+
+# Flip the layout current desktop horizontally. That's weird.
+super + bracketright
+	bspc desktop -F vertical
 
 # alternate between the tiled and monocle layout
 super + m
@@ -68,6 +72,9 @@ super + p
 super + alt + p
 	bspc window -p cancel
 
+~button1
+	bspc pointer -g focus
+
 # ---- Mouse Resize -------------------------
 super + button{1-3}
 	bspc pointer -g {move,resize_side,resize_corner}
@@ -90,8 +97,17 @@ super + Return
 
 # program launcher
 super + space
-	dmenu_run
+	rofi -show run
+	#dmenu_run
+
+# window switcher
+super + alt + space
+	rofi -show window
 
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
+
+#screenshot
+Print
+	scrot

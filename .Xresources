@@ -34,7 +34,7 @@ URxvt.scrollBar: false
 
 ! URxvt ---------------------------------
 URxvt.depth: 32
-URxvt.background: [90]#000000
+URxvt.background: [85]#000000
 ! URxvt.letterSpace:0
 URxvt.lineSpace: 2
 URxvt.font: -gohu-gohufont-medium-r-*-*-14-*-*-*-*-*-iso10646-1

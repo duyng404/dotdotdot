@@ -42,6 +42,9 @@ fi
 numlockx &
 
 pcmanfm -d &
+feh --bg-scale ~/pics/mikuminimal.png
+#feh --bg-scale ~/pics/wallhaven-69492.jpg
+compton -b
 #exec i3
 sxhkd &
 exec bspwm

@@ -1,0 +1,53 @@
+LOG OF ARCH INSTALLATION
+
+This journey will be a very awesome adventure within the world of Arch Linux. This here is a log of what I have did, what I have found, and what I have installed. Will be updated everytime I made changes, even mistakes.
+
+
+- Installed Arch. Disk configuration: about 45G of SSD for main installation, about 250G of HDD for home partition. Not sure if the numbers are exact.
+- A mistake in generating locales: es_US instead of en_US wtf. ESTONIAN??! Had to figure it out for 30 mins.
+- Installed with onboard Skylake graphic as output. Intended to use dedicated graphic cards for PCIe passthrough to a Windows virtual machine for games.
+- Installed Xorg, i3, i3status, dmenu.
+- Installed vim.
+- Installed git. Sync dotfiles from git.
+- Installed urxvt. Background hasn't worked yet, havent figured out why.
+- Installed firefox.
+- Installed dejavu font, ttf-ubuntu-family font
+- Tweaked .Xresources with xft to add font dpi, font alias, font hinting. Might want to change to font.conf
+- Installed yaourt. very necessary
+- Installed alsa-utils for controlling media. used alsamixer to unmute (press M). Audio is working properly.
+- Found a way to fix urxvt background issues, and also the letter spacing as a bonus!!! Just install rxvt-unicode-pixbuf from AUR. It works. lol
+- Disabled the annoying bell speaker by blacklisting it. echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
+- Modified fstab to mount the windows partitions at start. mounting options: for normal partition: defaults,utf8,umask=0022. for C partition: defaults,umask=022
+- Replaced vi with vim by replacing /usr/bin/vi with a copy of /usr/bin/vim. Idk if that is totally safe, so made a backup /usr/bin/vi.old
+- Modified xorg.conf.d to disable mouse acceleration
+- Downloaded scrot for screenshotting
+- Fixed screen tearing by adding a line in xorg.conf.d/20-intel.d : accelmethod uxa something. can search it up later.
+- Turns out the the previous method ended up make firefox lag to a point of unusable. Had to change "AccelMethod" "uxa" to "TearFree" "true"
+- Set the hardware clock to, umm, global time. It's complicated. Later change the windows clock using a registry fix. Search for clock on arch wiki.
+- This was a triumph. Its hard to overstate my satisfaction. Finally got the font to display flawlessly. Installed infinality-bundle. Chrome looks absolutely amazing now. I can finally switch back to chromium now.
+- Fixed chrome's VERY BIG font on the tabs and the bookmark bar. It wwas just the gtk default font settings. Added .gtkrc-2.0 and override font setting and its fine. Still want to consider firefox though, because it can customize the UI, and I wanna try out that Vimperator too. But right now font is simply just too perfect. Will put firefox and vimperator onto the TODO list.
+- Used gohufont, size 14 in the Terminal. Let's see how it goes. If it is too hard to read I may switch. I am liking this so far actually. Changed line spacing to 2, infinitely better.
+- Settled with Ubuntu font for gtk applications. Gohu font for titlebars. If things go bad with Unicode Imma have to deal with it soon. But lets just settle with this for now. Time to switch to i3 gaps?
+- Installed i3-gaps, spent like 2-3 hours fiddling with settings and choosing wallpaper, and then .... after seeing ONE gif of bspwm, I NEED TO SWITCH. RIGHT NOW. FUCK.
+- Downloaded and installed bspwm. Seems like a lot of work. It is way more difficult than i3 for sure. Also had to change the intel settings once more. AccelMethod is now sna, TearFree is now true. Watching vids on kissanime is glitchy idk why, so i tried uxa and it works great. But then bspwm and firefox become unusable. Only solution is to use sna with TearFree, and on kissanime use the flash player.
+- Good News!!! Got the Black Widow special "macro" buttons to work. THanks to a hack found online. Bookmarked it. Good times.
+- God dammit. Fuck. I switched back to i3. Fuck. bspwm has a lot of potential, yes, but THERE ARE JUST TOO LITTLE DOCUMENTATION for it. bugs are everywhere. Not as flexible. And for some reason it doesnt close my windows. Wut. I'm sorry, bspwm, I like you a lot, but you are too hard to use. Have to get used to i3, i guess.
+- Lol. Switched back to bspwm after some 15 minutes calming down. Spent the rest of the night figuring it out. Turns out the -git version is the new version with whole different syntax. Anyway, I got it configured now. And it works wonderfully. All that's left is just ricing the other parts. Like colors, and panels, and bars.
+- Installed lemon bar and got the very basic stuff to work. Alright that's good, I just need a way to tell time. Now I have an eight page paper to write 0_0.
+- Installed a launcher, rofi, in its barebone state. For now the only thing it does is replacing dmenu. Will go around and customize it later
+### Will document what i have learned: dmenu is actually very simple, take input from stdin, let user choose and then print it out. Its extension is used for the launcher. Getting used to rofi. Just config it for switching windows also. I still wonder if I should use i3 or not. Bash seems hard
+- Installed and config compton. What a wonder this thing is. Stuff looks so beautiful now. Transparency, fading and shit. But no blur i guess, blur takes too much toll on the graphics.
+- On another note, switched to using the graphic card as main video device, saves the hassle of switching the cable back and forth.
+- Fuck yes installed mpd + npcdsdsafsd something. Works wonderfully. My life is (almost) complete now. I'm focusing on getting stuff up and running first at this time. Customizing will be left later. But the fact that this works IS A SUCCESS. Let's take a break.
+
+TODO:
+- conky, system stats
+- Config the lemonbar
+- A legit color scheme and theme. This will take time to choose
+- proper launcher (rofi?) and status bar
+- ???
+- Get google chromium to display font properly
+- Google Keep on linux? (low priority)
+- Firefox rice + vimperator (low priority)
+- try out other file manager: ranger, vifm, midnight commander
+- Redshift. Protect your eyes.

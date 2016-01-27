@@ -9,6 +9,8 @@ reset="\[\033[0m\]"
 alias ls="ls --color"
 alias urxvt="urxvt --background-expr 'align 0.5, 0.5 , keep {merge load \"/home/ferb/a.jpg\", solid \"[90]#000000\"}'"
 alias dkm='sudo $(history -p !!)'
+alias reboot='sudo systemctl reboot'
+alias pwroff='sudo systemctl poweroff'
 
 # Change command prompt
 source ~/.git-prompt.sh
