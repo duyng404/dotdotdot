@@ -39,6 +39,7 @@ This journey will be a very awesome adventure within the world of Arch Linux. Th
 - Installed and config compton. What a wonder this thing is. Stuff looks so beautiful now. Transparency, fading and shit. But no blur i guess, blur takes too much toll on the graphics.
 - On another note, switched to using the graphic card as main video device, saves the hassle of switching the cable back and forth.
 - Fuck yes installed mpd + npcdsdsafsd something. Works wonderfully. My life is (almost) complete now. I'm focusing on getting stuff up and running first at this time. Customizing will be left later. But the fact that this works IS A SUCCESS. Let's take a break.
+- Reconfigured bspwm for the newer version. Will now work on chromebook.
 
 TODO:
 - conky, system stats
