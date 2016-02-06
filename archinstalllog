@@ -46,8 +46,11 @@ This journey will be a very awesome adventure within the world of Arch Linux. Th
 - Learned a bit of how to use netctl to connect to wifi. GustavusSecure network demands some kind of strange configuration. EAP=PEAP, TTLS, some stuff like that. But managed to make it work.
 - Installed wpa_actiond to make connecting to wifi automatically. Things are much better now.
 - Installed xf86-input-synaptics for the touchpad. It even enabled two-finger scrolling!! It's like magic, ya know.
+- Installed xorg-xbacklight. Also binded keys to change brightness. Laptop stuff.
+- This is kind of unrelated to Arch, but i'm just gonna include it anyway, because I spent so much time on it. I just installed custom boot animation for windows 7 on the pc, then it stopped booting, saying BOOTMGR is corrupted. I had to use the windows installation USB and fix the bootmgr, then switch back to Arch installation USB to fix grub to make it back to normal. Turns out, it was because of the Windows Loader program i used to crack windows, not error by Grub or by the custom boot animation. Dammit. It works now. Next stop: customize Grub UI.
 
 TODO:
+- Power management
 - conky, system stats
 - Config the lemonbar
 - A legit color scheme and theme. This will take time to choose
