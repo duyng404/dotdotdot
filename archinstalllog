@@ -40,6 +40,12 @@ This journey will be a very awesome adventure within the world of Arch Linux. Th
 - On another note, switched to using the graphic card as main video device, saves the hassle of switching the cable back and forth.
 - Fuck yes installed mpd + npcdsdsafsd something. Works wonderfully. My life is (almost) complete now. I'm focusing on getting stuff up and running first at this time. Customizing will be left later. But the fact that this works IS A SUCCESS. Let's take a break.
 - Reconfigured bspwm for the newer version. Will now work on chromebook.
+- A lot of things has happened. I will go through each and every of them w00t.
+- Bought a Thinkpad x220. Awesome keyboard. Awesome battery. Awesome everything. Scrapped the windows installation and just went on ahead shove Arch up in it. Works like charm. Will now be my new daily driver. Gonna name it, Ryuko Matoi.
+- Thanks for this install log, i have had quite an easy time tracing back all the steps I went through when installing arch. But still, things could be more streamlined, tho. Gonna make some kind of script some how.
+- Learned a bit of how to use netctl to connect to wifi. GustavusSecure network demands some kind of strange configuration. EAP=PEAP, TTLS, some stuff like that. But managed to make it work.
+- Installed wpa_actiond to make connecting to wifi automatically. Things are much better now.
+- Installed xf86-input-synaptics for the touchpad. It even enabled two-finger scrolling!! It's like magic, ya know.
 
 TODO:
 - conky, system stats

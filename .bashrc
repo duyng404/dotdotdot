@@ -10,6 +10,7 @@ alias ls="ls --color"
 alias dkm='sudo $(history -p !!)'
 alias reboot='sudo systemctl reboot'
 alias pwroff='sudo systemctl poweroff'
+alias crrr=chromium
 
 # Change command prompt
 source ~/.git-prompt.sh
