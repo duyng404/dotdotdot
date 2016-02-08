@@ -41,6 +41,15 @@ fi
 # Set the friggin numlock
 numlockx &
 
+# Set default cursor to not be X-shaped
+xsetroot -cursor_name left_ptr&
+
+# Start ibus
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+ibus-daemon -drx
+
 pcmanfm -d &
 . ~/wallpaper
 compton -b
