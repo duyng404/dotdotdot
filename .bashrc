@@ -10,7 +10,6 @@ alias ls="ls --color"
 alias dkm='sudo $(history -p !!)'
 alias reboot='sudo systemctl reboot'
 alias pwroff='sudo systemctl poweroff'
-alias crrr=chromium
 
 # Change command prompt
 source ~/.git-prompt.sh
@@ -25,7 +24,7 @@ export PS1="$mintgreen\u$purple\$(__git_ps1)$blue \w \$$reset "
 
 # LEMON BAR ----------------------------
 PANEL_FIFO=/tmp/panel-fifo
-PANEL_HEIGHT=24
+PANEL_HEIGHT=20
 PANEL_FONT="-*-gohufont-medium-*-*-*-14-*-*-*-*-*-iso10646-1"
 PANEL_WM_NAME=bspwm_panel
 export PANEL_FIFO PANEL_HEIGHT PANEL_FONT PANEL_WM_NAME

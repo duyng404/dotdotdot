@@ -48,6 +48,7 @@ This journey will be a very awesome adventure within the world of Arch Linux. Th
 - Installed xf86-input-synaptics for the touchpad. It even enabled two-finger scrolling!! It's like magic, ya know.
 - Installed xorg-xbacklight. Also binded keys to change brightness. Laptop stuff.
 - This is kind of unrelated to Arch, but i'm just gonna include it anyway, because I spent so much time on it. I just installed custom boot animation for windows 7 on the pc, then it stopped booting, saying BOOTMGR is corrupted. I had to use the windows installation USB and fix the bootmgr, then switch back to Arch installation USB to fix grub to make it back to normal. Turns out, it was because of the Windows Loader program i used to crack windows, not error by Grub or by the custom boot animation. Dammit. It works now. Next stop: customize Grub UI.
+- First day of class. I have just encountered a NASTY BUG. pinging google.com doesn't work. But pinging 8.8.8.8 works. After hours of googling it's prolly DNS problem. resolv.conf is somehow fucked up. I deleted it and created a new one, with Google's nameservers in it, 8.8.8.8. I don't know if this keeps happening, but this sure is exhausting.
 
 TODO:
 - Power management
