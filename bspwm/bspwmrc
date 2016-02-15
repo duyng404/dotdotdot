@@ -22,5 +22,6 @@ bspc config focused_locked_border_color "#8c644c"
 
 bspc rule -a Gimp desktop=^8 state=floating follow=on
 bspc rule -a chromium desktop=^1 follow=on
+bspc rule -a jetbrains-studio desktop=^3 state=floating follow=on #android studio
 
 panel &

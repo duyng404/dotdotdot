@@ -37,8 +37,12 @@ URxvt.depth: 32
 URxvt.background: [85]#000000
 ! URxvt.letterSpace:0
 URxvt.lineSpace: 2
-URxvt.font: -gohu-gohufont-medium-r-*-*-14-*-*-*-*-*-iso10646-1
-URxvt.boldFont: -gohu-gohufont-bold-r-*-*-14-*-*-*-*-*-iso10646-1
+!URxvt.font: -gohu-gohufont-medium-r-*-*-14-*-*-*-*-*-iso10646-1
+!URxvt.boldFont: -gohu-gohufont-bold-r-*-*-14-*-*-*-*-*-iso10646-1
+URxvt.font: -*-terminus-medium-*-*-*-14-*-*-*-*-*-iso10646-*,\
+-*-gothic-medium-r-*-*-14-*-*-*-*-*-jisx0208.1990-*
+URxvt.boldFont: -*-terminus-bold-*-*-*-14-*-*-*-*-*-iso10646-*,\
+-*-gothic-bold-r-*-*-14-*-*-*-*-*-jisx0208.1990-*
 !URxvt.font: -*-ttyp0-medium-r-normal-*-16-*-*-*-*-*-iso10646-*
 !URxvt.font: xft:Ubuntu Mono:size=12
 !URxvt.boldFont: xft:Ubuntu Mono:bold:size=12
@@ -55,8 +59,9 @@ URxvt.iso14755: False
 !URxvt.backgroundPixmap: /home/ferb/a.jpg;root
 
 ! Xft -----------------------------------------
-Xft.dpi:96
-Xft.antialias: true
-Xft.rgba: rgb
-Xft.hinting: true
-Xft.hintstyle: hintslight
+!Xft.dpi:96
+!Xft.antialias: true
+!Xft.rgba: rgb
+!Xft.hinting: true
+!Xft.hintstyle: hintslight
+

@@ -49,11 +49,23 @@ This journey will be a very awesome adventure within the world of Arch Linux. Th
 - Installed xorg-xbacklight. Also binded keys to change brightness. Laptop stuff.
 - This is kind of unrelated to Arch, but i'm just gonna include it anyway, because I spent so much time on it. I just installed custom boot animation for windows 7 on the pc, then it stopped booting, saying BOOTMGR is corrupted. I had to use the windows installation USB and fix the bootmgr, then switch back to Arch installation USB to fix grub to make it back to normal. Turns out, it was because of the Windows Loader program i used to crack windows, not error by Grub or by the custom boot animation. Dammit. It works now. Next stop: customize Grub UI.
 - First day of class. I have just encountered a NASTY BUG. pinging google.com doesn't work. But pinging 8.8.8.8 works. After hours of googling it's prolly DNS problem. resolv.conf is somehow fucked up. I deleted it and created a new one, with Google's nameservers in it, 8.8.8.8. I don't know if this keeps happening, but this sure is exhausting.
+- Installed fbreader for reading ebooks. Specifically epub files. SO BLOATED. 100MB. Add this to bloat software list, will delete once finished using.
+- Installed networkmanager to see what its like. Hey it's good. Has a good cli interface. Configured GustavusSecure using a gui applet. Welp. it's good.
+- Installed zathura for pdf vieweing. zathura and zathura-pdf-mupdf.
+- Installed and set up the whole android studio development thing. So heavy. At least 1GB for the IDE and the SDK combined. IMPORTANT: had to enable multilib for pacman before install. Can google for detial. Installed using yaourt, android-studio. Currently using openjdk7. There is an infinality bundle of it, font patching and stuff, so I installed it. LoL it took half an hour to compile the thing. Amazing.
+- Installed thunar on laptop. I think I prefer thunar more than pcmanfm. More simplistic? Also I got used to it from the days of using xfce, so yeah. When I go back to my home pc Im gonna remove the old pcmanfm. Also installed file-roller and thunar-archive-plugin for extract and compress stuff, with thunar-media-tags-plugin and thunar-volman and also tumbler for thumbnail viewing. A lot of UI stuff here hmm?
+- Installed gvfs and gvfs-mtp for file mounting
+- For android studio to work properly on bspwm, add the line: export _JAVA_AWT_WM_NONREPARENTING=1 in /etc/profile.d/jre.sh
+- Installed acpi for battery levels, laptop stuff.
+- Trying out atom editor. SO FUCKING BLOAT WTF 100MB.
+
 
 TODO:
+- Config the lemonbar
+- Japanese font, bitmap and ttf
+- Fine tune keymapping
 - Power management
 - conky, system stats
-- Config the lemonbar
 - A legit color scheme and theme. This will take time to choose
 - proper launcher (rofi?) and status bar
 - ???
@@ -62,3 +74,6 @@ TODO:
 - Firefox rice + vimperator (low priority)
 - try out other file manager: ranger, vifm, midnight commander
 - Redshift. Protect your eyes.
+
+BLOAT:
+- fbreader

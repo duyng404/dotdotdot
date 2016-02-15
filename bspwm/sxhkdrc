@@ -8,22 +8,26 @@ super + ctrl + BackSpace
 # Close window
 super + q
 	bspc node -c
+alt + F4
+	bspc node -c
 
 # Kill window
 super + shift + q
 	bspc node -k
 
 # focus or move the window in the given direction
-super + {h,j,k,l}
-	bspc node -f {west,south,north,east}
+super + {_,alt + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
 
 # focus or send to the given desktop
-super + {_,ctrl + }{1-9,0}
+super + {_,alt + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
 
 # cycle through desktop
+super + {Prior,Next}
+	bspc desktop -f {prev,next}
 super + {bracketleft,bracketright}
-	bspc desktop -f {prev.occupied,next.occupied}
+	bspc desktop -f {prev,next}
 
 # Make all windows occupy the same area.
 super + b
@@ -46,7 +50,7 @@ super + {i,shift + i,u,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # focus the previously focused window
-super + Tab
+alt + Tab
 	bspc node -f last
 
 #Resize the selected window.
@@ -62,6 +66,10 @@ super + grave
 # move a floating window
 super + {Left,Down,Up,Right}
 	xdo move {-x -50,-y +50,-y -50,-x +50}
+
+# Resize floating windows
+super + alt + {Left,Right,Up,Down}
+    xdo resize {-w -20,-w +20,-h -20,-h +20}
 
 # Preselect the splitting area of the selected window.
 super + ctrl + {h,j,k,l}
@@ -102,7 +110,7 @@ super + shift + button1
 super + shift + !button1
 	bspc pointer -t %i %i
 
-super + @button1
+super + shift + @button1
 	bspc pointer -u
 
 ############################################
@@ -130,7 +138,7 @@ XF86MonBrightnessDown
 ### ---- Launch apps -------------------------
 ############################################
 
-# Google chrome - I created a cute alias for it
+# Google chrome - I created a cute symlink for it
 super + F9
 	crrr
 
@@ -154,3 +162,7 @@ super + Escape
 #screenshot
 Print
 	scrot
+
+# google keep
+super + F10
+	keep.sh
