@@ -1,0 +1,5 @@
+keycode 135 = Super_R NoSymbol Super_R
+keycode 66 = Super_L Caps_Lock NoSymbol
+keycode 166 = Home XF86Back
+keycode 167 = End XF86Forward
+clear lock
