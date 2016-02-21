@@ -1,0 +1,45 @@
+#! /bin/sh
+
+# check if bar is already running
+if xdo id -a "$PANEL_WM_NAME" > /dev/null ; then
+	printf "%s\n" "The panel is already running." >&2
+	exit 1
+fi
+
+# trap the signal? but why?
+trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
+
+# check the pipe file. if it exists delete it and make a new one.
+[ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
+mkfifo "$PANEL_FIFO"
+
+# Get the info from apps, pipe them all to fifo. fork them to run in bg
+bspc subscribe report > "$PANEL_FIFO" &
+xtitle -sf 'T%s' -t 60 > "$PANEL_FIFO" &
+info.sh > "$PANEL_FIFO" &
+
+# Get the settings
+. ~/bin/panel/config
+
+# calculate gap
+CUR_MON_WIDTH=$(bspc query -T -m | jshon -e rectangle -e width -u)
+PANEL_GAP=10
+PANEL_WIDTH=$(( CUR_MON_WIDTH - $((PANEL_GAP * 2 )) ))
+
+bspc config top_padding $((PANEL_HEIGHT + PANEL_GAP)) # top padding
+
+# Start panel_bar, pipe output into lemonbar, then to sh
+panel_bar < "$PANEL_FIFO" | lemonbar -a 32 -n "$PANEL_WM_NAME" -g "$PANEL_WIDTH"x$PANEL_HEIGHT+$PANEL_GAP+$PANEL_GAP -f "$PANEL_FONT_1" -f "$PANEL_FONT_2" -F "$COLOR_DEFAULT_FG" -B "$COLOR_DEFAULT_BG" | sh &
+
+# Try to get the wid
+#wid=$(xdo id -a "$PANEL_WM_NAME")
+#tries_left=20
+#while [ -z "$wid" -a "$tries_left" -gt 0 ] ; do
+#	sleep 0.05
+#	wid=$(xdo id -a "$PANEL_WM_NAME")
+#	tries_left=$((tries_left - 1))
+#done
+## Use the wid, put the panel above bspwm to make sure
+#[ -n "$wid" ] && xdo above -t "$(xdo id -N Bspwm -n root | sort | head -n 1)" "$wid"
+
+wait
