@@ -66,7 +66,7 @@ rm /tmp/$(ls /tmp | grep bspwm)
 
 pcmanfm -d &
 thunar --daemon &
-. ~/wallpaper
+. ~/src/wallpaper
 compton -b
 #exec i3
 sxhkd -f 35 &

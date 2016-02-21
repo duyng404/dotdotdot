@@ -62,9 +62,17 @@ This journey will be a very awesome adventure within the world of Arch Linux. Th
 - changed urxvt font to Terminus. I think this is better.
 - Installed japanese bitmap font. Works well on terminal. Yay! Also otf-ipafont for japanese ttf.
 - Fine tuned keymapping. Capslock is now also a super key. Shift-capslock will now activate capslock. not a whole much more. I think I can be comfortable with this.
+- Uninstalled atom as I don't really need it right now.
+- Installed mpv for video playback. Super fabulous.
+- Installed stow for managing dotfiles. Also very fabulous.
+- Spend like a whole day config the lemonbar. It is now pretty. But lost 4 hours of sleep and skipped 3 classes LOL. Desktop is now pretty.
+- Installed fetch-git to generate cool info.
+- Installed sysstat for the cpu and ram info.
+- Installed gpicview for an image viewer. Better than feh.
+- Installed ibus-anthy for japanese input.
+- Installed a bitmap japanese font called Shinonome. Have to download and install manually. It doesnt work with lemonbar tho, IDK why. Maybe later I'll install lemonbar-xft and will rely on ttf japanese font then.
 
 TODO:
-- Config the lemonbar
 - Power management
 - conky, system stats
 - A legit color scheme and theme. This will take time to choose
