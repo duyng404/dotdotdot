@@ -58,12 +58,13 @@ This journey will be a very awesome adventure within the world of Arch Linux. Th
 - For android studio to work properly on bspwm, add the line: export _JAVA_AWT_WM_NONREPARENTING=1 in /etc/profile.d/jre.sh
 - Installed acpi for battery levels, laptop stuff.
 - Trying out atom editor. SO FUCKING BLOAT WTF 100MB.
-
+- installed ibus-anthy for japanese input
+- changed urxvt font to Terminus. I think this is better.
+- Installed japanese bitmap font. Works well on terminal. Yay! Also otf-ipafont for japanese ttf.
+- Fine tuned keymapping. Capslock is now also a super key. Shift-capslock will now activate capslock. not a whole much more. I think I can be comfortable with this.
 
 TODO:
 - Config the lemonbar
-- Japanese font, bitmap and ttf
-- Fine tune keymapping
 - Power management
 - conky, system stats
 - A legit color scheme and theme. This will take time to choose

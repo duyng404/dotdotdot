@@ -3,7 +3,7 @@
 
 # quit bspwm normally
 super + ctrl + BackSpace
-	pkill -x panel; bspc quit
+	pkill -x panel; ibus exit; bspc quit
 
 # Close window
 super + q
@@ -58,10 +58,6 @@ super + shift + {h,j,k,l}
 	bspc node {@west -r -50,@south -r +50,@north -r -50,@east -r +50}
 super + ctrl + shift + {h,j,k,l}
 	bspc node {@east -r -50,@north -r +50,@south -r -50,@west -r +50}
-
-# Select the previously focused desktop.
-super + grave
-  bspc desktop -f next.occupied
 
 # move a floating window
 super + {Left,Down,Up,Right}

@@ -38,6 +38,9 @@ fi
 # xterm -geometry 80x20+494-0 &
 # exec xterm -geometry 80x66+0+0 -name login
 
+# emergency x shutdown
+setxkbmap -option terminate:ctrl_alt_bksp
+
 # Set the friggin numlock
 numlockx &
 
@@ -57,6 +60,9 @@ tpset "Evdev Wheel Emulation Button" 2
 tpset "Evdev Wheel Emulation Timeout" 200
 tpset "Evdev Wheel Emulation Axes" 6 7 4 5
 tpset "Device Accel Constant Deceleration" 1
+
+# check if existing socket exists and killl for bspwm(doesn't play nice with logging out and in)
+rm /tmp/$(ls /tmp | grep bspwm)
 
 pcmanfm -d &
 thunar --daemon &
