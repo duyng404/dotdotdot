@@ -26,12 +26,15 @@ alias dkm='sudo $(history -p !!)'
 alias reboot='sudo systemctl reboot'
 alias pwroff='sudo systemctl poweroff'
 
-# Change command prompt to have git state
+# PROMPT -------------------------
+# prompt will now show git dirty state
 source ~/.git-prompt.sh
 export GIT_PS1_SHOWDIRTYSTATE=1
 # '\$(__git_ps1)' adds git-related stuff
 export PS1="${fg[14]}\u${fg[3]}\$(__git_ps1) ${fg[8]}\W$nofg "
 
+# ANDROID STUDIO ------------------
+export ANDROID_HOME=/opt/android-sdk
 
 # LEMON BAR ----------------------------
 PANEL_FIFO=/tmp/panel-fifo
