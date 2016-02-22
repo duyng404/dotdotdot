@@ -64,7 +64,6 @@ tpset "Device Accel Constant Deceleration" 1
 # check if existing socket exists and killl for bspwm(doesn't play nice with logging out and in)
 rm /tmp/$(ls /tmp | grep bspwm)
 
-pcmanfm -d &
 thunar --daemon &
 . ~/src/wallpaper
 compton -b

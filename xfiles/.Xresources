@@ -1,5 +1,5 @@
 ! terminal colors ----------------------------------------------
-#include "/home/ryuko/.Xresources.d/numixdark"
+#include ".Xresources.d/numixdark"
 
 ! scrollbar style - rxvt (default), plain (most compact), next, xterm
 ! URxvt.scrollstyle:plain
