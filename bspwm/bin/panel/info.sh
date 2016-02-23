@@ -8,15 +8,17 @@ clock() {
 }
 
 battery() {
-    BATC=/sys/class/power_supply/BAT0/capacity
-    BATS=/sys/class/power_supply/BAT0/status
+	if [ -f /sys/class/power_supply ] ; then
+		BATC=/sys/class/power_supply/BAT0/capacity
+		BATS=/sys/class/power_supply/BAT0/status
 
-	tr -d '\n' < $BATC
-    test "`cat $BATS`" = "Charging" && echo -n '+' || echo -n '-'
+		tr -d '\n' < $BATC
+		test "`cat $BATS`" = "Charging" && echo -n '+' || echo -n '-'
+	fi
 }
 
 cpuload() {
-	mpstat | awk '$3 ~ /CPU/ { for(i=1;i<=NF;i++) { if ($i ~ /%idle/) field=i } } $3 ~ /all/ { printf("%d%%%%",100 - $field) }'
+	mpstat | awk '$3 ~ /CPU/ { for(i=1;i<=NF;i++) { if ($i ~ /%idle/) field=i } } $3 ~ /all/ { printf("%d%%",100 - $field) }'
 }
 
 memused() {
@@ -47,9 +49,9 @@ thermal() {
 while :; do
 	printf "%s\n" "S$(clock)"
 	printf "%s\n" "N$(network)"
-	printf "%s\n" "B$(battery)"
+	[ $(battery) ] && printf "%s\n" "B$(battery)"
 	printf "%s\n" "C$(cpuload)"
 	printf "%s\n" "M$(memused)"
-	printf "%s\n" "E$(thermal)"
+	[ $(thermal) ] && printf "%s\n" "E$(thermal)"
     sleep 2 # The HUD will be updated every 2 second
 done

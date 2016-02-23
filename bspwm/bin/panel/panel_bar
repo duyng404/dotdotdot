@@ -10,7 +10,7 @@ while read -r line ; do
 	case $line in
 		S*)
 			# clock output
-			clock="%{F$COLOR_CLOCK_FG}%{B$COLOR_CLOCK_BG} ${line#?} %{B-}%{F-}"
+			clock=" %{F$COLOR_CLOCK_FG}%{B$COLOR_CLOCK_BG} ${line#?} %{B-}%{F-}"
 			;;
 		T*)
 			# xtitle output
@@ -18,23 +18,23 @@ while read -r line ; do
 			;;
 		N*)
 			# Network state
-			netw="E:${line#?}"
+			netw=" E:${line#?}"
 			;;
 		B*)
 			# Battery state
-			batt="B:${line#?}"
+			batt=" B:${line#?}"
 			;;
 		C*)
 			# CPU load
-			cpu="CPU:${line#?}"
+			cpu=" CPU:${line#?}"
 			;;
 		M*)
 			# memory load
-			mem="MEM:${line#?}"
+			mem=" MEM:${line#?}"
 			;;
 		E*)
 			# thermal readings
-			thermal="T:${line#?}"
+			thermal=" T:${line#?}"
 			;;
 		W*)
 			# bspwm's state
@@ -101,5 +101,5 @@ while read -r line ; do
 			done
 			;;
 	esac
-	printf "%s\n" "%{l}${title}%{c}${wm}%{r}${netw} ${batt} ${cpu} ${thermal} ${mem} ${clock}"
+	printf "%s\n" "%{l}${title}%{c}${wm}%{r}${netw}${batt}${cpu}${thermal}${mem}${clock}"
 done
