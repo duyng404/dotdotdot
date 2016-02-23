@@ -14,7 +14,7 @@ URxvt.lineSpace: 2
 !URxvt.boldFont: -gohu-gohufont-bold-r-*-*-14-*-*-*-*-*-iso10646-1
 URxvt.font: -*-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-*,\
 -*-gothic-medium-r-*-*-12-*-*-*-*-*-jisx0208.1990-*
-URxvt.boldFont: -*-terminus-bold-*-*-*-12-*-*-*-*-*-iso10646-*,\
+URxvt.boldFont: -*-terminus-bold-*-*-*-14-*-*-*-*-*-iso10646-*,\
 -*-gothic-bold-r-*-*-12-*-*-*-*-*-jisx0208.1990-*
 !URxvt.font: -*-ttyp0-medium-r-normal-*-16-*-*-*-*-*-iso10646-*
 !URxvt.font: xft:Ubuntu Mono:size=12
@@ -27,14 +27,12 @@ URxvt.xftAntialias:true
 URxvt.perl-ext-common: default,clipboard
 URxvt.iso14755: False
 
-!background image ? Does not work for some reason
-!URxvt*background.expr: load "/home/ferb/a.jpg"
-!URxvt.backgroundPixmap: /home/ferb/a.jpg;root
-
-! Xft -----------------------------------------
-!Xft.dpi:96
-!Xft.antialias: true
-!Xft.rgba: rgb
-!Xft.hinting: true
-!Xft.hintstyle: hintslight
-
+! Change font on the fly
+URxvt.keysym.C-minus: command:\033]710;-*-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-*,\
+-*-gothic-medium-r-*-*-12-*-*-*-*-*-jisx0208.1990-*\007\
+\033]711;-*-terminus-bold-*-*-*-12-*-*-*-*-*-iso10646-*,\
+-*-gothic-bold-r-*-*-12-*-*-*-*-*-jisx0208.1990-*\007
+URxvt.keysym.C-equal: command:\033]710;-*-terminus-medium-*-*-*-14-*-*-*-*-*-iso10646-*,\
+-*-gothic-medium-r-*-*-14-*-*-*-*-*-jisx0208.1990-*\007\
+\033]711;-*-terminus-bold-*-*-*-14-*-*-*-*-*-iso10646-*,\
+-*-gothic-bold-r-*-*-14-*-*-*-*-*-jisx0208.1990-*\007
