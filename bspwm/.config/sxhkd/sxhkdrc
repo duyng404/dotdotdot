@@ -31,7 +31,7 @@ super + {bracketleft,bracketright}
 
 # Make all windows occupy the same area.
 super + b
-	bspc node @/ -B
+	bspc node @/ -E
 
 # Rotate the tree of the selected desktop.
 super + o
@@ -113,13 +113,22 @@ super + shift + @button1
 ### ------------ Media --------------------
 ############################################
 XF86AudioPlay
-	mpc toggle
+	mpc toggle > /dev/null; mpd_bar.sh
 
 XF86AudioPrev
-	mpc prev
+	mpc prev > /dev/null; mpd_bar.sh
 
 XF86AudioNext
-	mpc next
+	mpc next > /dev/null; mpd_bar.sh
+
+XF86AudioRaiseVolume
+	amixer set Master 3%+ > /dev/null; volume_bar.sh
+
+XF86AudioLowerVolume
+	amixer set Master 3%- > /dev/null; volume_bar.sh
+
+XF86AudioMute
+	amixer set Master toggle > /dev/null; volume_bar.sh
 
 ############################################
 ### ---------- Laptop ----------------------

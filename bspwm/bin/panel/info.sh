@@ -45,6 +45,28 @@ network() {
 thermal() {
 	sensors | grep temp1 | awk 'NR==1{printf $2}' | tr -d '+'
 }
+
+volume() {
+	level=`amixer get Master | sed -n 's/^.*\[\([0-9]\+\)%.*$/\1/p' | uniq`
+	state=`amixer get Master | sed -n 's/^.*\[\(o[nf]\+\)]$/\1/p' | uniq`
+	if [[ $state == "on" ]]; then
+		echo -n $level
+	else
+		echo -n "--"
+	fi
+}
+
+mpd(){
+	state=`mpc | sed -n 's/^.*\[\([^\[].*\)\] .*$/\1/p' | uniq`
+	current=`mpc -f "%albumartist% - %title%" | head -1`
+	if [[ $state == "playing" ]]; then
+		indicator="U"
+	else
+		indicator="P"
+	fi
+	echo -n "$indicator$current"
+}
+
 # print out all the stuff
 while :; do
 	printf "%s\n" "S$(clock)"
@@ -53,5 +75,7 @@ while :; do
 	printf "%s\n" "C$(cpuload)"
 	printf "%s\n" "M$(memused)"
 	[ $(thermal) ] && printf "%s\n" "E$(thermal)"
+	printf "%s\n" "V$(volume)"
+	[ "$(mpd)" ] && printf "%s\n" "U$(mpd)"
     sleep 2 # The HUD will be updated every 2 second
 done

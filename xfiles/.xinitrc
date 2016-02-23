@@ -23,21 +23,6 @@ if [ -f "$usermodmap" ]; then
     xmodmap "$usermodmap"
 fi
 
-# start some nice programs
-
-if [ -d /etc/X11/xinit/xinitrc.d ] ; then
- for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
-  [ -x "$f" ] && . "$f"
- done
- unset f
-fi
-
-# twm &
-# xclock -geometry 50x50-1+1 &
-# xterm -geometry 80x50+494+51 &
-# xterm -geometry 80x20+494-0 &
-# exec xterm -geometry 80x66+0+0 -name login
-
 # emergency x shutdown
 setxkbmap -option terminate:ctrl_alt_bksp
 
@@ -46,6 +31,9 @@ numlockx &
 
 # Set default cursor to not be X-shaped
 xsetroot -cursor_name left_ptr&
+
+# Notification server
+dunst &
 
 # Start ibus
 export GTK_IM_MODULE=ibus
@@ -64,9 +52,13 @@ tpset "Device Accel Constant Deceleration" 1
 # check if existing socket exists and killl for bspwm(doesn't play nice with logging out and in)
 rm /tmp/$(ls /tmp | grep bspwm)
 
+# Thunar daemon for detect hot plugs of hard drive / usb drive
 thunar --daemon &
+
+# Wallpaper
 . ~/src/wallpaper
+
+# WM
 compton -b
-#exec i3
 sxhkd -f 35 &
 exec bspwm

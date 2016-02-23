@@ -36,6 +36,18 @@ while read -r line ; do
 			# thermal readings
 			thermal=" T:${line#?}"
 			;;
+		V*)
+			# Volume
+			volume=" V:${line#?}"
+			;;
+		UU*)
+			# Current song, Playing
+			song="%{B$mpd_play_bg}%{F$mpd_play_fg} ${line#??} %{F-}%{B-}"
+			;;
+		UP*)
+			# Current song, Paused
+			song="%{B$mpd_paused_bg}%{F$mpd_paused_fg} ${line#??} %{F-}%{B-}"
+			;;
 		W*)
 			# bspwm's state
 			wm=""
@@ -101,5 +113,5 @@ while read -r line ; do
 			done
 			;;
 	esac
-	printf "%s\n" "%{l}${title}%{c}${wm}%{r}${netw}${batt}${cpu}${thermal}${mem}${clock}"
+	printf "%s\n" "%{l}${song}${title}%{c}${wm}%{r}${netw}${batt}${cpu}${thermal}${mem}${volume}${clock}"
 done
