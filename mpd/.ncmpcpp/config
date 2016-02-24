@@ -19,15 +19,15 @@ lyrics_directory = ~/.lyrics
 #
 ##### connection settings #####
 #
-mpd_host = 127.0.0.1
+#mpd_host = localhost
 #
-mpd_port = 6600
+#mpd_port = 6600
 #
 #mpd_connection_timeout = 5
 #
 ## Needed for tag editor and file operations to work.
 ##
-mpd_music_dir = ~/Music
+mpd_music_dir = ~/usr/music
 #
 #mpd_crossfade_time = 5
 #
@@ -91,7 +91,7 @@ visualizer_type = ellipse
 #
 #visualizer_look = ●▮
 #
-#visualizer_color = blue, cyan, green, yellow, magenta, red
+visualizer_color = blue, cyan, green, yellow, magenta, red
 #
 ## Alternative subset of 256 colors for terminals that support it.
 ##
@@ -231,7 +231,7 @@ visualizer_type = ellipse
 #
 #browser_sort_mode = name
 #
-#browser_sort_format = {%a - }{%t}|{%f} {(%l)}
+browser_sort_format = {%A - }{%t}|{%f} {(%l)}
 #
 ##### columns settings #####
 ##
@@ -331,7 +331,7 @@ visualizer_type = ellipse
 #
 ## Available values: artist, album_artist, date, genre, composer, performer.
 ##
-#media_library_primary_tag = artist
+media_library_primary_tag = album_artist
 #
 ## Available values: wrapped, normal.
 ##
@@ -347,7 +347,7 @@ visualizer_type = ellipse
 #
 #header_text_scrolling = yes
 #
-#cyclic_scrolling = no
+cyclic_scrolling = yes
 #
 #lines_scrolled = 2
 #

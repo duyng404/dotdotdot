@@ -40,9 +40,10 @@ export ANDROID_HOME=/opt/android-sdk
 PANEL_FIFO=/tmp/panel-fifo
 PANEL_HEIGHT=20
 PANEL_GAP=10
-#PANEL_FONT_1="-*-terminus-medium-*-*-*-14-*-*-*-*-*-iso10646-1"
-PANEL_FONT_1="-xos4-terminus-medium-r-normal--14-140-72-72-c-80-iso10646-1"
-#PANEL_FONT_2="-shinonome-gothic-medium-r-normal--14-130-75-75-c-140-jisx0208.1990-0"
-PANEL_FONT_2="-misc-fixed-medium-r-normal-ja-0-0-75-75-c-0-iso10646-1"
+PANEL_FONT_1="-*-terminus-medium-*-*-*-14-*-*-*-*-*-iso10646-1"
+#PANEL_FONT_1="-xos4-terminus-medium-r-normal--14-140-72-72-c-80-iso10646-1"
+#PANEL_FONT_2="-shinonome-gothic-medium-r-normal-*-14-130-75-75-c-70-iso8859-1"
+PANEL_FONT_2="IPAGothic:style=Regular:pixelsize=14:minspace=True:lang=ja"
+#PANEL_FONT_2="-misc-fixed-medium-r-normal-ja-0-0-75-75-c-0-iso10646-1"
 PANEL_WM_NAME=bspwm_panel
 export PANEL_FIFO PANEL_HEIGHT PANEL_FONT_1 PANEL_FONT_2 PANEL_WM_NAME

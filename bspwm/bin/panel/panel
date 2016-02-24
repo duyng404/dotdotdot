@@ -15,7 +15,7 @@ mkfifo "$PANEL_FIFO"
 
 # Get the info from apps, pipe them all to fifo. fork them to run in bg
 bspc subscribe report > "$PANEL_FIFO" &
-xtitle -sf 'T%s' -t 60 > "$PANEL_FIFO" &
+xtitle -sf 'T%s' -t 40 > "$PANEL_FIFO" &
 info.sh > "$PANEL_FIFO" &
 
 # Get the settings

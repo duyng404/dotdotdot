@@ -11,7 +11,7 @@ bspc config history_aware_focus  true
 bspc config initial_polarity second_child
 
 #bspc monitor -d I II III IV V VI VII VIII IX X
-bspc monitor -d 一 二 三 四 五 六 七 八 九 十
+bspc monitor -d 一 二 三 四 五 六 七
 
 # colors
 bspc config active_border_color "#37c3d6"
