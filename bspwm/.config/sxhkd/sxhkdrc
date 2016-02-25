@@ -171,3 +171,7 @@ Print
 # google keep
 super + F10
 	keep.sh
+
+# file manager
+super + F11
+	Thunar

@@ -8,7 +8,7 @@ clock() {
 }
 
 battery() {
-	if [ -d /sys/class/power_supply ] ; then
+	if [ -d /sys/class/power_supply/BAT0 ] ; then
 		BATC=/sys/class/power_supply/BAT0/capacity
 		BATS=/sys/class/power_supply/BAT0/status
 
