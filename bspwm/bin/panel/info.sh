@@ -67,6 +67,20 @@ mpd(){
 	echo -n "$indicator$current"
 }
 
+cmus(){
+	if [[ `cmus-remote -Q 2>&1 | grep status` ]] ; then
+		state=`cmus-remote -Q | grep status | cut -d " " -f 2-`
+		current=`cmus-remote -Q | grep title | cut -d " " -f 3-`
+		current="`cmus-remote -Q | grep albumartist | cut -d " " -f 3-` - $current"
+		if [[ $state == "playing" ]] ; then
+			indicator="U"
+		else
+			indicator="P"
+		fi
+		echo -n "$indicator$current"
+	fi
+}
+
 # print out all the stuff
 while :; do
 	printf "%s\n" "S$(clock)"
@@ -76,6 +90,6 @@ while :; do
 	printf "%s\n" "M$(memused)"
 	[ $(thermal) ] && printf "%s\n" "E$(thermal)"
 	printf "%s\n" "V$(volume)"
-	[ "$(mpd)" ] && printf "%s\n" "U$(mpd)"
+	[ "$(cmus)" ] && printf "%s\n" "U$(cmus)"
     sleep 2 # The HUD will be updated every 2 second
 done
