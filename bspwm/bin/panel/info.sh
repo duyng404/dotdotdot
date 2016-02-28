@@ -11,14 +11,20 @@ battery() {
 	if [ -d /sys/class/power_supply/BAT0 ] ; then
 		BATC=/sys/class/power_supply/BAT0/capacity
 		BATS=/sys/class/power_supply/BAT0/status
+		capacity=`tr -d '\n' < $BATC`
+		if [ "`cat $BATS`" = "Charging" ] ; then icon="\ue201"
+		elif [ "$capacity" -eq 100 ] ; then icon="\ue200"
+		elif [ "$capacity" -gt 50 ] ; then icon="\ue1ff"
+		elif [ "$capacity" -gt 20 ] ; then icon="\ue1fe"
+		else icon="\ue1fd"
+		fi
 
-		tr -d '\n' < $BATC
-		test "`cat $BATS`" = "Charging" && echo -n '+' || echo -n '-'
+		echo "$icon$capacity"
 	fi
 }
 
 cpuload() {
-	mpstat | awk '$3 ~ /CPU/ { for(i=1;i<=NF;i++) { if ($i ~ /%idle/) field=i } } $3 ~ /all/ { printf("%d%%",100 - $field) }'
+	echo "\ue021`mpstat | awk '$3 ~ /CPU/ { for(i=1;i<=NF;i++) { if ($i ~ /%idle/) field=i } } $3 ~ /all/ { printf("%d%%",100 - $field) }'`"
 }
 
 memused() {
@@ -39,20 +45,20 @@ network() {
     #int=eth0
 
     ping -c 1 8.8.8.8 >/dev/null 2>&1 && 
-        echo "$int" || echo "----"
+        echo "\ue222" || echo "\ue21f"
 }
 
 thermal() {
-	sensors | grep temp1 | awk 'NR==1{printf $2}' | tr -d '+'
+	echo "\ue0ca`sensors | grep temp1 | awk 'NR==1{printf $2}' | tr -d '+' | cut -c 1,2`"
 }
 
 volume() {
 	level=`amixer get Master | sed -n 's/^.*\[\([0-9]\+\)%.*$/\1/p' | uniq`
 	state=`amixer get Master | sed -n 's/^.*\[\(o[nf]\+\)]$/\1/p' | uniq`
 	if [[ $state == "on" ]]; then
-		echo -n $level
+		echo -n "\ue05d$level"
 	else
-		echo -n "--"
+		echo -n "\ue05d--"
 	fi
 }
 
@@ -64,7 +70,7 @@ mpd(){
 	else
 		indicator="P"
 	fi
-	echo -n "$indicator$current"
+	echo -n "$indicator\ue05c $current"
 }
 
 cmus(){
@@ -87,9 +93,9 @@ while :; do
 	printf "%s\n" "N$(network)"
 	[ $(battery) ] && printf "%s\n" "B$(battery)"
 	printf "%s\n" "C$(cpuload)"
-	printf "%s\n" "M$(memused)"
+	#printf "%s\n" "M$(memused)"
 	[ $(thermal) ] && printf "%s\n" "E$(thermal)"
 	printf "%s\n" "V$(volume)"
-	[ "$(cmus)" ] && printf "%s\n" "U$(cmus)"
+	[ "$(mpd)" ] && printf "%s\n" "U$(mpd)"
     sleep 2 # The HUD will be updated every 2 second
 done

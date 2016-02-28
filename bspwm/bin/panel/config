@@ -1,5 +1,24 @@
-COLOR_DEFAULT_FG="#cccccc"
-COLOR_DEFAULT_BG="#333333"
+# general settings
+panelfifo=/tmp/panel-fifo
+panelheight=20
+panelgap=10
+panelicon="-wuncon-siji-medium-r-normal--10-100-75-75-c-80-iso10646-1"
+panelfont1="-*-terminus-medium-*-*-*-14-*-*-*-*-*-iso10646-1"
+panelfont2="IPAGothic:style=Regular:pixelsize=14:minspace=True:lang=ja"
+panelwmname=bspwm_panel
+
+#other colors
+default_fg="#cccccc"
+default_bg="#333333"
+title_fg="#cccccc"
+clock_fg="#cccccc"
+clock_bg="#354a64"
+mpd_paused_bg="#354a64"
+mpd_paused_fg="#cccccc"
+mpd_play_bg="#0099cc"
+mpd_play_fg="#ffffff"
+
+# workspace colors
 COLOR_MONITOR_FG="#8dbcdf"
 COLOR_MONITOR_BG="#333232"
 COLOR_FOCUSED_MONITOR_FG="#b1d0e8"
@@ -17,10 +36,3 @@ COLOR_URGENT_BG="#333333"
 COLOR_FOCUSED_URGENT_FG="#501d1f"
 COLOR_FOCUSED_URGENT_BG="#d5443e"
 COLOR_STATE_FG="#89b09c"
-COLOR_TITLE="#cccccc"
-COLOR_CLOCK_FG="#cccccc"
-COLOR_CLOCK_BG="#354a64"
-mpd_paused_bg="#354a64"
-mpd_paused_fg="#cccccc"
-mpd_play_bg="#0099cc"
-mpd_play_fg="#ffffff"

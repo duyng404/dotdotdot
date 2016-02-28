@@ -10,23 +10,23 @@ while read -r line ; do
 	case $line in
 		S*)
 			# clock output
-			clock=" %{F$COLOR_CLOCK_FG}%{B$COLOR_CLOCK_BG} ${line#?} %{B-}%{F-}"
+			clock=" %{F$clock_fg}%{B$clock_bg} ${line#?} %{B-}%{F-}"
 			;;
 		T*)
 			# xtitle output
-			title="%{F$COLOR_TITLE} ${line#?} %{F-}"
+			title="%{F$title_fg} ${line#?} %{F-}"
 			;;
 		N*)
 			# Network state
-			netw=" E:${line#?}"
+			netw=" ${line#?}"
 			;;
 		B*)
 			# Battery state
-			batt=" B:${line#?}"
+			batt=" ${line#?}"
 			;;
 		C*)
 			# CPU load
-			cpu=" CPU:${line#?}"
+			cpu=" ${line#?}"
 			;;
 		M*)
 			# memory load
@@ -34,11 +34,11 @@ while read -r line ; do
 			;;
 		E*)
 			# thermal readings
-			thermal=" T:${line#?}"
+			thermal=" ${line#?}"
 			;;
 		V*)
 			# Volume
-			volume=" V:${line#?}"
+			volume=" ${line#?}"
 			;;
 		UU*)
 			# Current song, Playing
@@ -113,5 +113,6 @@ while read -r line ; do
 			done
 			;;
 	esac
-	printf "%s\n" "%{l}${song}${title}%{c}${wm}%{r}${netw}${batt}${cpu}${thermal}${mem}${volume}${clock}"
+	#printf "%s\n" "%{l}${song}${title}%{c}${wm}%{r}${netw}${batt}${cpu}${thermal}${mem}${volume}${clock}"
+	echo -e "%{l}${song}${title}%{c}${wm}%{r}${netw}${batt}${cpu}${thermal}${mem}${volume}${clock}"
 done

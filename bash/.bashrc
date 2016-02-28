@@ -40,6 +40,7 @@ export ANDROID_HOME=/opt/android-sdk
 PANEL_FIFO=/tmp/panel-fifo
 PANEL_HEIGHT=20
 PANEL_GAP=10
+
 PANEL_FONT_1="-*-terminus-medium-*-*-*-14-*-*-*-*-*-iso10646-1"
 #PANEL_FONT_1="-xos4-terminus-medium-r-normal--14-140-72-72-c-80-iso10646-1"
 #PANEL_FONT_2="-shinonome-gothic-medium-r-normal-*-14-130-75-75-c-70-iso8859-1"

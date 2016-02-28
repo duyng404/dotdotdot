@@ -113,13 +113,13 @@ super + shift + @button1
 ### ------------ Media --------------------
 ############################################
 XF86AudioPlay
-	cmus-remote -u ; cmus_bar.sh
+	mpc toggle -q ; mpd_bar.sh
 
 XF86AudioPrev
-	cmus-remote -r ; cmus_bar.sh
+	mpc prev -q ; mpd_bar.sh
 
 XF86AudioNext
-	cmus-remote -n; cmus_bar.sh
+	mpc next -q ; mpd_bar.sh
 
 XF86AudioRaiseVolume
 	amixer set Master 3%+ > /dev/null; volume_bar.sh
@@ -177,4 +177,4 @@ super + F11
 	Thunar
 
 super + F12
-	cmuswindow.sh
+	ncmpwindow.sh

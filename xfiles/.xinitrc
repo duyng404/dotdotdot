@@ -52,6 +52,9 @@ tpset "Device Accel Constant Deceleration" 1
 # check if existing socket exists and killl for bspwm(doesn't play nice with logging out and in)
 rm /tmp/$(ls /tmp | grep bspwm)
 
+# MPD 
+[ ! -s ~/.mpd/pid ] && mpd
+
 # Thunar daemon for detect hot plugs of hard drive / usb drive
 thunar --daemon &
 

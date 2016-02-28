@@ -7,4 +7,4 @@ if [[ $state == "on" ]]; then
 else
 	output="--"
 fi
-printf "%s\n" "V$output" > "$PANEL_FIFO"
+printf "%s\n" "V\ue05d$output" > "$PANEL_FIFO"

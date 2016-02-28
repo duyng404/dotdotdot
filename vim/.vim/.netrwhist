@@ -1,5 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =6
 let g:netrw_dirhist_1='/home/ferb/dot/xfiles/.Xresources.d'
 let g:netrw_dirhist_2='/home/ryuko'
 let g:netrw_dirhist_3='/home/ferb/bin/panel'
+let g:netrw_dirhist_4='/home/ryuko/gitbox/pvpprogramming/cryptkicker'
+let g:netrw_dirhist_5='/home/ryuko/.vim'
+let g:netrw_dirhist_6='/home/ryuko/dot/vim/.vim'
