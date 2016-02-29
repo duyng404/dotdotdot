@@ -31,11 +31,11 @@ map <F10> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " powerline
 let g:airline_powerline_fonts = 1
-let g:airline_theme="powerlineish"
+let g:airline_theme="molokai"
 set laststatus=2
 
 syntax enable " enable syntax
-colorscheme ccmolokai-transparent
+colorscheme molokai
 
 " show existing tab with 4 spaces width
 set tabstop=4

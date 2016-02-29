@@ -64,7 +64,7 @@ volume() {
 
 mpd(){
 	state=`mpc | sed -n 's/^.*\[\([^\[].*\)\] .*$/\1/p' | uniq`
-	current=`mpc -f "%albumartist% - %title%" | head -1`
+	current=`mpc current -f "%albumartist% - %title%"`
 	if [[ $state == "playing" ]]; then
 		indicator="U"
 	else
