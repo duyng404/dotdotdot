@@ -15,6 +15,16 @@ alt + F4
 super + shift + q
 	bspc node -k
 
+# note a desktop
+super + c
+    echo "$(bspc query -D -d)" > /tmp/bspwmdtop_swap
+
+# move the windows of the noted desktop to the current desktop
+super + v
+    for win in $(bspc query -N -d $(cat /tmp/bspwmdtop_swap)); do \
+        bspc node $win -d $(bspc query -D -d); \
+    done
+
 # focus or move the window in the given direction
 super + {_,alt + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
@@ -46,12 +56,18 @@ super + m
 	bspc desktop -l next
 
 # set the window state
-super + {i,shift + i,u,f}
-	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+super + {shift + i,f}
+	bspc node -t {pseudo_tiled,fullscreen}
+
+# toggle float
+super + i
+    bspc query -N -n focused.tiled && state=floating || state=tiled; \
+    bspc node -t $state
 
 # focus the previously focused window
 alt + Tab
-	bspc node -f last
+	bspc node -f next
+	#bspc node -f last
 
 #Resize the selected window.
 super + shift + {h,j,k,l}
