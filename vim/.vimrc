@@ -11,6 +11,7 @@ call vundle#begin()
 	Plugin 'vim-airline/vim-airline-themes'
 	Plugin 'flazz/vim-colorschemes'
 	Plugin 'bling/vim-bufferline'
+	Plugin 'tpope/vim-fugitive'
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
@@ -31,7 +32,7 @@ map <F10> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " powerline
 let g:airline_powerline_fonts = 1
-let g:airline_theme="molokai"
+let g:airline_theme="badwolf"
 set laststatus=2
 
 syntax enable " enable syntax
