@@ -20,5 +20,7 @@ bspc config presel_feedback_color "#888888"
 
 bspc rule -a chromium desktop=^1 follow=on
 bspc rule -a mpv desktop=focused follow=on state=floating
+bspc rule -a tk follow=off state=floating
+bspc rule -a Tk follow=off state=floating
 
 panel &

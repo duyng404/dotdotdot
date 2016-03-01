@@ -29,7 +29,7 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " open nerdtree browser
 map <F10> :NERDTreeToggle<CR>
 " close Vim if the only window left is nerdtree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " powerline
 let g:airline_powerline_fonts = 1
 let g:airline_theme="badwolf"
