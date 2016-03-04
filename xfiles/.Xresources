@@ -14,7 +14,7 @@ URxvt.lineSpace: 2
 !URxvt.boldFont: -gohu-gohufont-bold-r-*-*-14-*-*-*-*-*-iso10646-1
 URxvt.font: -*-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-*,\
 -*-gothic-medium-r-*-*-12-*-*-*-*-*-jisx0208.1990-*
-URxvt.boldFont: -*-terminus-bold-*-*-*-14-*-*-*-*-*-iso10646-*,\
+URxvt.boldFont: -*-terminus-bold-*-*-*-12-*-*-*-*-*-iso10646-*,\
 -*-gothic-bold-r-*-*-12-*-*-*-*-*-jisx0208.1990-*
 !URxvt.font: -*-ttyp0-medium-r-normal-*-16-*-*-*-*-*-iso10646-*
 !URxvt.font: xft:Ubuntu Mono:size=12
@@ -24,7 +24,9 @@ URxvt.inheritPixmap:false
 URxvt.xftAntialias:true
 
 ! supposed to be a copypaste fix
-URxvt.perl-ext-common: default,clipboard
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: /usr/bin/chromium
+URxvt.matcher.button: 1
 URxvt.iso14755: False
 
 ! Change font on the fly

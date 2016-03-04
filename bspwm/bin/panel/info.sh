@@ -49,7 +49,8 @@ network() {
 }
 
 thermal() {
-	echo "\ue0ca`sensors | grep temp1 | awk 'NR==1{printf $2}' | tr -d '+' | cut -c 1,2`"
+	ttt=`sensors | grep temp1 | awk 'NR==1{printf $2}' | tr -d '+' | cut -c 1,2`
+	if [[ $ttt ]]; then echo "\ue0ca$ttt"; fi
 }
 
 volume() {
