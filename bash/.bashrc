@@ -36,7 +36,7 @@ export PS1="${fg[14]}\u${fg[3]}\$(__git_ps1) ${fg[8]}\W$nofg "
 # ANDROID STUDIO ------------------
 export ANDROID_HOME=/opt/android-sdk
 
-# LEMON BAR ----------------------------
+# WM STUFF ----------------------------
 PANEL_FIFO=/tmp/panel-fifo
 PANEL_HEIGHT=20
 PANEL_GAP=10
@@ -47,4 +47,5 @@ PANEL_FONT_1="-*-terminus-medium-*-*-*-14-*-*-*-*-*-iso10646-1"
 PANEL_FONT_2="IPAGothic:style=Regular:pixelsize=14:minspace=True:lang=ja"
 #PANEL_FONT_2="-misc-fixed-medium-r-normal-ja-0-0-75-75-c-0-iso10646-1"
 PANEL_WM_NAME=bspwm_panel
+
 export PANEL_FIFO PANEL_HEIGHT PANEL_FONT_1 PANEL_FONT_2 PANEL_WM_NAME

@@ -15,6 +15,12 @@ alt + F4
 super + shift + q
 	bspc node -k
 
+# increase/decrease wm gaps
+super + alt + equal
+	gapchange.sh + 4
+super + alt + minus
+	gapchange.sh - 4 
+
 # note a desktop
 super + c
     echo "$(bspc query -D -d)" > /tmp/bspwmdtop_swap
