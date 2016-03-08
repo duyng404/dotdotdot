@@ -76,7 +76,7 @@ imap kj <Esc>
 command W w !sudo tee % > /dev/null
 
 " enable mouse
-" set mouse=a
+set mouse=a
 
 " toggle line wrap movement
 noremap <silent> <Leader>w :call ToggleWrap()<CR>
