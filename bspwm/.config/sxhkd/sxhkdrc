@@ -33,7 +33,9 @@ super + v
 
 # focus or move the window in the given direction
 super + {_,alt + }{h,j,k,l}
-	bspc node -{f,s} {west,south,north,east}
+	bspc config pointer_follows_focus true; \
+	bspc node -{f,s} {west,south,north,east}; \
+	bspc config pointer_follows_focus false
 
 # focus or send to the given desktop
 super + {_,alt + }{1-9,0}
