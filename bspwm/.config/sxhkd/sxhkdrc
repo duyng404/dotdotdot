@@ -19,7 +19,7 @@ super + shift + q
 super + alt + equal
 	gapchange.sh + 4
 super + alt + minus
-	gapchange.sh - 4 
+	gapchange.sh - 4
 
 # note a desktop
 super + c
@@ -46,6 +46,10 @@ super + {Prior,Next}
 	bspc desktop -f {prev,next}
 super + {bracketleft,bracketright}
 	bspc desktop -f {prev,next}
+
+# focus last desktop
+super + grave
+	bspc desktop -f last
 
 # Make all windows occupy the same area.
 super + b
@@ -197,7 +201,7 @@ super + F10
 	keep.sh
 
 # file manager
-super + F11
+super + t
 	Thunar
 
 super + F12

@@ -30,7 +30,7 @@ while read -r line ; do
 			;;
 		M*)
 			# memory load
-			mem=" MEM:${line#?}"
+			mem=" ${line#?}"
 			;;
 		E*)
 			# thermal readings

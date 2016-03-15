@@ -15,8 +15,30 @@ def_key "left"
 def_key "right"
   next
 
+# add to playlist without playing it
 def_key "a"
   add_item_to_playlist
+
+# master and slave screen nav
+def_key "h"
+  master_screen
+
+def_key "right"
+  slave_screen
+
+# jump to browser
+def_key "`"
+  jump_to_browser
+
+# reorder playlist
+def_key "J"
+  move_selected_items_down
+def_key "K"
+  move_selected_items_up
+
+# add random items
+def_key "R"
+  add_random_items
 
 # Some vim keybindings
 def_key "j"

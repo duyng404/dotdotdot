@@ -24,11 +24,12 @@ battery() {
 }
 
 cpuload() {
-	echo "\ue021`mpstat | awk '$3 ~ /CPU/ { for(i=1;i<=NF;i++) { if ($i ~ /%idle/) field=i } } $3 ~ /all/ { printf("%d%%",100 - $field) }'`"
+	echo "\ue224`mpstat | awk '$3 ~ /CPU/ { for(i=1;i<=NF;i++) { if ($i ~ /%idle/) field=i } } $3 ~ /all/ { printf("%d%%",100 - $field) }'`"
 }
 
 memused() {
-	free -m | awk 'NR==2{printf "%d%%",$3*100/$2 }'
+	aa=`free -m | awk 'NR==2{printf "%d%%",$3*100/$2 }'`
+	echo "\ue021$aa"
 }
 
 network() {
@@ -94,7 +95,7 @@ while :; do
 	printf "%s\n" "N$(network)"
 	[ $(battery) ] && printf "%s\n" "B$(battery)"
 	printf "%s\n" "C$(cpuload)"
-	#printf "%s\n" "M$(memused)"
+	printf "%s\n" "M$(memused)"
 	[ $(thermal) ] && printf "%s\n" "E$(thermal)"
 	printf "%s\n" "V$(volume)"
 	[ "$(mpd)" ] && printf "%s\n" "U$(mpd)"

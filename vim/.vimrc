@@ -9,8 +9,11 @@ call vundle#begin()
 	Plugin 'scrooloose/nerdtree'
 	Plugin 'bling/vim-airline'
 	Plugin 'vim-airline/vim-airline-themes'
+	Plugin 'kien/ctrlp.vim'
+	Plugin 'scrooloose/syntastic'
+	Plugin 'klen/python-mode'
+	Plugin 'bronson/vim-trailing-whitespace'
 	Plugin 'flazz/vim-colorschemes'
-	Plugin 'bling/vim-bufferline'
 	Plugin 'tpope/vim-fugitive'
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -24,16 +27,26 @@ filetype plugin indent on    " required
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 
 " open nerdtree when no file specified
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " open nerdtree browser
 map <F10> :NERDTreeToggle<CR>
 " close Vim if the only window left is nerdtree
 " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" powerline
+" airline
 let g:airline_powerline_fonts = 1
 let g:airline_theme="badwolf"
 set laststatus=2
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+" airline sections
+function! AirlineInit()
+	let g:airline_section_y = airline#section#create('')
+	" let g:airline_section_error = airline#section#create('syntastic')
+	let g:airline_section_warning = airline#section#create('')
+	let g:airline_detect_whitespace = 0
+endfunction
+autocmd VimEnter * call AirlineInit()
 
 syntax enable " enable syntax
 colorscheme molokai
@@ -48,19 +61,27 @@ set noexpandtab
 set cul
 set number " show line number
 
+" run pythoncode
+autocmd BufRead *.py nmap <F5> :!python "%"<CR>
+
 " buffer navigation
-execute "set <M-]>=\e]"
-nnoremap <M-]> :bnext<CR>
+let mapleader = "z"
+nnoremap <leader>] :bnext<cr>
+nnoremap <leader>[ :bprevious<cr>
+nnoremap <leader>n :enew<cr>
+nnoremap <leader>q :bp <BAR> bd #<CR>
 
 " windows navigation
-execute "set <M-h>=\eh"
-execute "set <M-j>=\ej"
-execute "set <M-k>=\ek"
-execute "set <M-l>=\el"
-nnoremap <M-h> <C-w>h
-nnoremap <M-j> <C-w>j
-nnoremap <M-k> <C-w>k
-nnoremap <M-l> <C-w>l
+nnoremap <leader>h <C-w>h
+nnoremap <leader>j <C-w>j
+nnoremap <leader>k <C-w>k
+nnoremap <leader>l <C-w>l
+
+" copy to clipboard
+vnoremap <C-c> "+y
+
+" CtrP
+nnoremap <leader>p :CtrlPBuffer<cr>
 
 " toggle indent-safe paste mode
 set pastetoggle=<F2>
