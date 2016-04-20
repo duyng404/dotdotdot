@@ -47,6 +47,12 @@ super + {Prior,Next}
 super + {bracketleft,bracketright}
 	bspc desktop -f {prev,next}
 
+# send node to next/prev desktop
+super + alt + {bracketleft,bracketright}
+	bspc node -d {prev,next}
+super + alt + {Prior,Next}
+	bspc node -d {prev,next}
+
 # focus last desktop
 super + grave
 	bspc desktop -f last
@@ -82,10 +88,18 @@ alt + Tab
 	#bspc node -f last
 
 #Resize the selected window.
-super + shift + {h,j,k,l}
-	bspc node {@west -r -50,@south -r +50,@north -r -50,@east -r +50}
-super + ctrl + shift + {h,j,k,l}
-	bspc node {@east -r -50,@north -r +50,@south -r -50,@west -r +50}
+super + Left
+	bspc node @east -r -50; \
+	bspc node @west -r +50
+super + Right
+	bspc node @east -r +50; \
+	bspc node @west -r -50;
+super + Up
+	bspc node @north -r -50; \
+	bspc node @south -r +50;
+super + Down
+	bspc node @north -r +50; \
+	bspc node @south -r -50;
 
 # move a floating window
 super + {Left,Down,Up,Right}
@@ -125,16 +139,6 @@ super + !button{1-3}
 
 # end move/resize
 super + @button{1-3}
-	bspc pointer -u
-
-# resize using super + shift
-super + shift + button1
-	bspc pointer -g resize_corner
-
-super + shift + !button1
-	bspc pointer -t %i %i
-
-super + shift + @button1
 	bspc pointer -u
 
 ############################################
