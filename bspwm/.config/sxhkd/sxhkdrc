@@ -204,5 +204,5 @@ super + F10
 super + t
 	Thunar
 
-super + F12
+super + e
 	ncmpwindow.sh

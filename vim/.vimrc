@@ -15,6 +15,7 @@ call vundle#begin()
 	Plugin 'bronson/vim-trailing-whitespace'
 	Plugin 'flazz/vim-colorschemes'
 	Plugin 'tpope/vim-fugitive'
+	Plugin 'mattn/emmet-vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
@@ -61,8 +62,13 @@ set noexpandtab
 set cul
 set number " show line number
 
-" run pythoncode
-autocmd BufRead *.py nmap <F5> :!python "%"<CR>
+" c++11
+let g:syntastic_cpp_compiler = 'g++'
+let g:syntastic_cpp_compiler_options = ' -std=c++11'
+
+" python
+autocmd BufRead *.py nmap <F5> :w<CR>:!python "%"<CR>
+let g:pymode_lint_on_write = 0
 
 " buffer navigation
 let mapleader = "z"
