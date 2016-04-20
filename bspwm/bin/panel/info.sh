@@ -14,8 +14,8 @@ battery() {
 		capacity=`tr -d '\n' < $BATC`
 		if [ "`cat $BATS`" = "Charging" ] ; then icon="\ue201"
 		elif [ "$capacity" -eq 100 ] ; then icon="\ue200"
-		elif [ "$capacity" -gt 50 ] ; then icon="\ue1ff"
-		elif [ "$capacity" -gt 20 ] ; then icon="\ue1fe"
+		elif [ "$capacity" -gt 75 ] ; then icon="\ue1ff"
+		elif [ "$capacity" -gt 25 ] ; then icon="\ue1fe"
 		else icon="\ue1fd"
 		fi
 

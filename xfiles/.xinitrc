@@ -59,7 +59,10 @@ rm /tmp/$(ls /tmp | grep bspwm)
 thunar --daemon &
 
 # Wallpaper
-. ~/src/wallpaper
+. ~/code/wallpaper
+
+# Protect yer eyes
+redshift &
 
 # WM
 compton -b
