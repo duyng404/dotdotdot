@@ -48,10 +48,6 @@ function! AirlineInit()
 endfunction
 autocmd VimEnter * call AirlineInit()
 
-if has('gui_running')
-	set guifont=Terminess\ Powerline\ 9
-endif
-
 syntax enable " enable syntax
 colorscheme molokai
 
@@ -64,9 +60,6 @@ set noexpandtab
 
 set cul
 set number " show line number
-
-" run pythoncode
-autocmd BufRead *.py nmap <F5> :w<ESC>:!python "%"<CR>
 
 " buffer navigation
 let mapleader = "z"
@@ -83,7 +76,6 @@ nnoremap <leader>l <C-w>l
 
 " copy to clipboard
 vnoremap <C-c> "+y
-nnoremap <C-A-v> "+p
 
 " CtrP
 nnoremap <leader>p :CtrlPBuffer<cr>
