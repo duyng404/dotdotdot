@@ -49,3 +49,6 @@ PANEL_FONT_2="IPAGothic:style=Regular:pixelsize=14:minspace=True:lang=ja"
 PANEL_WM_NAME=bspwm_panel
 
 export PANEL_FIFO PANEL_HEIGHT PANEL_FONT_1 PANEL_FONT_2 PANEL_WM_NAME
+
+# EXTRA EXPORTS ----------------------
+#export MPD_HOST=/home/USER/.mpd/socket

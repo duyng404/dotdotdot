@@ -19,7 +19,7 @@ lyrics_directory = ~/.lyrics
 #
 ##### connection settings #####
 #
-#mpd_host = localhost
+mpd_host = ~/.mpd/socket
 #
 #mpd_port = 6600
 #

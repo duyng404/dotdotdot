@@ -40,6 +40,10 @@ while read -r line ; do
 			# Volume
 			volume=" ${line#?}"
 			;;
+		A*)
+			# Caffeine
+			caffeine="%{A:caff.sh -t && updatecaf.sh:} ${line#?} %{A}"
+			;;
 		UU*)
 			# Current song, Playing
 			song="%{B$mpd_play_bg}%{F$mpd_play_fg} ${line#??} %{F-}%{B-}"
@@ -114,5 +118,5 @@ while read -r line ; do
 			;;
 	esac
 	#printf "%s\n" "%{l}${song}${title}%{c}${wm}%{r}${netw}${batt}${cpu}${thermal}${mem}${volume}${clock}"
-	echo -e "%{l}${song}${title}%{c}${wm}%{r}${netw}${batt}${cpu}${thermal}${mem}${volume}${clock}"
+	echo -e "%{l}${song}${title}%{c}${wm}%{r}${caffeine}${netw}${batt}${cpu}${thermal}${mem}${volume}${clock}"
 done
