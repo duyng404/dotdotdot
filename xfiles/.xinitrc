@@ -23,6 +23,9 @@ if [ -f "$usermodmap" ]; then
     xmodmap "$usermodmap"
 fi
 
+# emergency x shutdown
+setxkbmap -option terminate:ctrl_alt_bksp
+
 # Set the friggin numlock
 numlockx &
 
