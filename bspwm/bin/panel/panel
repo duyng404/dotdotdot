@@ -23,11 +23,11 @@ info.sh > "$panelfifo" &
 currmonwidth=$(bspc query -T -m | jshon -e rectangle -e width -u)
 panelwidth=$(( currmonwidth - $((panelgap * 2 )) ))
 
-bspc config top_padding $((panelheight + panelgap)) # top padding
+bspc config top_padding $panelheight # top padding
 
 # Start panel_bar, pipe output into lemonbar, then to sh
 panel_bar < "$panelfifo" | lemonbar -a 32 -n "$panelwmname" \
-	-g "$panelwidth"x"$panelheight"+$panelgap+$panelgap \
+	-g "$panelwidth"x"$panelheight"+$panelgap+0 \
 	-f "$panelfont1" -f "$panelfont2" -f "$panelicon" \
 	-F "$default_fg" -B "$default_bg" | sh &
 

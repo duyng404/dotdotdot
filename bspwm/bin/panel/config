@@ -1,10 +1,10 @@
 # general settings
 panelfifo=/tmp/panel-fifo
-panelheight=20
+panelheight=30
 panelgap=10
 panelicon="-wuncon-siji-medium-r-normal--10-100-75-75-c-80-iso10646-1"
-panelfont1="-*-terminus-medium-*-*-*-14-*-*-*-*-*-iso10646-1"
-panelfont2="IPAGothic:style=Regular:pixelsize=14:minspace=True:lang=ja"
+panelfont1="-*-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-1"
+panelfont2="IPAGothic:style=Regular:pixelsize=12:minspace=True:lang=ja"
 panelwmname=bspwm_panel
 
 #other colors
