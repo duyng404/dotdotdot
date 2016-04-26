@@ -6,4 +6,4 @@ if [[ $state == "playing" ]]; then
 else
 	indicator="P"
 fi
-printf "%s\n" "U$indicator\ue05c $song" > "$PANEL_FIFO"
+printf "%s\n" "U$indicator$song" > "$PANEL_FIFO"

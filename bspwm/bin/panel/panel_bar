@@ -46,11 +46,15 @@ while read -r line ; do
 			;;
 		UU*)
 			# Current song, Playing
-			song="%{B$mpd_play_bg}%{F$mpd_play_fg} ${line#??} %{F-}%{B-}"
+			song="%{A:mpc prev -q && mpd_bar.sh:}%{B$mpd_play_bg}%{F$mpd_play_fg} \ue096%{F-}%{B-}%{A}"
+			song="$song%{A:mpc next -q && mpd_bar.sh:}%{B$mpd_play_bg}%{F$mpd_play_fg}\ue05a %{F-}%{B-}%{A}"
+			song="$song%{A:mpc toggle -q && mpd_bar.sh:}%{B$mpd_play_bg}%{F$mpd_play_fg}${line#??} %{F-}%{B-}%{A}"
 			;;
 		UP*)
 			# Current song, Paused
-			song="%{B$mpd_paused_bg}%{F$mpd_paused_fg} ${line#??} %{F-}%{B-}"
+			song="%{A:mpc prev -q && mpd_bar.sh:}%{B$mpd_paused_bg}%{F$mpd_paused_fg} \ue096%{F-}%{B-}%{A}"
+			song="$song%{A:mpc next -q && mpd_bar.sh:}%{B$mpd_paused_bg}%{F$mpd_paused_fg}\ue05a %{F-}%{B-}%{A}"
+			song="$song%{A:mpc toggle -q && mpd_bar.sh:}%{B$mpd_paused_bg}%{F$mpd_paused_fg}${line#??} %{F-}%{B-}%{A}"
 			;;
 		W*)
 			# bspwm's state

@@ -72,7 +72,7 @@ mpd(){
 	else
 		indicator="P"
 	fi
-	echo -n "$indicator\ue05c $current"
+	echo -n "$indicator$current"
 }
 
 caff(){  #caffeine script
