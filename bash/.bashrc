@@ -36,5 +36,8 @@ export PS1="${fg[14]}\u${fg[3]}\$(__git_ps1) ${fg[8]}\W$nofg "
 # ANDROID STUDIO ------------------
 export ANDROID_HOME=/opt/android-sdk
 
+# MPD HOST ------------------------
+export MPD_HOST=/home/ferb/.mpd/socket
+
 # WM STUFF ----------------------------
 #export BSPWM_STATE=/tmp/bspwm-state.json
