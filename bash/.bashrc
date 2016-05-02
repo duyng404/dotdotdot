@@ -40,4 +40,5 @@ export ANDROID_HOME=/opt/android-sdk
 export MPD_HOST=/home/ferb/.mpd/socket
 
 # WM STUFF ----------------------------
-#export BSPWM_STATE=/tmp/bspwm-state.json
+. ~/bin/panel/config
+export PANEL_FIFO="$panelfifo"
