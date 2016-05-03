@@ -37,7 +37,7 @@ export PS1="${fg[14]}\u${fg[3]}\$(__git_ps1) ${fg[8]}\W$nofg "
 export ANDROID_HOME=/opt/android-sdk
 
 # MPD HOST ------------------------
-export MPD_HOST=/home/ferb/.mpd/socket
+export MPD_HOST=~/.mpd/socket
 
 # WM STUFF ----------------------------
 . ~/bin/panel/config
