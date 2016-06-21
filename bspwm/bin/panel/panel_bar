@@ -122,5 +122,5 @@ while read -r line ; do
 			;;
 	esac
 	#printf "%s\n" "%{l}${song}${title}%{c}${wm}%{r}${netw}${batt}${cpu}${thermal}${mem}${volume}${clock}"
-	echo -e "%{l}%{c}${song}${title}${wm}${caffeine}${netw}${batt}${cpu}${thermal}${mem}${volume}${clock}%{r}"
+	echo -e "%{l}${song}${title}%{c}${wm}%{r}${caffeine}${netw}${batt}${cpu}${thermal}${mem}${volume}${clock}"
 done
