@@ -1,4 +1,5 @@
 #! /bin/sh
+
 . ~/bin/panel/config
 
 # check if bar is already running
@@ -16,7 +17,7 @@ mkfifo "$panelfifo"
 
 # Get the info from apps, pipe them all to fifo. fork them to run in bg
 bspc subscribe report > "$panelfifo" &
-xtitle -sf 'T%s' -t 40 > "$panelfifo" &
+#xtitle -sf 'T%s' -t 40 > "$panelfifo" &
 info.sh > "$panelfifo" &
 
 # calculate gap
