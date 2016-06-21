@@ -69,9 +69,18 @@ super + o
 super + backslash
 	bspc node @/ -F vertical
 
-# alternate between the tiled and monocle layout
+# cycle between monitors
 super + m
-	bspc desktop -l next
+	bspc config pointer_follows_focus true; \
+	bspc monitor -f next;\
+	bspc config pointer_follows_focus false;
+
+# Move windows between monitors
+super + n
+	bspc config pointer_follows_focus true; \
+	bspc node -m next;\
+	bspc monitor -f next;\
+	bspc config pointer_follows_focus true;
 
 # set the window state
 super + {shift + i,f}
@@ -127,6 +136,13 @@ super + ctrl + p
 # focus
 ~button1
 	bspc pointer -g focus
+
+# reinitialize screen config
+super + F5
+	pkill panel;\
+	initscreens.sh;\
+	. ~/.config/bspwm/bspwmrc;\
+	. ~/code/wallpaper
 
 ####################################################
 ### ---------- Mouse Resize -------------------------

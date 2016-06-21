@@ -26,6 +26,9 @@ fi
 # emergency x shutdown
 setxkbmap -option terminate:ctrl_alt_bksp
 
+# Initialize screen config
+initscreens.sh
+
 # Set the friggin numlock
 numlockx &
 
@@ -60,6 +63,7 @@ thunar --daemon &
 
 # Wallpaper
 . ~/code/wallpaper
+#nitrogen --restore &
 
 # Protect yer eyes at night
 redshift -t 6500:4000 &
