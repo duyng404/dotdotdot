@@ -1,6 +1,9 @@
 # sourcing .profile
 if [ -r ~/.profile ]; then . ~/.profile; fi
 
+# sourcing ubuntu's default bashrc
+if [ -r ~/.oldbashrc ]; then . ~/.oldbashrc; fi
+
 # colors!
 mintgreen="\[\033[01;32m\]"
 blue="\[\033[01;34m\]"
@@ -40,5 +43,5 @@ export ANDROID_HOME=/opt/android-sdk
 export MPD_HOST=~/.mpd/socket
 
 # WM STUFF ----------------------------
-. ~/bin/panel/config
+if [ -r ~/bin/panel/config ]; then . ~/bin/panel/config; fi
 export PANEL_FIFO="$panelfifo"
