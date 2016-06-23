@@ -135,7 +135,7 @@ super + ctrl + p
 
 # focus
 ~button1
-	bspc pointer -g focus
+	bspc node -f pointed
 
 # reinitialize screen config
 super + F5
