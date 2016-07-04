@@ -58,6 +58,9 @@ rm /tmp/$(ls /tmp | grep bspwm)
 # MPD 
 [ ! -s ~/.mpd/pid ] && mpd
 
+# couchpotato
+couchpotato &
+
 # Thunar daemon for detect hot plugs of hard drive / usb drive
 thunar --daemon &
 
