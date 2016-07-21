@@ -73,5 +73,4 @@ redshift -t 6500:4000 &
 
 # WM
 compton -b
-sxhkd -f 35 &
-exec bspwm
+sxhkd & exec bspwm
