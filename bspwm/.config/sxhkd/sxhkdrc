@@ -80,7 +80,7 @@ super + n
 	bspc config pointer_follows_focus true; \
 	bspc node -m next;\
 	bspc monitor -f next;\
-	bspc config pointer_follows_focus true;
+	bspc config pointer_follows_focus false;
 
 # set the window state
 super + {shift + i,f}
@@ -170,10 +170,10 @@ XF86AudioNext
 	mpc next -q ; mpd_bar.sh
 
 XF86AudioRaiseVolume
-	amixer set Master 3%+ > /dev/null; volume_bar.sh
+	pulsemixer --change-volume +3 > /dev/null; volume_bar.sh
 
 XF86AudioLowerVolume
-	amixer set Master 3%- > /dev/null; volume_bar.sh
+	pulsemixer --change-volume -3 > /dev/null; volume_bar.sh
 
 XF86AudioMute
 	amixer set Master toggle > /dev/null; volume_bar.sh
@@ -191,9 +191,9 @@ XF86MonBrightnessDown
 ### ---- Launch apps -------------------------
 ############################################
 
-# Google chrome - I created a cute symlink for it
+# Google chrome
 super + F9
-	crrr
+	chromium
 
 # terminal emulator
 super + Return

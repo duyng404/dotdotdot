@@ -76,13 +76,8 @@ TODO:
 - Power management
 - conky, system stats
 - A legit color scheme and theme. This will take time to choose
-- proper launcher (rofi?) and status bar
-- ???
-- Get google chromium to display font properly
-- Google Keep on linux? (low priority)
 - Firefox rice + vimperator (low priority)
 - try out other file manager: ranger, vifm, midnight commander
-- Redshift. Protect your eyes.
 
 BLOAT:
 - fbreader
