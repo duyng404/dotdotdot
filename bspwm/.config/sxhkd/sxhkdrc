@@ -144,6 +144,12 @@ super + F5
 	. ~/.config/bspwm/bspwmrc;\
 	. ~/code/wallpaper
 
+# only reinit the panel
+super + F6
+	pkill panel;\
+	. ~/.config/bspwm/bspwmrc;\
+	. ~/code/wallpaper
+
 ####################################################
 ### ---------- Mouse Resize -------------------------
 #####################################################

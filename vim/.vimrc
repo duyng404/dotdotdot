@@ -11,7 +11,6 @@ call vundle#begin()
 	Plugin 'vim-airline/vim-airline-themes'
 	Plugin 'kien/ctrlp.vim'
 	Plugin 'scrooloose/syntastic'
-	Plugin 'klen/python-mode'
 	Plugin 'bronson/vim-trailing-whitespace'
 	Plugin 'flazz/vim-colorschemes'
 	Plugin 'tpope/vim-fugitive'
