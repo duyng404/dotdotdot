@@ -56,7 +56,11 @@ tpset "Device Accel Constant Deceleration" 1
 rm /tmp/$(ls /tmp | grep bspwm)
 
 # MPD 
-[ ! -s ~/.mpd/pid ] && mpd
+[ -z $(`ps -aux | grep [m]pd`)] && mpd
+
+# Delete annoying folder
+[ -d ~/Downloads ] && rm -r ~/Downloads
+[ -d ~/Desktop ] && rm -r ~/Desktop
 
 # couchpotato
 couchpotato &

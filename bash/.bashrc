@@ -23,6 +23,16 @@ nofg='\[\e[0m\]'
 # 00 01 02 03 04 05 06 07 dark
 # 08 09 10 11 12 13 14 15 light
 
+# AUTOCOMPLETE ---------------------
+_codeComplete()
+{
+    local cur=${COMP_WORDS[COMP_CWORD]}
+    COMPREPLY=( $(compgen -W "$(find bin/ -name '*.class' -exec basename {} .class \;)" -- $cur) )
+}
+
+complete -F _codeComplete allrun.sh
+complete -F _codeComplete run.sh
+
 # ALIASES ------------------------
 alias ls="ls --color"
 alias dkm='sudo $(history -p !!)'

@@ -9,13 +9,14 @@ call vundle#begin()
 	Plugin 'scrooloose/nerdtree'
 	Plugin 'bling/vim-airline'
 	Plugin 'vim-airline/vim-airline-themes'
-	Plugin 'kien/ctrlp.vim'
+	" Plugin 'kien/ctrlp.vim'
 	Plugin 'scrooloose/syntastic'
-	Plugin 'klen/python-mode'
 	Plugin 'bronson/vim-trailing-whitespace'
 	Plugin 'flazz/vim-colorschemes'
-	Plugin 'tpope/vim-fugitive'
-	Plugin 'mattn/emmet-vim'
+	" Plugin 'tpope/vim-fugitive'
+	" Plugin 'mattn/emmet-vim'
+	Plugin 'valloric/youcompleteme'
+	Plugin 'nvie/vim-flake8'
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
@@ -27,19 +28,16 @@ filetype plugin indent on    " required
 " :PluginSearch foo - searches for foo; append `!` to refresh local cache
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 
-" open nerdtree when no file specified
-" autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " open nerdtree browser
 map <F10> :NERDTreeToggle<CR>
-" close Vim if the only window left is nerdtree
-" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
 " airline
 let g:airline_powerline_fonts = 1
 let g:airline_theme="badwolf"
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
+
 " airline sections
 function! AirlineInit()
 	let g:airline_section_y = airline#section#create('')
@@ -49,8 +47,28 @@ function! AirlineInit()
 endfunction
 autocmd VimEnter * call AirlineInit()
 
-syntax enable " enable syntax
+" enable syntax
+let python_highlight_all=1
+syntax enable
 colorscheme molokai
+
+" weird bug with cc file idk
+let g:ycm_show_diagnostics_ui = 0
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/youcompleteme/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+
+"  youcompleteme close after completion and z-g will show documentation
+let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_python_binary_path = '/usr/bin/python2'
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" python with virtualenv support
+py << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  execfile(activate_this, dict(__file__=activate_this))
+EOF
 
 " show existing tab with 4 spaces width
 set tabstop=4
@@ -67,7 +85,8 @@ let g:syntastic_cpp_compiler = 'g++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11'
 
 " python
-autocmd BufRead *.py nmap <F5> :w<CR>:!python "%"<CR>
+autocmd BufRead *.py nmap <F5> :w<CR>:!clear && python "%"<CR>
+autocmd BufRead *.py nmap <F6> :w<CR>:!clear && python2 "%"<CR>
 let g:pymode_lint_on_write = 0
 
 " buffer navigation
@@ -76,6 +95,9 @@ nnoremap <leader>] :bnext<cr>
 nnoremap <leader>[ :bprevious<cr>
 nnoremap <leader>n :enew<cr>
 nnoremap <leader>q :bp <BAR> bd #<CR>
+
+" navigate buffer without writing
+set hidden
 
 " windows navigation
 nnoremap <leader>h <C-w>h
@@ -92,10 +114,12 @@ nnoremap <leader>p :CtrlPBuffer<cr>
 " toggle indent-safe paste mode
 set pastetoggle=<F2>
 
-set foldenable " enable folding
+" enable folding
+set foldenable
 set foldlevelstart=10
 set foldnestmax=10
 set foldmethod=indent
+
 " map kj to ESC
 imap kj <Esc>
 
