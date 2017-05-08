@@ -21,14 +21,14 @@
   I=1
   M=$(bspc query -M | wc -l)
   if [[ "$M" == 1 ]]; then
-    bspc monitor -d 一 二 三 四 五 六
+    bspc monitor -d 一 二 三 四 五 六 七 八
   elif [[ "$M" == 2 ]]; then
-     bspc monitor $(bspc query -M | awk NR==1) -d 一 二 三
-     bspc monitor $(bspc query -M | awk NR==2) -d 四 五 六
+     bspc monitor $(bspc query -M | awk NR==1) -d 一 二 三 四
+     bspc monitor $(bspc query -M | awk NR==2) -d 五 六 七 八
   elif [[ "$M" == 3 ]]; then
      bspc monitor $(bspc query -M | awk NR==1) -d 一 二
-     bspc monitor $(bspc query -M | awk NR==2) -d 三 四
-     bspc monitor $(bspc query -M | awk NR==3) -d 五 六
+     bspc monitor $(bspc query -M | awk NR==2) -d 三 四 五
+     bspc monitor $(bspc query -M | awk NR==3) -d 六 七 八
   else
     for monitor in $(bspc query -M); do
     bspc monitor $monitor \
