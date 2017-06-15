@@ -1,0 +1,74 @@
+/* Startpage  Css
+   By Dylan Araps */
+html,
+body,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #262626;
+  height: 100%;
+  width: 100%;
+}
+
+main {
+  display: block;
+  font-family: 'Futura Bk BT', 'Noto Sans', sans-serif;
+  left: 50%;
+  position: absolute;
+  top: 45%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+h1 {
+  color: #777777;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  width: 600px;
+  font-size: 3em;
+}
+
+h2 {
+  color: #777777;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  width: 600px;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #658389;
+  opacity: .4;
+  width: 600px;
+}
+
+ul {
+  display: block;
+  margin: 0 auto;
+  width: 600px;
+  text-align: center;
+}
+
+li {
+  color: #777777;
+  display: inline-block;
+  font-size: 1.2em;
+  line-height: 1.5;
+  list-style: none;
+  margin: 5px;
+}
+
+a {
+  color: #F702D6;
+  text-decoration: none;
+  transition: .2s;
+}
+
+a:hover {
+  color: #F765E3;
+}

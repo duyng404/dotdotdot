@@ -10,12 +10,15 @@ URxvt.depth: 32
 URxvt.background: [85]#000000
 ! URxvt.letterSpace:0
 URxvt.lineSpace: 2
+URxvt.internalBorder:10
 !URxvt.font: -gohu-gohufont-medium-r-*-*-14-*-*-*-*-*-iso10646-1
 !URxvt.boldFont: -gohu-gohufont-bold-r-*-*-14-*-*-*-*-*-iso10646-1
 URxvt.font: -*-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-*,\
--*-gothic-medium-r-*-*-12-*-*-*-*-*-jisx0208.1990-*
+-*-gothic-medium-r-*-*-12-*-*-*-*-*-jisx0208.1990-*,\
+-wuncon-siji-medium-r-normal--10-100-75-75-c-80-iso10646-1
 URxvt.boldFont: -*-terminus-bold-*-*-*-12-*-*-*-*-*-iso10646-*,\
--*-gothic-bold-r-*-*-12-*-*-*-*-*-jisx0208.1990-*
+-*-gothic-bold-r-*-*-12-*-*-*-*-*-jisx0208.1990-*,\
+-wuncon-siji-medium-r-normal--10-100-75-75-c-80-iso10646-1
 !URxvt.font: -*-ttyp0-medium-r-normal-*-16-*-*-*-*-*-iso10646-*
 !URxvt.font: xft:Ubuntu Mono:size=12
 !URxvt.boldFont: xft:Ubuntu Mono:bold:size=12
@@ -38,3 +41,13 @@ URxvt.keysym.C-equal: command:\033]710;-*-terminus-medium-*-*-*-14-*-*-*-*-*-iso
 -*-gothic-medium-r-*-*-14-*-*-*-*-*-jisx0208.1990-*\007\
 \033]711;-*-terminus-bold-*-*-*-14-*-*-*-*-*-iso10646-*,\
 -*-gothic-bold-r-*-*-14-*-*-*-*-*-jisx0208.1990-*\007
+URxvt.keysym.F12: command:\033]710;xft:monofur for Powerline:size=12:antialias=true,\
+xft:Droid Sans Mono:size=12:antialias=true,\
+xft:IPAGothic:style=Regular:size=12:minspace=True:lang=ja:antialias=true\007,\
+\033]711;xft:monofur for Powerline:style=Bold:size=12:antialias=true,\
+xft:Droid Sans Mono:style=Bold:size=12:antialias=true,\
+xft:IPAGothic:style=Bold:size=12:minspace=True:lang=ja:antialias=true\007
+!URxvt.keysym.C-F12: command:\033]710;xft:Droid Sans Mono:size=12:antialias=true,\
+!xft:IPAGothic:style=Regular:size=12:minspace=True:lang=ja:antialias=true\007,\
+!\033]711;xft:Droid Sans Mono:style=Bold:size=12:antialias=true,\
+!xft:IPAGothic:style=Bold:size=12:minspace=True:lang=ja:antialias=true\007

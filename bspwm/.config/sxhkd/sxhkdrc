@@ -3,7 +3,7 @@
 
 # quit bspwm normally
 super + ctrl + BackSpace
-	pkill -x panel; ibus exit; bspc quit
+	bspwmclose.sh
 
 # Close window
 super + q
@@ -54,19 +54,15 @@ super + alt + {Prior,Next}
 	bspc node -d {prev,next}
 
 # focus last desktop
-super + grave
+super + backslash
 	bspc desktop -f last
 
 # Make all windows occupy the same area.
 super + b
 	bspc node @/ -E
 
-# Rotate the tree of the selected desktop.
-super + o
-	bspc node @/ -R 90
-
 # Flip the layout current desktop horizontally. That's weird.
-super + backslash
+super + grave
 	bspc node @/ -F vertical
 
 # cycle between monitors
@@ -81,6 +77,10 @@ super + n
 	bspc node -m next;\
 	bspc monitor -f next;\
 	bspc config pointer_follows_focus false;
+
+# monocle desktop
+super + o
+	bspc desktop focused -l next
 
 # set the window state
 super + {shift + i,f}
@@ -139,23 +139,9 @@ super + ctrl + p
 
 # reinitialize screen config
 super + F5
-	pkill panel;\
 	initscreens.sh;\
 	. ~/.config/bspwm/bspwmrc;\
 	. ~/code/wallpaper
-
-####################################################
-### ---------- Mouse Resize -------------------------
-#####################################################
-super + button{1-3}
-	bspc pointer -g {move,resize_side,resize_corner}
-
-super + !button{1-3}
-	bspc pointer -t %i %i
-
-# end move/resize
-super + @button{1-3}
-	bspc pointer -u
 
 ############################################
 ### ------------ Media --------------------
@@ -187,13 +173,17 @@ XF86MonBrightnessUp
 XF86MonBrightnessDown
 	xbacklight -dec 5
 
+# Lock screen
+XF86Launch1
+	i3lock.sh
+
 ############################################
 ### ---- Launch apps -------------------------
 ############################################
 
 # Google chrome
-super + F9
-	chromium
+super + w
+	firefoxwindow.sh
 
 # terminal emulator
 super + Return
@@ -222,7 +212,10 @@ super + F10
 
 # file manager
 super + t
+	thunarwindow.sh
+super + alt + t
 	Thunar
 
+# music player
 super + e
 	ncmpwindow.sh

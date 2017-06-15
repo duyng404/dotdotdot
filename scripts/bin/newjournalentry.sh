@@ -9,6 +9,6 @@ if [ -f ~/gitbox/journal/$filename ]; then
 	printf "\n\n$hour:$minute$ampm\n\n" >> ~/gitbox/journal/$filename
 	vi ~/gitbox/journal/$filename
 else
-	printf "/*\nTitle: \nDate: $year/$month/$day\nTags: \n*/\n\n$hour:$minute$ampm\n\n" > ~/gitbox/journal/$filename
+	printf "---\nTitle: \nDate: $year/$month/$day\nTags: \n---\n\n$hour:$minute$ampm\n\n" > ~/gitbox/journal/$filename
 	vi ~/gitbox/journal/$filename
 fi

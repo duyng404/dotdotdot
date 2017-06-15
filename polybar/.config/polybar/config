@@ -1,0 +1,203 @@
+[colors]
+;background = ${xrdb:color0:#222}
+background = #99000000
+;foreground = ${xrdb:color7:#222}
+text = #fdfdfd
+faded = #777
+highlight = #CB07B0
+highlightalpha = #99CB07B0
+secondary = #43E9F9
+#secondary = #37C3D6
+alert = #bd2c40
+
+[bar/baru]
+width = 100%
+height = 30
+offset-x = 0%
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.text}
+
+underline-size = 3
+underline-color = #eee
+
+module-margin-left = 2
+module-margin-right = 2
+
+padding-right = 4
+
+#font-0 = xos4terminus
+#font-1 = IPAGothic:style=Regular:pixelsize=9:minspace=True:lang=ja
+#font-2 = Wuncon Siji
+
+#font-1 = Noto Sans:pixelsize=10;0
+font-1 = Futura Bk BT:pixelsize=10;0
+font-2 = IPAGothic:pixelsize=11:minspace=True:lang=ja;0
+font-0 = FontAwesome:size=8;0
+font-3 = Wuncon Siji
+
+modules-left = mpd
+modules-center = bspwm
+modules-right = volume battery date powermenu
+
+#filesystem volume memory cpu battery temperature date powermenu
+
+dim-value = 1.0
+
+tray-position = right
+tray-padding = 2
+;tray-transparent = true
+;tray-background = {color.background}
+
+wm-restack = bspwm
+
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+
+[module/bspwm]
+type = internal/bspwm
+
+ws-icon-0 = 一;
+ws-icon-1 = 二;
+ws-icon-2 = 三;
+ws-icon-3 = 四;
+ws-icon-4 = 五;
+ws-icon-5 = 六;
+ws-icon-6 = 七;
+ws-icon-7 = 八;
+
+label-focused = %index% %icon%
+label-focused-foreground = ${colors.highlight}
+label-focused-background = ${colors.background}
+label-focused-underline= ${colors.highlight}
+label-focused-padding-left = 1
+label-focused-padding-right = 2
+
+label-occupied = %index% %icon%
+label-occupied-padding-left = 1
+label-occupied-padding-right = 2
+
+label-urgent = %index% %icon%
+label-urgent-background = ${colors.alert}
+label-urgent-padding-left = 1
+label-urgent-padding-right = 2
+
+label-empty =
+label-empty-foreground = ${colors.text}
+label-empty-padding = 0
+
+[module/mpd]
+type = internal/mpd
+format-online = "%{A:mpc toggle:}<label-song>%{A} <icon-prev>  <icon-next>    "
+format-stopped = "%{A:mpc toggle:}   --------- %{A} <icon-prev>  <icon-next>    "
+padding = 4
+format-playing-foreground = ${colors.highlight}
+format-playing-underline = ${colors.highlight}
+format-paused-foreground = ${colors.faded}
+format-stopped-foreground = ${colors.faded}
+
+icon-prev = 
+icon-next = 
+
+label-song = "  %artist% ー %title%"
+label-song-padding = 4
+label-song-maxlen = 60
+label-song-ellipsis = true
+
+label-offline = "  MPD offline"
+
+[module/date]
+type = internal/date
+interval = 5
+
+date =
+date-alt = " %m月 %d日"
+
+time = %I:%M %p
+time-alt = %I:%M %p
+
+format-prefix = 
+
+label = %date% %time%
+
+[module/volume]
+type = internal/volume
+
+format-volume =  <label-volume>
+
+format-muted-prefix = " "
+format-muted-foreground = ${colors.text}
+label-muted = ---
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 95
+
+format-charging = <animation-charging> <label-charging>
+
+format-discharging = <ramp-capacity> <label-discharging>
+
+format-full-prefix = " "
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 1000
+
+[module/powermenu]
+type = custom/menu
+
+format-spacing = 1
+
+label-open = 
+label-open-foreground = ${colors.faded}
+label-close =  cancel
+label-close-foreground = ${colors.highlight}
+label-separator = |
+
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = power off
+menu-0-1-exec = menu-open-2
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = reboot
+menu-1-1-exec = reboot
+
+menu-2-0 = power off
+menu-2-0-exec = poweroff
+menu-2-1 = cancel
+menu-2-1-exec = menu-open-0
+
+[module/jpndate]
+type = custom/script
+
+exec = jpndate.sh
+tail = true
+interval = 10
+format =  <label>
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+
+[global/wm]
+margin-top = 4
+margin-bottom = 4
+
+; vim:ft=dosini

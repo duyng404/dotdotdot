@@ -1,0 +1,1 @@
+xmledit-1.9.1.vmb: call delete('/home/ryuko/.vim/ftplugin/xml.vim')|call delete('/home/ryuko/.vim/doc/xml-plugin.txt')

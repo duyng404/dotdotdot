@@ -7,7 +7,7 @@ for monitor in $connectedOutputs; do
 		xrandr --output $monitor --auto
 		prev=$monitor
 	else
-		xrandr --output $monitor --auto --right-of $prev
+		xrandr --output $monitor --auto --left-of $prev
 		prev=$monitor
 	fi
 done

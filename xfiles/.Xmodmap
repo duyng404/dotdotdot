@@ -3,3 +3,5 @@ keycode 66 = Super_L Caps_Lock NoSymbol
 keycode 166 = Home XF86Back
 keycode 167 = End XF86Forward
 clear lock
+clear Mod4
+add Mod4 = Super_L Super_R

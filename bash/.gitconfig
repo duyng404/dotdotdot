@@ -3,6 +3,7 @@
 	email = fduy96@gmail.com
 [core]
 	editor = vim
+	excludesfile = /home/ryuko/.gitignore
 [push]
 	default = upstream
 [merge]

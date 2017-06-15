@@ -17,6 +17,9 @@ call vundle#begin()
 	" Plugin 'mattn/emmet-vim'
 	Plugin 'valloric/youcompleteme'
 	Plugin 'nvie/vim-flake8'
+	Plugin 'marijnh/tern_for_vim'
+	Plugin 'dylanaraps/wal'
+	Plugin 'guns/xterm-color-table.vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
@@ -33,7 +36,7 @@ map <F10> :NERDTreeToggle<CR>
 
 " airline
 let g:airline_powerline_fonts = 1
-let g:airline_theme="badwolf"
+let g:airline_theme="cyberpink"
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
@@ -47,10 +50,16 @@ function! AirlineInit()
 endfunction
 autocmd VimEnter * call AirlineInit()
 
+" utf8 encodings
+set encoding=utf-8
+
 " enable syntax
-let python_highlight_all=1
 syntax enable
-colorscheme molokai
+try
+	colorscheme wal
+catch
+	colorscheme molokai
+endtry
 
 " weird bug with cc file idk
 let g:ycm_show_diagnostics_ui = 0

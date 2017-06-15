@@ -1,0 +1,13 @@
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+! ------------------------------------------------------------------------------
+rofi.font: Futura Bk BT 12
+rofi.bw: 2
+rofi.padding: 2
+rofi.lines: 7
+rofi.width: 34
+rofi.color-enabled: true
+rofi.color-window: argb:e50a0e13, #cb07b0, #00870075
+rofi.color-normal: argb:0222222, #fff9fe, argb:0222222, #cb07b0, #fff9fe
+rofi.color-active: argb:00a0e13, #fff9fe, argb:00a0e13, #cb07b0, #fff9fe
+rofi.color-urgent: argb:00a0e13, #cb07b0, argb:00a0e13, #cb07b0, #fff9fe
