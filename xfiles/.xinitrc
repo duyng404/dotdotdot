@@ -69,7 +69,7 @@ redshift -t 6500:4000 &
 
 # Restore wal colorschemes
 wal -i "$(< "${HOME}/.cache/wal/wal")" -a 90
-wal -f ~/usr/colors -a 90
+wal -f ~/dot/walcolors -a 90
 
 # WM
 compton -b
