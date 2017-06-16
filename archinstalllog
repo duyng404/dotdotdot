@@ -72,12 +72,19 @@ This journey will be a very awesome adventure within the world of Arch Linux. Th
 - Installed ibus-anthy for japanese input.
 - Installed a bitmap japanese font called Shinonome. Have to download and install manually. It doesnt work with lemonbar tho, IDK why. Maybe later I'll install lemonbar-xft and will rely on ttf japanese font then.
 
-TODO:
-- Power management
-- conky, system stats
-- A legit color scheme and theme. This will take time to choose
-- Firefox rice + vimperator (low priority)
-- try out other file manager: ranger, vifm, midnight commander
+----- A LOT OF TIME PASSES -----
 
-BLOAT:
-- fbreader
+I think it is now 2 years after my first install of Arch. Things have changed but at the same time not much have changed. I got fairly used to the system that I don't need to note down what I did in this log anymore. Went thru a reinstallation of arch on this laptop once, when I bought a new M2 SSD for it. All I did was simply export a list of packages and bring it to the new system and reinstall them. Leave the /home partition alone. And then bring in the dotfile repo and stow all of them. Ez game Ez life. Also got rid of the arch on my PC, to make space for windows and games (I thought I could live on windows for a while, until my PC broke down and I take this Arch laptop to Japan). But anyway I just went through a milestone that is making a theme called "Cyberpink" and I'm gonna write down what I recently did here.
+
+- Switch to firefox after so much time using chromium. Customized it a lot. It looks beautiful and attractive now. Turns out it's not such a big deal whether if it's firefox or chrome. As long as it can access the internet, everything is all good.
+- Scrapped lemonbar. They can go away for good. This one guy made a thing called polybar and it is way better as a status bar. Fell in love instantly and it is now my preferred choice for status bar.
+- Customized a lot, mostly just appearances, of these following things: ncmpcpp, Xresources, vim, vim-airline, rofi, gtk, dunst.
+- Pseudo-dynamic gaps change. Hardcode the gap size for one window and two window. 3 windows and up will have the same gaps.
+- Has a dank lock screen now, i3-lock. I should really look into power management, auto lock after some time, and auto sleep, and stuff like that.
+- Using wal for color scheme. But not really use the default thing it generates, but i have a colorscheme file and I use it to be able to easily apply to the whole system.
+
+TODO:
+- Power management, autolock
+- new GTK theme and wpgtk tool
+- Terminal filemanager (ranger?)
+- upgrade mpd to spotify and ggplay
