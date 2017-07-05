@@ -272,7 +272,7 @@ browser_sort_format = {%A - }{%t}|{%f} {(%l)}
 ##
 #
 #song_columns_list_format = (20)[]{a} (6f)[green]{NE} (50)[white]{t|f:Title} (20)[cyan]{b} (7f)[magenta]{l}
-song_columns_list_format = (4f)[magenta]{NE:} (50)[]{t|f:Title} (15)[]{a} (25)[blue]{b} (7f)[blue]{l:}
+song_columns_list_format = (4f)[magenta]{NE:} (40)[]{t|f:Title} (25)[]{a} (25)[blue]{b} (7f)[blue]{l:}
 #
 ##### various settings #####
 #
