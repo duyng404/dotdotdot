@@ -27,10 +27,18 @@ URxvt.inheritPixmap:false
 URxvt.xftAntialias:true
 
 ! supposed to be a copypaste fix
-URxvt.perl-ext-common: default,matcher
+URxvt.perl-ext-common: default,matcher,tabbedex
 URxvt.url-launcher: /usr/bin/chromium
 URxvt.matcher.button: 1
 URxvt.iso14755: False
+
+! tab colors
+URxvt.tabbed.tabbar-fg: 2
+URxvt.tabbed.tabbar-bg: 163
+URxvt.tabbed.tab-fg: 3
+URxvt.tabbed.tab-bg: 163
+URxvt.tabbed.autohide: yes
+URxvt.tabbed.newbutton: no
 
 ! Change font on the fly
 URxvt.keysym.C-minus: command:\033]710;-*-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-*,\
