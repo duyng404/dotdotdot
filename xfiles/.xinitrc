@@ -71,6 +71,9 @@ redshift -t 6500:4000 &
 wal -i "$(< "${HOME}/.cache/wal/wal")" -a 90
 wal -f ~/dot/walcolors -a 90
 
+# set up autolock
+xautolock -time 15 -locker i3lock.sh &
+
 # WM
 compton -b
 sxhkd & exec bspwm
