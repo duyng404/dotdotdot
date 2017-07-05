@@ -134,8 +134,8 @@ super + ctrl + p
 	bspc node -p cancel
 
 # focus
-~button1
-	bspc node -f pointed
+#~button1
+#	bspc node -f pointed
 
 # reinitialize screen config
 super + F5
@@ -183,7 +183,7 @@ XF86Launch1
 
 # Google chrome
 super + w
-	firefoxwindow.sh
+	chromiumwindow.sh
 
 # terminal emulator
 super + Return
