@@ -18,6 +18,7 @@ call vundle#begin()
 	Plugin 'valloric/youcompleteme'
 	Plugin 'nvie/vim-flake8'
 	Plugin 'marijnh/tern_for_vim'
+	Plugin 'pangloss/vim-javascript'
 	Plugin 'dylanaraps/wal'
 	Plugin 'guns/xterm-color-table.vim'
 call vundle#end()            " required
@@ -33,6 +34,8 @@ filetype plugin indent on    " required
 
 " open nerdtree browser
 map <F10> :NERDTreeToggle<CR>
+"close vim if only nerdtree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " airline
 let g:airline_powerline_fonts = 1
@@ -69,6 +72,7 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/youcompleteme/third_party/ycmd/
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_python_binary_path = '/usr/bin/python2'
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
 " python with virtualenv support
 py << EOF
 import os
@@ -86,8 +90,15 @@ set shiftwidth=4
 set softtabstop=4
 set noexpandtab
 
+" show line number
 set cul
-set number " show line number
+set number
+
+" Navigate 4x faster when holding down Ctrl
+nmap <S-j> 4j
+nmap <S-k> 4k
+nmap <S-h> 5h
+nmap <S-l> 5l
 
 " c++11
 let g:syntastic_cpp_compiler = 'g++'
@@ -137,6 +148,9 @@ command W w !sudo tee % > /dev/null
 
 " enable mouse
 set mouse=a
+
+" set auto read when opened file changes
+set autoread
 
 " toggle line wrap movement
 noremap <silent> <Leader>w :call ToggleWrap()<CR>
