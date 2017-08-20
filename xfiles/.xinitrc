@@ -51,11 +51,15 @@ tpset "Evdev Wheel Emulation Axes" 6 7 4 5
 tpset "Device Accel Constant Deceleration" 1
 
 # check if existing socket exists and killl for bspwm(doesn't play nice with logging out and in)
+# I don't know why I had this in tbh
 rm /tmp/$(ls /tmp | grep bspwm)
 
 # MPD
-if [ -z "`ps -aux | grep [m]pd`" ] && [ -S ~/.mpd/socket ]; then pkill mpd; rm ~/.mpd/socket; mpd; fi
-if [ -z "`ps -aux | grep [m]pd`" ] && [ ! -S ~/.mpd/socket ]; then pkill mpd; mpd; fi
+#if [ -z "`ps -aux | grep [m]pd`" ] && [ -S ~/.mpd/socket ]; then pkill mpd; rm ~/.mpd/socket; mpd; fi
+#if [ -z "`ps -aux | grep [m]pd`" ] && [ ! -S ~/.mpd/socket ]; then pkill mpd; mpd; fi
+
+# mopidy
+if [ -z "`ps -aux | grep [m]opidy`" ]; then mopidy & fi
 
 # Delete annoying folder
 [ -d ~/Downloads ] && rm -r ~/Downloads

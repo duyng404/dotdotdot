@@ -57,7 +57,8 @@ alias firefox='GTK_THEME=Adwaita:light firefox'
 export ANDROID_HOME=/opt/android-sdk
 
 # MPD HOST ------------------------
-export MPD_HOST=~/.mpd/socket
+export MPD_HOST=127.0.0.1
+export MPD_PORT=6600
 
 # WM STUFF ----------------------------
 if [ -r ~/bin/panel/config ]; then . ~/bin/panel/config; fi
