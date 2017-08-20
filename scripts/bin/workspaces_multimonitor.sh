@@ -1,7 +1,7 @@
 #!/bin/bash
-#all_monitors=$(xrandr -q | awk '/connected/ {print $1}')
+#all_monitors=$(xrandr -q | awk '/ connected/ {print $1}')
 #default_screen=$(xrandr | awk '/ connected/ {print $1;exit;}')
-#extra_monitors=$(xrandr -q | awk '/connected/ {print $1}' | grep -v $default_screen)
+#extra_monitors=$(xrandr -q | awk '/ connected/ {print $1}' | grep -v $default_screen)
 
 ##First, configure stuff with xrandr
 #[[ $(who) != "" ]] && USER=$(who | grep :0\) | cut -f 1 -d ' ') || \
@@ -18,23 +18,9 @@
 #done
 
 ##Then, create workspaces on all monitors
-  I=1
-  M=$(bspc query -M | wc -l)
-  if [[ "$M" == 1 ]]; then
-    bspc monitor -d 一 二 三 四 五 六 七 八
-  elif [[ "$M" == 2 ]]; then
-     bspc monitor $(bspc query -M | awk NR==1) -d 一 二 三 四
-     bspc monitor $(bspc query -M | awk NR==2) -d 五 六 七 八
-  elif [[ "$M" == 3 ]]; then
-     bspc monitor $(bspc query -M | awk NR==1) -d 一 二
-     bspc monitor $(bspc query -M | awk NR==2) -d 三 四 五
-     bspc monitor $(bspc query -M | awk NR==3) -d 六 七 八
-  else
-    for monitor in $(bspc query -M); do
-    bspc monitor $monitor \
-        -n "$I" \
-        -d $I/{a,b,c}
-     let I++
-     done
-  fi
-
+I=1
+for monitor in $(bspc query -M); do
+	bspc monitor $monitor \
+		-d $I/{1,2,3,4,5,6,7,8}
+	let I++
+done
