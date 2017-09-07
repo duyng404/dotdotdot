@@ -4,11 +4,7 @@ if [ -r ~/.profile ]; then . ~/.profile; fi
 # sourcing ubuntu's default bashrc
 if [ -r ~/.oldbashrc ]; then . ~/.oldbashrc; fi
 
-# colors!
-mintgreen="\[\033[01;32m\]"
-blue="\[\033[01;34m\]"
-purple="\[\033[1;35m\]"
-reset="\[\033[0m\]"
+# EZ COLOR ------------------------
 # bg is non-bold colors
 bg=('\[\e[0;30m\]' '\[\e[0;31m\]' '\[\e[0;32m\]' '\[\e[0;33m\]'
     '\[\e[0;34m\]' '\[\e[0;35m\]' '\[\e[0;36m\]' '\[\e[0;37m\]'
@@ -43,6 +39,9 @@ _codeComplete()
     COMPREPLY=( $(compgen -W "$(find bin/ -name '*.class' -exec basename {} .class \;)" -- $cur) )
 }
 
+# beets completion
+eval "$(beet completion)"
+
 complete -F _codeComplete allrun.sh
 complete -F _codeComplete run.sh
 
@@ -57,8 +56,11 @@ alias firefox='GTK_THEME=Adwaita:light firefox'
 export ANDROID_HOME=/opt/android-sdk
 
 # MPD HOST ------------------------
-export MPD_HOST=127.0.0.1
-export MPD_PORT=6600
+# when use mopidy
+# export MPD_HOST=127.0.0.1
+# export MPD_PORT=6600
+# normal mpd
+export MPD_HOST=~/.mpd/socket
 
 # WM STUFF ----------------------------
 if [ -r ~/bin/panel/config ]; then . ~/bin/panel/config; fi

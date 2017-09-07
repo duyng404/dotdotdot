@@ -1,19 +1,19 @@
 # My custom keybindings
 
 # Space pause/play
-def_key "space"
-  pause
+#def_key "space"
+#  pause
 
 # Backspace removes playlist item
 def_key "backspace"
   delete_playlist_items
 
 # Left and right skip/rewind 
-def_key "left"
-  previous
-
-def_key "right"
-  next
+#def_key "left"
+#  previous
+#
+#def_key "right"
+#  next
 
 # add to playlist without playing it
 def_key "a"
@@ -291,7 +291,7 @@ def_key "b"
 #def_key "delete"
 #  delete_playlist_items
 #
-#def_key "delete"
+#def_key "f11"
 #  delete_browser_items
 #
 #def_key "delete"
@@ -396,11 +396,11 @@ def_key "b"
 #def_key "backspace"
 #  replay_song
 #
-#def_key "f"
-#  seek_forward
+def_key "right"
+  seek_forward
 #
-#def_key "b"
-#  seek_backward
+def_key "left"
+  seek_backward
 #
 #def_key "r"
 #  toggle_repeat
@@ -522,7 +522,7 @@ def_key "b"
 #def_key "B"
 #  select_album
 #
-#def_key "a"
+#def_key "t"
 #  add_selected_items
 #
 #def_key "c"

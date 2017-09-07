@@ -206,10 +206,6 @@ super + Escape
 Print
 	scrot
 
-# google keep
-super + F10
-	keep.sh
-
 # file manager
 super + t
 	thunarwindow.sh
@@ -219,3 +215,10 @@ super + alt + t
 # music player
 super + e
 	ncmpwindow.sh
+
+# auto press right
+super + F11
+	autopressright.sh &
+
+super + F10
+	pkill autopress

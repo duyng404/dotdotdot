@@ -55,11 +55,11 @@ tpset "Device Accel Constant Deceleration" 1
 rm /tmp/$(ls /tmp | grep bspwm)
 
 # MPD
-#if [ -z "`ps -aux | grep [m]pd`" ] && [ -S ~/.mpd/socket ]; then pkill mpd; rm ~/.mpd/socket; mpd; fi
-#if [ -z "`ps -aux | grep [m]pd`" ] && [ ! -S ~/.mpd/socket ]; then pkill mpd; mpd; fi
+if [ -z "`ps -aux | grep [m]pd`" ] && [ -S ~/.mpd/socket ]; then pkill mpd; rm ~/.mpd/socket; mpd; fi
+if [ -z "`ps -aux | grep [m]pd`" ] && [ ! -S ~/.mpd/socket ]; then pkill mpd; mpd; fi
 
 # mopidy
-if [ -z "`ps -aux | grep [m]opidy`" ]; then mopidy & fi
+#if [ -z "`ps -aux | grep [m]opidy`" ]; then mopidy & fi
 
 # Delete annoying folder
 [ -d ~/Downloads ] && rm -r ~/Downloads
