@@ -16,9 +16,9 @@
 
 ### Screenshot
 
-[Empty](https://i.imgur.com/7Qsy202.png)
-[Fake busy](https://i.imgur.com/iojVinV.png)
-[Firefox](https://i.imgur.com/P6Ljdax.png)
-[Firefox with youtube](https://i.imgur.com/I1x2wvo.png)
-[Rofi](https://i.imgur.com/jLG3DTo.png)
-[Neofetch](https://i.imgur.com/dodrt1h.png)
+![Empty](https://i.imgur.com/7Qsy202.png)
+![Fake busy](https://i.imgur.com/iojVinV.png)
+![Firefox](https://i.imgur.com/P6Ljdax.png)
+![Firefox with youtube](https://i.imgur.com/I1x2wvo.png)
+![Rofi](https://i.imgur.com/jLG3DTo.png)
+![Neofetch](https://i.imgur.com/dodrt1h.png)
