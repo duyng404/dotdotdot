@@ -139,9 +139,7 @@ super + ctrl + p
 
 # reinitialize screen config
 super + F5
-	initscreens.sh;\
-	. ~/.config/bspwm/bspwmrc;\
-	. ~/code/wallpaper
+	resetmonitors.sh
 
 ############################################
 ### ------------ Media --------------------
@@ -204,7 +202,10 @@ super + Escape
 
 #screenshot
 Print
-	scrot
+	maim.sh
+
+shift + Print
+	maim.sh -s
 
 # file manager
 super + t
@@ -217,8 +218,12 @@ super + e
 	ncmpwindow.sh
 
 # auto press right
-super + F11
-	autopressright.sh &
+#super + F11
+#	autopressright.sh &
 
-super + F10
-	pkill autopress
+#super + F10
+#	pkill autopress
+
+# toggle scratchpad
+#super + p
+#	scratch

@@ -43,12 +43,15 @@ ibus-daemon -drx
 nm-applet &
 
 # Trackpoint middle button scroll
-tpset() { xinput set-prop "TPPS/2 IBM TrackPoint" "$@"; }
-tpset "Evdev Wheel Emulation" 1
-tpset "Evdev Wheel Emulation Button" 2
-tpset "Evdev Wheel Emulation Timeout" 200
-tpset "Evdev Wheel Emulation Axes" 6 7 4 5
-tpset "Device Accel Constant Deceleration" 1
+#tpset() { xinput set-prop "TPPS/2 IBM TrackPoint" "$@"; }
+#tpset "Evdev Wheel Emulation" 1
+#tpset "Evdev Wheel Emulation Button" 2
+#tpset "Evdev Wheel Emulation Timeout" 200
+#tpset "Evdev Wheel Emulation Axes" 6 7 4 5
+#tpset "Device Accel Constant Deceleration" 1
+
+# fix gnome-keyring idk why
+. /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 
 # check if existing socket exists and killl for bspwm(doesn't play nice with logging out and in)
 # I don't know why I had this in tbh
@@ -80,4 +83,5 @@ xautolock -time 15 -locker i3lock.sh &
 
 # WM
 compton -b
-sxhkd & exec bspwm
+sxhkd &
+exec bspwm

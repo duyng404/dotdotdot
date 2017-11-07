@@ -40,10 +40,10 @@ _codeComplete()
 }
 
 # beets completion
-eval "$(beet completion)"
+#eval "$(beet completion)"
 
-complete -F _codeComplete allrun.sh
-complete -F _codeComplete run.sh
+#complete -F _codeComplete allrun.sh
+#complete -F _codeComplete run.sh
 
 # ALIASES ------------------------
 alias ls="ls --color"
@@ -52,16 +52,9 @@ alias firefox='GTK_THEME=Adwaita:light firefox'
 #alias reboot='sudo systemctl reboot'
 #alias pwroff='sudo systemctl poweroff'
 
-# ANDROID STUDIO ------------------
-export ANDROID_HOME=/opt/android-sdk
-
 # MPD HOST ------------------------
 # when use mopidy
 # export MPD_HOST=127.0.0.1
 # export MPD_PORT=6600
 # normal mpd
 export MPD_HOST=~/.mpd/socket
-
-# WM STUFF ----------------------------
-if [ -r ~/bin/panel/config ]; then . ~/bin/panel/config; fi
-export PANEL_FIFO="$panelfifo"

@@ -9,11 +9,11 @@ padthree=0
 
 bspc subscribe report | while read line; do
 	noofwin=`bspc query -N -d | wc -l`
-	if [ "$noofwin" -lt "3" ]; then
+	if [ "$noofwin" -lt "5" ]; then
 		bspc config -d focused window_gap $gapone;
 		bspc config -d focused right_padding $padone;
 		bspc config -d focused left_padding $padone;
-	elif [ "$noofwin" -lt "5" ]; then
+	elif [ "$noofwin" -lt "7" ]; then
 		bspc config -d focused window_gap $gaptwo;
 		bspc config -d focused right_padding $padtwo;
 		bspc config -d focused left_padding $padtwo;
