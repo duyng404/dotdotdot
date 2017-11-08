@@ -6,9 +6,17 @@ bspc config borderless_monocle   false
 bspc config gapless_monocle      true
 bspc config paddingless_monocle  false
 bspc config initial_polarity first_child
+
 bspc config click_to_focus		button1
+bspc config swallow_first_click false
 bspc config pointer_modifier	mod4
 bspc config pointer_action2		move
+bspc config pointer_follows_focus false
+bspc config pointer_follows_monitor true
+
+bspc config remove_disabled_monitors true
+bspc config remove_unplugged_monitors true
+bspc config merge_overlapping_monitors true
 
 workspaces_multimonitor.sh
 
@@ -29,8 +37,8 @@ bspc rule -a Tk follow=off state=floating
 bspc rule -a anki follow=on state=floating
 bspc rule -a Anki follow=on state=floating
 bspc rule -a Steam desktop=^4 follow=on state=floating
-bspc rule -a gimp follow=on state=floating
-bspc rule -a Gimp follow=on state=floating
+bspc rule -a gimp desktop=^4 follow=on state=floating
+bspc rule -a Gimp desktop=^4 follow=on state=floating
 bspc rule -a wine follow=on state=floating
 bspc rule -a Wine follow=on state=floating
 

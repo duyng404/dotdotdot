@@ -110,13 +110,17 @@ super + Down
 	bspc node @north -r +50; \
 	bspc node @south -r -50;
 
-# move a floating window
-super + {Left,Down,Up,Right}
-	xdo move {-x -50,-y +50,-y -50,-x +50}
+ #move a floating window
+#super + ctrl + {Down,Up,Right}
+#	xdotool getactivewindow windowmove --relative {0 20,0 -20,20 0}
+#super + ctrl + Left
+#	newx=`xdotool getactivewindow getwindowgeometry | awk 'FNR == 2 {print $2}' | awk -F',' '{print $1}'`; \
+#	(( newx -= 30 )); \
+#	xdotool getactivewindow windowmove $newx y
 
 # Resize floating windows
-super + alt + {Left,Right,Up,Down}
-    xdo resize {-w -20,-w +20,-h -20,-h +20}
+#super + ctrl + alt + {Left,Right,Up,Down}
+#    xdo resize {-w -20,-w +20,-h -20,-h +20}
 
 # Preselect the splitting area of the selected window.
 super + ctrl + {h,j,k,l}
@@ -140,6 +144,9 @@ super + ctrl + p
 # reinitialize screen config
 super + F5
 	resetmonitors.sh
+
+super + F6
+	resetmonitorswithchoice.sh
 
 ############################################
 ### ------------ Media --------------------
@@ -186,6 +193,10 @@ super + w
 # terminal emulator
 super + Return
 	urxvt
+
+# floating terminal emulator
+super + apostrophe
+	bspc rule -a URxvt -o follow=on state=floating && urxvt
 
 # program launcher
 super + space

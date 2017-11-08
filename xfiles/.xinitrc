@@ -49,6 +49,8 @@ nm-applet &
 #tpset "Evdev Wheel Emulation Timeout" 200
 #tpset "Evdev Wheel Emulation Axes" 6 7 4 5
 #tpset "Device Accel Constant Deceleration" 1
+#xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Middle Button Emulation" 1
+#xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Middle Button Timeout" 50
 
 # fix gnome-keyring idk why
 . /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
