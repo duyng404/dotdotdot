@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 dayofweek=`date +%a`
 case $dayofweek in
 	"Mon")

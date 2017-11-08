@@ -1,4 +1,4 @@
-#/bin/sh
+#/bin/bash
 
 query_status () {
 	if [[ -n `xset q | grep "DPMS is Enabled"` ]]; then

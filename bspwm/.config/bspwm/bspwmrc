@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 
 bspc config border_width         4
 
@@ -44,4 +44,8 @@ bspc rule -a Wine follow=on state=floating
 
 #focusborder.sh
 autogap.sh &
+usermodmap=$HOME/.Xmodmap
+if [ -f "$usermodmap" ]; then
+    xmodmap "$usermodmap"
+fi
 ~/.config/polybar/launch.sh &

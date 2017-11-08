@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 found=false
 for win in `bspc query -N -d ^7`; do
 	if [ "`bspc query -T -n $win | jshon -e client -e instanceName`" == '"thunar"' ]; then
