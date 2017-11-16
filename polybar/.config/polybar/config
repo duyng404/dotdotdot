@@ -38,7 +38,7 @@ font-2 = IPAGothic:pixelsize=11:minspace=True:lang=ja;0
 font-0 = FontAwesome:size=8;0
 font-3 = Wuncon Siji
 
-modules-left = mpd
+modules-left = mpd spotify
 modules-center = bspwm
 modules-right = volume battery date powermenu
 
@@ -119,6 +119,12 @@ label-song-maxlen = 60
 label-song-ellipsis = true
 
 label-offline = "  MPD offline"
+
+[module/spotify]
+type = custom/script
+exec = polybarspotify.sh
+interval = 1
+format = <label>
 
 [module/date]
 type = internal/date

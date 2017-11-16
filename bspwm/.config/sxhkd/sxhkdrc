@@ -152,22 +152,25 @@ super + F6
 ### ------------ Media --------------------
 ############################################
 XF86AudioPlay
-	mpc toggle -q ; mpd_bar.sh
+	mediacontrols.sh toggle
 
 XF86AudioPrev
-	mpc prev -q ; mpd_bar.sh
+	mediacontrols.sh prev
 
 XF86AudioNext
-	mpc next -q ; mpd_bar.sh
+	mediacontrols.sh next
+
+XF86AudioStop
+	mediacontrols.sh switch
 
 XF86AudioRaiseVolume
-	pulsemixer --change-volume +3 > /dev/null; volume_bar.sh
+	pulsemixer --change-volume +3 > /dev/null
 
 XF86AudioLowerVolume
-	pulsemixer --change-volume -3 > /dev/null; volume_bar.sh
+	pulsemixer --change-volume -3 > /dev/null
 
 XF86AudioMute
-	amixer set Master toggle > /dev/null; volume_bar.sh
+	amixer set Master toggle > /dev/null
 
 ############################################
 ### ---------- Laptop ----------------------

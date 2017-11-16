@@ -43,6 +43,7 @@ bspc rule -a wine follow=on state=floating
 bspc rule -a Wine follow=on state=floating
 
 #focusborder.sh
+pkill autogap.sh
 autogap.sh &
 usermodmap=$HOME/.Xmodmap
 if [ -f "$usermodmap" ]; then
