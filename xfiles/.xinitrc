@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # merge in defaults and keymaps
 userresources=$HOME/.Xresources

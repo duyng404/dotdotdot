@@ -40,7 +40,7 @@ font-3 = Wuncon Siji
 
 modules-left = mpd spotify
 modules-center = bspwm
-modules-right = volume battery date powermenu
+modules-right = cpu temperature volume battery date
 
 #filesystem volume memory cpu battery temperature date powermenu
 
@@ -55,6 +55,65 @@ wm-restack = bspwm
 
 ;scroll-up = bspwm-desknext
 ;scroll-down = bspwm-deskprev
+
+[module/cpu]
+type = internal/cpu
+
+; Available tags:
+;   <label> (default)
+;   <bar-load>
+;   <ramp-load>
+;   <ramp-coreload>
+format = <label>
+
+; Available tokens:
+;   %percentage% (default) - total cpu load
+;   %percentage-cores% - load percentage for each core
+;   %percentage-core[1-9]% - load percentage for specific core
+label =  %percentage%%
+
+ramp-coreload-0 = ▁
+ramp-coreload-1 = ▂
+ramp-coreload-2 = ▃
+ramp-coreload-3 = ▄
+ramp-coreload-4 = ▅
+ramp-coreload-5 = ▆
+ramp-coreload-6 = ▇
+ramp-coreload-7 = █
+
+[module/temperature]
+type = internal/temperature
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input
+; Available tags:
+;   <label> (default)
+;   <ramp>
+format = <ramp> <label>
+
+; Available tags:
+;   <label-warn> (default)
+;   <ramp>
+format-warn = <ramp> <label-warn>
+
+; Available tokens:
+;   %temperature% (default, in °C)
+;   %temperature-c%   (temperature, in °C)
+;   %temperature-f%   (temperature, in °F)
+label = %temperature%
+
+; Available tokens:
+;   %temperature% (default, in °C)
+;   %temperature-c%   (temperature, in °C)
+;   %temperature-f%   (temperature, in °F)
+label-warn = !!%temperature%
+label-warn-foreground = #f00
+
+; Requires the <ramp> tag
+; The icon selection will range from 0 to `warn-temperature`
+; with the current temperature as index.
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = #fff
 
 [module/bspwm]
 type = internal/bspwm
