@@ -4,6 +4,7 @@ background = #99000000
 ;foreground = ${xrdb:color7:#222}
 text = #fdfdfd
 faded = #777
+morefaded = #444
 highlight = #CB07B0
 highlightalpha = #99CB07B0
 secondary = #43E9F9
@@ -33,9 +34,9 @@ padding-right = 4
 #font-2 = Wuncon Siji
 
 #font-1 = Noto Sans:pixelsize=10;0
-font-1 = Futura Bk BT:pixelsize=10;0
-font-2 = IPAGothic:pixelsize=11:minspace=True:lang=ja;0
-font-0 = FontAwesome:size=8;0
+font-1 = "Futura Bk BT:pixelsize=10;0"
+font-2 = "IPAGothic:pixelsize=11:minspace=True:lang=ja;0"
+font-0 = "FontAwesome:size=8;0"
 font-3 = Wuncon Siji
 
 modules-left = mpd spotify
@@ -138,6 +139,7 @@ ws-icon-15 = 2/8;
 format = <label-monitor> <label-state>
 
 label-monitor = %name%
+label-monitor-foreground = ${colors.faded}
 
 label-focused = %index% %icon%
 label-focused-foreground = ${colors.highlight}
@@ -155,9 +157,10 @@ label-urgent-background = ${colors.alert}
 label-urgent-padding-left = 1
 label-urgent-padding-right = 2
 
-label-empty =
-label-empty-foreground = ${colors.text}
-label-empty-padding = 0
+label-empty = %index% %icon%
+label-empty-foreground = ${colors.morefaded}
+label-empty-padding-left  = 1
+label-empty-padding-right = 2
 
 [module/mpd]
 type = internal/mpd

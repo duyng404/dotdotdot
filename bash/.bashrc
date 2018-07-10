@@ -47,9 +47,9 @@ _codeComplete()
 
 # ALIASES ------------------------
 alias ls="ls --color"
-alias la="ls --la"
+alias la="ls -la"
 alias dkm='sudo $(history -p !!)'
-alias firefox='GTK_THEME=Adwaita:light firefox'
+alias firefox='env GTK_THEME=Arc firefox'
 #alias reboot='sudo systemctl reboot'
 #alias pwroff='sudo systemctl poweroff'
 

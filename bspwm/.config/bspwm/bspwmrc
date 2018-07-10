@@ -41,6 +41,8 @@ bspc rule -a gimp desktop=^4 follow=on state=floating
 bspc rule -a Gimp desktop=^4 follow=on state=floating
 bspc rule -a wine follow=on state=floating
 bspc rule -a Wine follow=on state=floating
+bspc rule -a Godot follow=on state=floating
+bspc rule -a Godot_Engine follow=on state=floating
 
 #focusborder.sh
 pkill autogap.sh
