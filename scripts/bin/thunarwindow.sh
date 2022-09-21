@@ -1,7 +1,9 @@
 #!/bin/bash
 found=false
 for win in `bspc query -N -d ^7`; do
-	if [ "`bspc query -T -n $win | jshon -e client -e instanceName`" == '"thunar"' ]; then
+	name=`bspc query -T -n $win | jshon -e client -e instanceName`
+	if [ "$name" == '"thunar"' ] || [ "$name" == '"Thunar"' ]; then
+		echo $win
 		found=true
 		bspc node -f "$win"
 		break

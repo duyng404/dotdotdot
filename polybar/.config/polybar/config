@@ -1,28 +1,33 @@
+[cc]
+include-file = /home/rei/.cache/wal/colors-polybar
+
 [colors]
-;background = ${xrdb:color0:#222}
-background = #99000000
-;foreground = ${xrdb:color7:#222}
-text = #fdfdfd
-faded = #777
-morefaded = #444
-highlight = #CB07B0
-highlightalpha = #99CB07B0
-secondary = #43E9F9
-#secondary = #37C3D6
-alert = #bd2c40
+background = ${cc.bg}
+faded = ${cc.faded}
+morefaded = ${cc.morefaded}
+;faded = #777
+;morefaded = #444
+text = ${xrdb:color7:#fdfdfd}
+highlight = ${xrdb:color1:#ff6600}
+secondary = ${xrdb:color4:#00ff00}
+alert = ${xrdb:color2:#bd2c40}
 
 [bar/baru]
 monitor = ${env:MONITOR}
 width = 100%
-height = 30
+height = 35
 offset-x = 0%
 fixed-center = true
+dpi = 96
 
-background = ${colors.background}
+background = ${cc.bg}
 foreground = ${colors.text}
 
 underline-size = 3
 underline-color = #eee
+
+border-top-size = 3
+border-top-color = ${colors.background}
 
 module-margin-left = 2
 module-margin-right = 2
@@ -34,14 +39,15 @@ padding-right = 4
 #font-2 = Wuncon Siji
 
 #font-1 = Noto Sans:pixelsize=10;0
-font-1 = "Futura Bk BT:pixelsize=10;0"
-font-2 = "IPAGothic:pixelsize=11:minspace=True:lang=ja;0"
-font-0 = "FontAwesome:size=8;0"
-font-3 = Wuncon Siji
 
-modules-left = mpd spotify
+font-0 = "FontAwesome:size=8;0"
+font-1 = "Avenir:style=Light:size=9;0"
+font-2 = "IPAGothic:pixelsize=10:minspace=True:lang=ja;0"
+#font-3 = Wuncon Siji
+
+modules-left = media
 modules-center = bspwm
-modules-right = cpu temperature volume battery date
+modules-right = cpu temperature volume battery date touchpad touchscreen caffeine screenlock
 
 #filesystem volume memory cpu battery temperature date powermenu
 
@@ -49,8 +55,9 @@ dim-value = 1.0
 
 tray-position = right
 tray-padding = 2
+tray-detached = false
 ;tray-transparent = true
-;tray-background = {color.background}
+;tray-background = ${color.background}
 
 wm-restack = bspwm
 
@@ -84,7 +91,7 @@ ramp-coreload-7 = █
 
 [module/temperature]
 type = internal/temperature
-hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input
 ; Available tags:
 ;   <label> (default)
 ;   <ramp>
@@ -99,14 +106,14 @@ format-warn = <ramp> <label-warn>
 ;   %temperature% (default, in °C)
 ;   %temperature-c%   (temperature, in °C)
 ;   %temperature-f%   (temperature, in °F)
-label = %temperature%
+label = %temperature-c%
 
 ; Available tokens:
 ;   %temperature% (default, in °C)
 ;   %temperature-c%   (temperature, in °C)
 ;   %temperature-f%   (temperature, in °F)
-label-warn = !!%temperature%
-label-warn-foreground = #f00
+label-warn = !!%temperature-c%
+label-warn-foreground = $f00
 
 ; Requires the <ramp> tag
 ; The icon selection will range from 0 to `warn-temperature`
@@ -114,7 +121,7 @@ label-warn-foreground = #f00
 ramp-0 = 
 ramp-1 = 
 ramp-2 = 
-ramp-foreground = #fff
+ramp-foreground = ${colors.text}
 
 [module/bspwm]
 type = internal/bspwm
@@ -182,11 +189,35 @@ label-song-ellipsis = true
 
 label-offline = "  MPD offline"
 
-[module/spotify]
+[module/media]
 type = custom/script
-exec = polybarspotify.sh
-interval = 1
-format = <label>
+exec = polybarmedia.sh
+tail = true
+click-left = kill -USR1 %pid%
+
+[module/screenlock]
+type = custom/script
+exec = togglelock.sh
+tail = true
+click-left = kill -USR1 %pid%
+
+[module/caffeine]
+type = custom/script
+exec = caff.sh
+tail = true
+click-left = kill -USR1 %pid%
+
+[module/touchpad]
+type = custom/script
+exec = toggletouchpad.sh
+tail = true
+click-left = kill -USR1 %pid%
+
+[module/touchscreen]
+type = custom/script
+exec = toggletouchscreen.sh
+tail = true
+click-left = kill -USR1 %pid%
 
 [module/date]
 type = internal/date
@@ -198,12 +229,14 @@ date-alt = " %m月 %d日"
 time = %I:%M %p
 time-alt = %I:%M %p
 
-format-prefix = 
+format-prefix = " "
 
 label = %date% %time%
 
 [module/volume]
-type = internal/volume
+type = internal/pulseaudio
+
+use-ui-max = true
 
 format-volume =  <label-volume>
 

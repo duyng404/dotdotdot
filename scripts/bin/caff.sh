@@ -2,18 +2,24 @@
 
 query_status () {
 	if [[ -n `xset q | grep "DPMS is Enabled"` ]]; then
-		echo "off"
+		echo 
 	else
-		echo "on"
+		echo 
 	fi
 }
 
-if [[ $1 == "-s" ]]; then
-	echo $(query_status)
-elif [[ $1 == "-t" ]]; then   # toggle the state
-	if [[ "$(query_status)" == "off" ]]; then
+toggle() {
+	if [[ "$(query_status)" == "" ]]; then
 		xset s 0 -dpms
 	else
 		xset s 600 +dpms
 	fi
-fi
+}
+
+trap "toggle" USR1
+
+while true; do
+	echo $(query_status)
+    sleep 60 &
+	wait
+done

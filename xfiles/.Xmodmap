@@ -1,7 +1,14 @@
-keycode 135 = Super_R NoSymbol Super_R
+! quick explanation:
+! swap functionalities of Home <-> PgUp, End <-> PgDwn -- because im used to this position
+! update: changed back for desktop configuration
+! windows key and CapsLock = Mod4
+! Shift + CapsLock = actual CapsLock
+keycode 107 = Super_R NoSymbol Super_R
 keycode 66 = Super_L Caps_Lock NoSymbol
-keycode 166 = Home XF86Back
-keycode 167 = End XF86Forward
+! keycode 112 = Home NoSymbol Home
+! keycode 117 = End NoSymbol End
+! keycode 110 = Prior NoSymbol Prior
+! keycode 115 = Next NoSymbol Next
 clear lock
 clear Mod4
 add Mod4 = Super_L Super_R

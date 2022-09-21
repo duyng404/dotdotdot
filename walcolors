@@ -1,16 +1,28 @@
-#0a0e13
-#CB07B0
-#870075
-#F765E3
-#0C8091
-#9C1EB6
-#F702D6
-#FFF9FE
-#0a0e13
-#CB07B0
-#870075
-#F765E3
-#0C8091
-#9C1EB6
-#F702D6
-#FFF9FE
+{
+    "wallpaper": "/home/rei/usr/wall/room.jpg",
+    "alpha": "90",
+
+    "special": {
+        "background": "#0a0e13",
+        "foreground": "#FFF9FE",
+        "cursor": "#FFF9FE"
+    },
+    "colors": {
+		"color0": "#0a0e13",
+		"color1": "#CB07B0",
+		"color2": "#870075",
+		"color3": "#F765E3",
+		"color4": "#0C8091",
+		"color5": "#9C1EB6",
+		"color6": "#F702D6",
+		"color7": "#FFF9FE",
+		"color8": "#0a0e13",
+		"color9": "#CB07B0",
+		"color10": "#870075",
+		"color11": "#F765E3",
+		"color12": "#0C8091",
+		"color13": "#9C1EB6",
+		"color14": "#F702D6",
+		"color15": "#FFF9FE"
+    }
+}

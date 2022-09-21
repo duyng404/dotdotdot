@@ -1,6 +1,36 @@
-#! /bin/bash
+#!/bin/bash
 
-bspc config border_width         4
+# This script set up everything about display.
+# When there's a need to refresh display/monitor/UI, simply run this script.
+
+#### Detect available output
+#connectedOutputs=$(xrandr | grep " connected" | sed -e "s/\([A-Z0-9]\+\) connected.*/\1/")
+#disconnectedOutputs=$(xrandr | grep " disconnected" | sed -e "s/\([A-Z0-9]\+\) disconnected.*/\1/")
+#prev=eDP1
+#for monitor in $connectedOutputs; do
+#	if [ $monitor == "LVDS1" ]; then
+#		xrandr --output $monitor --auto
+#		prev=$monitor
+#	else
+#		xrandr --output $monitor --auto --left-of $prev
+#		prev=$monitor
+#	fi
+#done
+#
+#for monitor in $disconnectedOutputs; do
+#	xrandr --output $monitor --off
+#	for bspwmmonitor in $(bspc query -M); do
+#		if [ $monitor == $bspwmmonitor ]; then
+#			bspc wm -r $monitor
+#		fi
+#	done
+#done
+
+. ~/.screenlayout/pepega2.sh
+
+#### bspwm config
+
+bspc config border_width         5
 
 bspc config borderless_monocle   false
 bspc config gapless_monocle      true
@@ -18,37 +48,65 @@ bspc config remove_disabled_monitors true
 bspc config remove_unplugged_monitors true
 bspc config merge_overlapping_monitors true
 
-workspaces_multimonitor.sh
+bspc config external_rules_command "$(which bspwmExternalRules.sh)"
 
-#bspc monitor LVDS1 -d 1 2 3 4 5 6
-#bspc monitor HDMI1 -d 7 8 9 10 11 12
+# Create workspaces on all monitors
+I=1
+for monitor in $(bspc query -M); do
+	bspc monitor $monitor \
+		-d $I/{1,2,3,4,5,6,7,8}
+	let I++
+done
 
-# colors
-bspc config normal_border_color "#262626"
-bspc config active_border_color "#CB07B0"
-bspc config focused_border_color "#CB07B0"
+# bspwm colors
+. "${HOME}/.cache/wal/colors.sh"
+bspc config normal_border_color "$color0"
+bspc config active_border_color "$color6"
+bspc config focused_border_color "$color2"
 bspc config presel_feedback_color "#888888"
 
+# bspwm rules
 bspc rule -a mpv desktop=focused follow=on state=floating
-bspc rule -a gpicview desktop=focused follow=on state=floating
-bspc rule -a Gpicview desktop=focused follow=on state=floating
-bspc rule -a tk follow=off state=floating
-bspc rule -a Tk follow=off state=floating
-bspc rule -a anki follow=on state=floating
-bspc rule -a Anki follow=on state=floating
-bspc rule -a Steam desktop=^4 follow=on state=floating
-bspc rule -a gimp desktop=^4 follow=on state=floating
-bspc rule -a Gimp desktop=^4 follow=on state=floating
-bspc rule -a wine follow=on state=floating
-bspc rule -a Wine follow=on state=floating
-bspc rule -a Godot follow=on state=floating
-bspc rule -a Godot_Engine follow=on state=floating
+bspc rule -a Gpicview:gpicview desktop=focused follow=on state=floating
+bspc rule -a Tk:tk follow=off state=floating
+bspc rule -a Anki:anki follow=on state=floating
+bspc rule -a Steam:steam desktop=^1 follow=on state=floating
+bspc rule -a Gimp:gimp desktop=^4 follow=on state=floating
+bspc rule -a Wine:wine follow=on state=floating
+bspc rule -a Godot:godot follow=on state=floating
+bspc rule -a Godot_Engine:godot_engine follow=on state=floating
+bspc rule -a meh:Meh follow=on state=floating
+bspc rule -a "Google Play Music Desktop Player":"google play music desktop player" desktop=^8 follow=off state=floating
+bspc rule -a Spotify:spotify desktop=^8 follow=off state=floating
 
-#focusborder.sh
+# restore wal colors
+wal -R
+
+# termite config - change the background
+cp ~/.cache/wal/colors-termite ~/.config/termite/config
+opacity=`cat ~/.cache/wal/colors.json | jshon -e alpha -u`
+rgbcolor=`sed -n -e '/^background =/p' ~/.config/termite/config`
+rgbcolor=${rgbcolor:12}
+echo $rgbcolor
+echo ${rgbcolor:0:5}
+if [ ${rgbcolor:0:5} != "rgba" ]; then
+	final=`hextorgb.py $rgbcolor 0.$opacity`
+	echo $final
+	sed -i '/^background =/c\'"$final" ~/.config/termite/config
+fi
+
+# autogap script
 pkill autogap.sh
 autogap.sh &
+
+# merge in keyboard config
 usermodmap=$HOME/.Xmodmap
 if [ -f "$usermodmap" ]; then
     xmodmap "$usermodmap"
 fi
+
+# launch / relaunch compton
+compton &
+
+# launch / relaunch polybar
 ~/.config/polybar/launch.sh &
