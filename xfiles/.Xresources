@@ -1,30 +1,37 @@
-! terminal colors ----------------------------------------------
-#include ".Xresources.d/numixdark"
-
 ! scrollbar style - rxvt (default), plain (most compact), next, xterm
 ! URxvt.scrollstyle:plain
-URxvt.scrollBar: false 
+URxvt.scrollBar: false
+
+! dpi ---
+Xft.dpi: 96
+*.dpi: 96
+
+! hinting
+Xft*antialias: true
+Xft*hinting: 1
 
 ! URxvt ---------------------------------
 URxvt.depth: 32
-URxvt.background: [85]#000000
 ! URxvt.letterSpace:0
 URxvt.lineSpace: 2
 URxvt.internalBorder:10
-!URxvt.font: -gohu-gohufont-medium-r-*-*-14-*-*-*-*-*-iso10646-1
-!URxvt.boldFont: -gohu-gohufont-bold-r-*-*-14-*-*-*-*-*-iso10646-1
-URxvt.font: -*-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-*,\
--*-gothic-medium-r-*-*-12-*-*-*-*-*-jisx0208.1990-*,\
--wuncon-siji-medium-r-normal--10-100-75-75-c-80-iso10646-1
-URxvt.boldFont: -*-terminus-bold-*-*-*-12-*-*-*-*-*-iso10646-*,\
--*-gothic-bold-r-*-*-12-*-*-*-*-*-jisx0208.1990-*,\
--wuncon-siji-medium-r-normal--10-100-75-75-c-80-iso10646-1
-!URxvt.font: -*-ttyp0-medium-r-normal-*-16-*-*-*-*-*-iso10646-*
+
+URxvt.buffered: false
+
 !URxvt.font: xft:Ubuntu Mono:size=12
 !URxvt.boldFont: xft:Ubuntu Mono:bold:size=12
 !URxvt.italicFont: xft:Ubuntu Mono:italic:size=12
+
+!URxvt.font: xft:mononoki:size=10
+!URxvt.boldFont: xft:mononoki:bold:size=10
+!URxvt.italicFont: xft:mononoki:italic:size=10
+
+URxvt.font: xft:Monaco for Powerline:size=9
+URxvt.boldFont: xft:Monaco for Powerline:bold:size=9
+URxvt.italicFont: xft:Monaco for Powerline:italic:size=9
+
 URxvt.inheritPixmap:false
-URxvt.xftAntialias:true
+URxvt.xftAntialias:false
 
 URxvt.inputMethod: ibus
 URxvt.preeditType: OverTheSpot
@@ -44,21 +51,11 @@ URxvt.tabbed.autohide: yes
 URxvt.tabbed.newbutton: no
 
 ! Change font on the fly
-URxvt.keysym.C-minus: command:\033]710;-*-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-*,\
--*-gothic-medium-r-*-*-12-*-*-*-*-*-jisx0208.1990-*\007\
-\033]711;-*-terminus-bold-*-*-*-12-*-*-*-*-*-iso10646-*,\
--*-gothic-bold-r-*-*-12-*-*-*-*-*-jisx0208.1990-*\007
-URxvt.keysym.C-equal: command:\033]710;-*-terminus-medium-*-*-*-14-*-*-*-*-*-iso10646-*,\
--*-gothic-medium-r-*-*-14-*-*-*-*-*-jisx0208.1990-*\007\
-\033]711;-*-terminus-bold-*-*-*-14-*-*-*-*-*-iso10646-*,\
--*-gothic-bold-r-*-*-14-*-*-*-*-*-jisx0208.1990-*\007
+URxvt.keysym.C-minus: command:\033]710;-*-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-*
+URxvt.keysym.C-equal: command:\033]710;-*-terminus-medium-*-*-*-14-*-*-*-*-*-iso10646-*
 URxvt.keysym.F12: command:\033]710;xft:monofur for Powerline:size=12:antialias=true,\
 xft:Droid Sans Mono:size=12:antialias=true,\
 xft:IPAGothic:style=Regular:size=12:minspace=True:lang=ja:antialias=true\007,\
 \033]711;xft:monofur for Powerline:style=Bold:size=12:antialias=true,\
 xft:Droid Sans Mono:style=Bold:size=12:antialias=true,\
 xft:IPAGothic:style=Bold:size=12:minspace=True:lang=ja:antialias=true\007
-!URxvt.keysym.C-F12: command:\033]710;xft:Droid Sans Mono:size=12:antialias=true,\
-!xft:IPAGothic:style=Regular:size=12:minspace=True:lang=ja:antialias=true\007,\
-!\033]711;xft:Droid Sans Mono:style=Bold:size=12:antialias=true,\
-!xft:IPAGothic:style=Bold:size=12:minspace=True:lang=ja:antialias=true\007

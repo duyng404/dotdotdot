@@ -1,3 +1,3 @@
-#path
+# path
 PATH=~/bin/:$PATH
-PATH=~/bin/panel:$PATH
+PATH=~/code/go/bin/:$PATH

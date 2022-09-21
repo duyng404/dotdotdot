@@ -26,11 +26,13 @@ nofg='\[\e[0m\]'
 source ~/.git-prompt.sh
 export GIT_PS1_SHOWDIRTYSTATE=1
 # '\$(__git_ps1)' adds git-related stuff
-export PS1="${fg[06]}\u${fg[12]}\$(__git_ps1) ${fg[3]}\W$nofg "
+export PS1="${fg[06]}\u${fg[03]}\$(__git_ps1) ${fg[01]}\W$nofg "
 
 # WAL COLORS ----------------------
 # Import colorscheme from 'wal'
-(wal -r &)
+(cat ~/.cache/wal/sequences &)
+# uncomment following line for tty terms
+# source ~/.cache/wal/colors-tty.sh
 
 # AUTOCOMPLETE ---------------------
 _codeComplete()
@@ -39,17 +41,20 @@ _codeComplete()
     COMPREPLY=( $(compgen -W "$(find bin/ -name '*.class' -exec basename {} .class \;)" -- $cur) )
 }
 
-# beets completion
-#eval "$(beet completion)"
-
-#complete -F _codeComplete allrun.sh
-#complete -F _codeComplete run.sh
+# mkcdir --------------------
+mkcdir ()
+{
+    mkdir -p -- "$1" &&
+      cd -P -- "$1"
+}
 
 # ALIASES ------------------------
-alias ls="ls --color"
 alias la="ls -la"
+alias ls="ls --color"
 alias dkm='sudo $(history -p !!)'
-alias firefox='env GTK_THEME=Arc firefox'
+alias ..="cd .."
+alias reload="source ~/.bashrc"
+#alias firefox='env GTK_THEME=Arc firefox'
 #alias reboot='sudo systemctl reboot'
 #alias pwroff='sudo systemctl poweroff'
 
@@ -58,4 +63,8 @@ alias firefox='env GTK_THEME=Arc firefox'
 # export MPD_HOST=127.0.0.1
 # export MPD_PORT=6600
 # normal mpd
-export MPD_HOST=~/.mpd/socket
+#export MPD_HOST=~/.mpd/socket
+
+# GO PATH ------------------
+# (other paths are in ~/.profile)
+export GOPATH="$HOME/code/go"

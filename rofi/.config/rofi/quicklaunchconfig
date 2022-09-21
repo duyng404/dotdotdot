@@ -1,18 +1,17 @@
 rofi.font: Futura LT Book 11
 rofi.boldFont: Futura LT Heavy 11
 rofi.bw: 4
-rofi.padding: 0
+rofi.location: 4
+rofi.xoffset: -200
 rofi.lines: 10
-rofi.width: 30
+rofi.columns: 4
+rofi.width: 50
 rofi.show-match: false
-rofi.hide-scrollbar: true
+rofi.scroll-method: 1
+rofi.hide-scrollbar: false
 
 rofi.color-enabled: true
-# Dark theme.
-rofi.theme: ~/.cache/wal/colors-rofi-dark.rasi
-
-# Light theme.
-#rofi.theme: ~/.cache/wal/colors-rofi-light.rasi
+rofi.theme: ~/.cache/wal/colors-rofi-quicklaunch.rasi
 
 !rofi.color-window: argb:e50a0e13, #cb07b0, #00870075
 !rofi.color-normal: argb:00222222, #fff9fe, argb:00222222, #cb07b0, #fff9fe

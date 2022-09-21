@@ -31,6 +31,15 @@ super + v
         bspc node $win -d $(bspc query -D -d); \
     done
 
+# insert receptacle, or clear receptacles on current desktop
+super + {_,shift} + r
+    insert={true,false}; \
+    $insert && bspc node -i || \
+    for win in `bspc query -N -n .leaf.!window`; do bspc node $win -k ; done;
+
+super + d
+	bspc node -n $(bspc query -N -n .leaf.\!window.local)
+
 # focus or move the window in the given direction
 super + {_,alt + }{h,j,k,l}
 	bspc config pointer_follows_focus true; \
@@ -42,7 +51,7 @@ super + {_,alt + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
 
 # cycle through desktop
-super + {Prior,Next}
+super + {Home,End}
 	bspc desktop -f {prev,next}
 super + {bracketleft,bracketright}
 	bspc desktop -f {prev,next}
@@ -90,6 +99,9 @@ super + {shift + i,f}
 super + i
     bspc query -N -n focused.tiled && state=floating || state=tiled; \
     bspc node -t $state
+
+super + s
+	bspc node -g sticky
 
 # focus the previously focused window
 alt + Tab
@@ -182,7 +194,7 @@ XF86MonBrightnessDown
 	xbacklight -dec 5
 
 # Lock screen
-XF86Launch1
+XF86LaunchA
 	i3lock.sh
 
 ############################################
@@ -195,49 +207,59 @@ super + w
 
 # terminal emulator
 super + Return
-	urxvt
+	alacritty
+	#termite
+	#urxvt
 
 # floating terminal emulator
 super + apostrophe
-	bspc rule -a URxvt -o follow=on state=floating && urxvt
+	bspc rule -a Alacritty:Alacritty -o follow=on state=floating && alacritty
 
 # program launcher
 super + space
 	rofi -show run
-	#dmenu_run
 
 # window switcher
 super + ctrl + space
 	rofi -show window
+
+# rofibin apps
+super + a
+	quicklaunch.sh
 
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
 
 #screenshot
-Print
+super + Delete
 	maim.sh
 
-shift + Print
+super + shift + Delete
 	maim.sh -s
 
 # file manager
 super + t
 	thunarwindow.sh
+
 super + alt + t
 	Thunar
 
-# music player
+# music desktop
 super + e
-	ncmpwindow.sh
+	bspc desktop ^8 -f
 
 # auto press right
 #super + F11
 #	autopressright.sh &
-
+#
 #super + F10
 #	pkill autopress
 
-# toggle scratchpad
-#super + p
-#	scratch
+# toggle touchscreen
+super + p
+	toggletouchscreen.sh toggle
+
+# toggle touchpad
+super + shift + p
+	toggletouchpad.sh toggle
