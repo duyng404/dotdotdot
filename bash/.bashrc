@@ -1,8 +1,17 @@
-# sourcing .profile
-if [ -r ~/.profile ]; then . ~/.profile; fi
+# WAL COLORS ----------------------
+# Import colorscheme from 'wal'
+cat ~/.cache/wal/sequences
 
 # sourcing ubuntu's default bashrc
 if [ -r ~/.oldbashrc ]; then . ~/.oldbashrc; fi
+
+# aliases
+if [ -f ~/.aliases ]; then
+    . ~/.aliases
+fi
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
 
 # EZ COLOR ------------------------
 # bg is non-bold colors
@@ -26,36 +35,16 @@ nofg='\[\e[0m\]'
 source ~/.git-prompt.sh
 export GIT_PS1_SHOWDIRTYSTATE=1
 # '\$(__git_ps1)' adds git-related stuff
-export PS1="${fg[06]}\u${fg[12]}\$(__git_ps1) ${fg[3]}\W$nofg "
+export PS1="${debian_chroot:+($debian_chroot)}${fg[06]}\u${fg[03]}\$(__git_ps1) ${fg[01]}\W$nofg "
 
-# WAL COLORS ----------------------
-# Import colorscheme from 'wal'
-(wal -r &)
-
-# AUTOCOMPLETE ---------------------
-_codeComplete()
-{
-    local cur=${COMP_WORDS[COMP_CWORD]}
-    COMPREPLY=( $(compgen -W "$(find bin/ -name '*.class' -exec basename {} .class \;)" -- $cur) )
-}
-
-# beets completion
-#eval "$(beet completion)"
-
-#complete -F _codeComplete allrun.sh
-#complete -F _codeComplete run.sh
-
-# ALIASES ------------------------
-alias ls="ls --color"
-alias la="ls -la"
-alias dkm='sudo $(history -p !!)'
-alias firefox='env GTK_THEME=Arc firefox'
-#alias reboot='sudo systemctl reboot'
-#alias pwroff='sudo systemctl poweroff'
-
-# MPD HOST ------------------------
-# when use mopidy
-# export MPD_HOST=127.0.0.1
-# export MPD_PORT=6600
-# normal mpd
-export MPD_HOST=~/.mpd/socket
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export DOCKER_BUILDKIT=1
+export PYENV_ROOT="$HOME/.pyenv"
+PATH="$HOME/.pyenv/bin:$PATH"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+export PATH="$HOME/.local/bin:$PATH"
+export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring

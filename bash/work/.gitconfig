@@ -1,12 +1,9 @@
 [user]
 	name = Duy Nguyen
-	email = 4320964+duyng404@users.noreply.github.com
-[includeIf "gitdir:~/work/"]
-	path = ~/work/.gitconfig
-[credential]
-	helper = cache --timeout=3600
+	email = duy.nguyen@affinda.com
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+

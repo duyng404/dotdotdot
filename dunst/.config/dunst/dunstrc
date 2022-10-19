@@ -1,5 +1,5 @@
 [global]
-    font = Futura Bk BT 12
+    font = "CaskaydiaCove NF" 10
 
     # Possible values are:
     # full: Allow a small subset of html markup in notifications:
@@ -33,7 +33,7 @@
     #   %I  iconname (without its path)
     #   %p  progress value if set ([  0%] to [100%]) or nothing
     # Markup is allowed
-    format = "<b>%p</b>%s\n%b"
+    format = "<span size='smaller' color='#777' line_height='1.25'>%a</span>\n<b>%s</b>\n%b"
 
     # Sort messages by urgency.
     sort = yes
@@ -43,7 +43,7 @@
 
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
-    alignment = right
+    alignment = left
 
     # The frequency with which text that is longer than the notification
     # window allows bounces back and forth.
@@ -76,7 +76,7 @@
     # the top and down respectively.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "500x5-20+40"
+    geometry = "400x0-20-20"
 
     # Define the title of the windows spawned by dunst
     title = Dunst
@@ -96,7 +96,7 @@
     # Don't remove messages, if the user is idle (no mouse or keyboard input)
     # for longer than idle_threshold seconds.
     # Set to 0 to disable.
-    idle_threshold = 120
+    idle_threshold = 30
 
     # Which monitor should the notifications be displayed on.
     monitor = 0
@@ -112,7 +112,7 @@
     #
     # If this option is set to mouse or keyboard, the monitor option
     # will be ignored.
-    follow = mouse
+    follow = none
 
     # Merge multiple notifications with the same content
     stack_duplicates = true
@@ -145,10 +145,10 @@
     separator_height = 2
 
     # Padding between text and separator.
-    padding = 8
+    padding = 12
 
     # Horizontal padding.
-    horizontal_padding = 10
+    horizontal_padding = 12
 
     # Define a color for the separator.
     # possible values are:
@@ -170,13 +170,13 @@
     browser = /usr/bin/firefox -new-tab
 
     # Align icons left/right/off
-    icon_position = off
+    icon_position = left
 
     # Scale larger icons down to this size, set to 0 to disable
-    max_icon_size = 128
+    max_icon_size = 96
 
     # Paths to default icons.
-    icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+    icon_folders = /usr/share/icons/Adwaita/16x16/status/:/usr/share/icons/Adwaita/16x16/devices/:/usr/share/icons/Adwaita/16x16/legacy/
 
     # Always run rule-defined scripts, even if the notification is suppressed
     always_run_script = true
@@ -189,8 +189,8 @@
     per_monitor_dpi = false
 
 [frame]
-    width = 0
-    color = "#43E9F9"
+    width = 2
+    color = "$color3"
 
 [shortcuts]
 
@@ -200,19 +200,19 @@
     # Xev might be helpful to find names for keys.
 
     # Close notification.
-    close = ctrl+space
+    # close = ctrl+space
 
     # Close all notifications.
-    close_all = ctrl+shift+space
+    # close_all = ctrl+shift+space
 
     # Redisplay last message(s).
     # On the US keyboard layout "grave" is normally above TAB and left
     # of "1". Make sure this key actually exists on your keyboard layout,
     # e.g. check output of 'xmodmap -pke'
-    history = ctrl+grave
+    # history = ctrl+grave
 
     # Context menu.
-    context = ctrl+shift+period
+    # context = ctrl+shift+period
 
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.

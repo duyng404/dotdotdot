@@ -1,12 +1,21 @@
 ! ------------------------------------------------------------------------------
 ! ROFI Color theme
 ! ------------------------------------------------------------------------------
-rofi.font: Futura Bk BT 12
-rofi.bw: 2
-rofi.padding: 2
-rofi.lines: 7
-rofi.width: 34
+rofi.font: Caskaydia Cove 12
+rofi.bw: 4
+rofi.padding: 0
+rofi.lines: 10
+rofi.width: 30
+rofi.show-match: false
+rofi.hide-scrollbar: true
 rofi.color-enabled: true
+
+# Dark theme.
+rofi.theme: ~/.cache/wal/colors-rofi-dark.rasi
+
+# Light theme.
+#rofi.theme: ~/.cache/wal/colors-rofi-light.rasi
+
 rofi.color-window: argb:e50a0e13, #cb07b0, #00870075
 rofi.color-normal: argb:00222222, #fff9fe, argb:00222222, #cb07b0, #fff9fe
 rofi.color-active: argb:000a0e13, #fff9fe, argb:000a0e13, #cb07b0, #fff9fe

@@ -1,38 +1,6 @@
 # dotdotdot
 
-Ricing (n) - to mod / to make improvements to a system that greatly enhances the look of the interface as well as the user experience.
-
-## What is this ??
-
-Ricing/Customizing is my hobby, and Arch Linux is my OS of choice. This is my repository of dotfiles settings that makes up my current UI setup.
-
-For those who doesn't know what Ricing means, it's basically modding your own OS with custom themes, custom colors, custom programs, taskbar, etc, that makes it behaves exactly like how you want it, while looking gorgeous and hacker-ish without compromising any of its functionality.
-
-## FAQ
-
-####Q: Wh ...... What?
-A: Linux magic
-
-####Q: How?
-A: Mostly google and reddit (/r/unixporn - check it out it's amazing)
-
-####Q: B .... but .... HOW???????
-A: I spent a shameful amount of time to mod this. More than I would like to admit. To a point that I would never want to do it again even if I want to. lol. I started slowly, first off with Ubuntu, then moving on to Linux Mint, then finally Arch Linux. The good part is that I learnt a ton of Linux knowledge along the way. You gotta be familiar with how Desktop Environments and Window Managers works. You gotta learn how to use vim (because editors on console is always the best and is your only choice when you screw up your whole OS). And you gotta be at least proficient in bash scripting.
-
-####Q: Why?
-A: Real hackers have pretty desktop (lel)
-
-####Q: What OS is this?
-A: Arch Linux. It's a pretty cool Linux distribution for cool people.
-
-####Q: Why are fonts so tiny?
-A: My screen is tiny so I have to make the most out of it
-
-####Q: Code??
-A: If you are also an expert in the linux ricing scene, here: [https://github.com/ferb96/dotdotdot](https://github.com/ferb96/dotdotdot)
-
-####Q: This is so difficult. I don't know where to start. Where do I get started?
-A: My best advice is to check out /r/unixporn, note some good mod, and ask how they got it. They are usually more than welcome to help you.
+Info below are kinda out of date. This whole package is kinda out of date.
 
 ## System info
 

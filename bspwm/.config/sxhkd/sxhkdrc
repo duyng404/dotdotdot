@@ -2,8 +2,12 @@
 ##################################################
 
 # quit bspwm normally
-super + ctrl + BackSpace
+ctrl + alt + BackSpace
 	bspwmclose.sh
+
+# init apps
+ctrl + alt + i
+	initworkspace.sh
 
 # Close window
 super + q
@@ -79,17 +83,26 @@ super + n
 	bspc config pointer_follows_focus false;
 
 # monocle desktop
-super + o
+super + f
 	bspc desktop focused -l next
 
 # set the window state
-super + {shift + i,f}
-	bspc node -t {pseudo_tiled,fullscreen}
+super + shift + i
+	bspc node -t pseudo_tiled
 
 # toggle float
 super + i
     bspc query -N -n focused.tiled && state=floating || state=tiled; \
     bspc node -t $state
+
+# toggle fullscreen
+super + o
+    bspc query -N -n focused.tiled && state=fullscreen || state=tiled; \
+    bspc node -t $state
+
+# toggle sticky
+super + s
+	bspc node -g sticky
 
 # focus the previously focused window
 alt + Tab
@@ -195,7 +208,13 @@ super + w
 
 # terminal emulator
 super + Return
-	urxvt
+	alacritty
+
+ctrl + alt + t
+	xterm
+
+ctrl + shift + alt + t
+	alacritty
 
 # floating terminal emulator
 super + apostrophe
@@ -204,7 +223,6 @@ super + apostrophe
 # program launcher
 super + space
 	rofi -show run
-	#dmenu_run
 
 # window switcher
 super + ctrl + space
@@ -216,16 +234,17 @@ super + Escape
 
 #screenshot
 Print
-	maim.sh
+	gnome-screenshot -a
 
 shift + Print
-	maim.sh -s
+	gnome-screenshot -i
+
+ctrl + alt + 4
+	gnome-screenshot -a
 
 # file manager
 super + t
-	thunarwindow.sh
-super + alt + t
-	Thunar
+	nautilus
 
 # music player
 super + e

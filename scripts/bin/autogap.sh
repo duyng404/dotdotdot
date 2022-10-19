@@ -1,19 +1,19 @@
 #!/bin/sh
-gapone=35
-gaptwo=25
-gapthree=15
+gapone=10
+gaptwo=8
+gapthree=5
 
-padone=30
-padtwo=5
+padone=0
+padtwo=0
 padthree=0
 
 bspc subscribe report | while read line; do
-	noofwin=`bspc query -N -d | wc -l`
-	if [ "$noofwin" -lt "3" ]; then
+	noofwin=`bspc query -N -d -n .leaf.tiled | wc -l`
+	if [ "$noofwin" -lt "2" ]; then
 		bspc config -d focused window_gap $gapone;
 		bspc config -d focused right_padding $padone;
 		bspc config -d focused left_padding $padone;
-	elif [ "$noofwin" -lt "5" ]; then
+	elif [ "$noofwin" -lt "3" ]; then
 		bspc config -d focused window_gap $gaptwo;
 		bspc config -d focused right_padding $padtwo;
 		bspc config -d focused left_padding $padtwo;

@@ -1,166 +1,174 @@
 [colors]
-;background = ${xrdb:color0:#222}
-background = #99000000
-;foreground = ${xrdb:color7:#222}
-text = #fdfdfd
+background = ${xrdb:color0:#222}
+;background = #99000000
+foreground = ${xrdb:color7:#222}
+foreground-alt = ${xrdb:color7:#222}
+text = ${xrdb:color7:#222}
 faded = #777
 morefaded = #444
-highlight = #CB07B0
-highlightalpha = #99CB07B0
-secondary = #43E9F9
-#secondary = #37C3D6
-alert = #bd2c40
+highlight = ${xrdb:color5:#222}
+secondary = ${xrdb:color3:#222}
+alert = ${xrdb:color4:#222}
+alphazero = #00000000
 
-[bar/baru]
-monitor = ${env:MONITOR}
+color0 = ${xrdb:color0:#222}
+color1 = ${xrdb:color1:#222}
+color2 = ${xrdb:color2:#222}
+color3 = ${xrdb:color3:#222}
+color4 = ${xrdb:color4:#222}
+color5 = ${xrdb:color5:#222}
+color6 = ${xrdb:color6:#222}
+color7 = ${xrdb:color7:#222}
+color8 = ${xrdb:color8:#222}
+color9 = ${xrdb:color9:#222}
+color10 = ${xrdb:color10:#222}
+color11 = ${xrdb:color11:#222}
+color12 = ${xrdb:color12:#222}
+color13 = ${xrdb:color13:#222}
+color14 = ${xrdb:color14:#222}
+color15 = ${xrdb:color15:#222}
+
+[global/wm]
+margin-top = 3
+margin-bottom = 3
+
+[bar/main]
+monitor = HDMI-A-0
 width = 100%
 height = 30
-offset-x = 0%
+offset-y = 0
 fixed-center = true
 
-background = ${colors.background}
+background = ${colors.alphazero}
 foreground = ${colors.text}
 
-underline-size = 3
-underline-color = #eee
+module-margin-left = 1
+; module-margin-right = 1
 
-module-margin-left = 2
-module-margin-right = 2
+font-0 = Caskaydia Cove:style=Book:size=11;2
+; font-0 = Agave:style=Regular:size=12
+font-1 = Noto Sans CJK JP:style=Regular:size=10;2
+font-2 = Noto Sans CJK HK:style=Regular:size=10;2
+font-3 = Noto Sans CJK KR:style=Regular:size=10;2
+font-4 = Ubuntu Nerd Font:style=Regular:size=10;2
 
-padding-right = 4
-
-#font-0 = xos4terminus
-#font-1 = IPAGothic:style=Regular:pixelsize=9:minspace=True:lang=ja
-#font-2 = Wuncon Siji
-
-#font-1 = Noto Sans:pixelsize=10;0
-font-1 = "Futura Bk BT:pixelsize=10;0"
-font-2 = "IPAGothic:pixelsize=11:minspace=True:lang=ja;0"
-font-0 = "FontAwesome:size=8;0"
-font-3 = Wuncon Siji
-
-modules-left = mpd spotify
+modules-left = wintitle
 modules-center = bspwm
-modules-right = cpu temperature volume battery date
-
+modules-right = cpu memory pulseaudio date caff powermenu
 #filesystem volume memory cpu battery temperature date powermenu
 
 dim-value = 1.0
-
 tray-position = right
 tray-padding = 2
-;tray-transparent = true
-;tray-background = {color.background}
-
 wm-restack = bspwm
 
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
+[bar/sub]
+monitor = DVI-D-0
+width = 100%
+height = 30
+offset-y = 0
+fixed-center = true
 
-[module/cpu]
-type = internal/cpu
+background = ${colors.alphazero}
+foreground = ${colors.text}
 
-; Available tags:
-;   <label> (default)
-;   <bar-load>
-;   <ramp-load>
-;   <ramp-coreload>
-format = <label>
+module-margin-left = 1
 
-; Available tokens:
-;   %percentage% (default) - total cpu load
-;   %percentage-cores% - load percentage for each core
-;   %percentage-core[1-9]% - load percentage for specific core
-label =  %percentage%%
+font-0 = Caskaydia Cove:style=Book:size=11;2
+; font-0 = Agave:style=Regular:size=12
+font-1 = Noto Sans CJK JP:style=Regular:size=10;2
+font-2 = Noto Sans CJK HK:style=Regular:size=10;2
+font-3 = Noto Sans CJK KR:style=Regular:size=10;2
+font-4 = Ubuntu Nerd Font:style=Regular:size=10;2
 
-ramp-coreload-0 = ▁
-ramp-coreload-1 = ▂
-ramp-coreload-2 = ▃
-ramp-coreload-3 = ▄
-ramp-coreload-4 = ▅
-ramp-coreload-5 = ▆
-ramp-coreload-6 = ▇
-ramp-coreload-7 = █
+modules-left = spotify
+#modules-center = 
+modules-right = bspwm
 
-[module/temperature]
-type = internal/temperature
-hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input
-; Available tags:
-;   <label> (default)
-;   <ramp>
-format = <ramp> <label>
+dim-value = 1.0
 
-; Available tags:
-;   <label-warn> (default)
-;   <ramp>
-format-warn = <ramp> <label-warn>
-
-; Available tokens:
-;   %temperature% (default, in °C)
-;   %temperature-c%   (temperature, in °C)
-;   %temperature-f%   (temperature, in °F)
-label = %temperature%
-
-; Available tokens:
-;   %temperature% (default, in °C)
-;   %temperature-c%   (temperature, in °C)
-;   %temperature-f%   (temperature, in °F)
-label-warn = !!%temperature%
-label-warn-foreground = #f00
-
-; Requires the <ramp> tag
-; The icon selection will range from 0 to `warn-temperature`
-; with the current temperature as index.
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-foreground = #fff
+tray-position = none
+wm-restack = bspwm
 
 [module/bspwm]
 type = internal/bspwm
 
-ws-icon-0 = 1/1;
-ws-icon-1 = 1/2;
-ws-icon-2 = 1/3;
-ws-icon-3 = 1/4;
-ws-icon-4 = 1/5;
-ws-icon-5 = 1/6;
-ws-icon-6 = 1/7;
-ws-icon-7 = 1/8;
-ws-icon-8 = 2/1;
-ws-icon-9 = 2/2;
-ws-icon-10 = 2/3;
-ws-icon-11 = 2/4;
-ws-icon-12 = 2/5;
-ws-icon-13 = 2/6;
-ws-icon-14 = 2/7;
-ws-icon-15 = 2/8;
+#pin-workspaces = 
 
-format = <label-monitor> <label-state>
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 0;
 
-label-monitor = %name%
-label-monitor-foreground = ${colors.faded}
+format = <label-state> <label-mode>
 
-label-focused = %index% %icon%
-label-focused-foreground = ${colors.highlight}
-label-focused-background = ${colors.background}
+label-focused = %name% %icon%
+label-focused-foreground = ${colors.color0}
+label-focused-background = ${colors.color5}
 label-focused-underline= ${colors.highlight}
 label-focused-padding-left = 1
-label-focused-padding-right = 2
+label-focused-padding-right = 1
 
-label-occupied = %index% %icon%
+label-occupied = %name% %icon%
 label-occupied-padding-left = 1
-label-occupied-padding-right = 2
+label-occupied-padding-right = 1
+label-occupied-background = ${colors.color1}
 
-label-urgent = %index% %icon%
+label-urgent = %name% %icon%
 label-urgent-background = ${colors.alert}
 label-urgent-padding-left = 1
-label-urgent-padding-right = 2
+label-urgent-padding-right = 1
 
-label-empty = %index% %icon%
+label-empty = %name% %icon%
 label-empty-foreground = ${colors.morefaded}
+label-empty-background = ${colors.background}
 label-empty-padding-left  = 1
-label-empty-padding-right = 2
+label-empty-padding-right = 1
+
+label-separator = " "
+
+label-monocle = ""
+label-tiled = "类"
+label-fullscreen = ""
+label-floating = "缾"
+label-mode-foreground = ${colors.morefaded}
+label-mode-background = ${colors.background}
+label-mode-padding-left  = 1
+label-mode-padding-right = 1
+
+[module/cpu]
+type = internal/cpu
+
+format = <label>
+format-background = ${colors.color10}
+format-padding = 1
+
+label =  %percentage%%
+
+[module/memory]
+type = internal/memory
+interval = 3
+
+format =  <label>
+format-background = ${colors.color11}
+format-padding = 1
+
+label = %percentage_used%% %percentage_swap_used%%
+
+[module/wintitle]
+type = internal/xwindow
+format = <label>
+format-foreground = ${color.text}
+format-padding = 2
+label-maxlen = 50
+label-empty = (* ^ ω ^)
+label-empty-foreground = ${colors.faded}
 
 [module/mpd]
 type = internal/mpd
@@ -187,6 +195,17 @@ type = custom/script
 exec = polybarspotify.sh
 interval = 1
 format = <label>
+format-padding = 0
+format-background = ${colors.background}
+
+[module/caff]
+type = custom/script
+exec = "polybarcaff.sh -s"
+interval = 0
+tail = true
+format = <label>
+format-padding = 0
+format-background = ${colors.background}
 
 [module/date]
 type = internal/date
@@ -199,86 +218,65 @@ time = %I:%M %p
 time-alt = %I:%M %p
 
 format-prefix = 
+format-background = ${colors.color14}
+format-foreground = ${colors.color0}
+format-padding = 1
 
 label = %date% %time%
 
-[module/volume]
-type = internal/volume
+[module/pulseaudio]
+type = internal/pulseaudio
 
+sink = alsa_output.usb-PreSonus_AudioBox_USB_96_000000000000-00.analog-stereo
+use-ui-max = true
+interval = 5
+
+format-muted = <label-muted>
 format-volume =  <label-volume>
+format-volume-background = ${colors.color9}
+format-volume-padding = 1
 
-format-muted-prefix = " "
-format-muted-foreground = ${colors.text}
-label-muted = ---
-
-[module/battery]
-type = internal/battery
-battery = BAT0
-adapter = AC
-full-at = 95
-
-format-charging = <animation-charging> <label-charging>
-
-format-discharging = <ramp-capacity> <label-discharging>
-
-format-full-prefix = " "
-
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
-
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
-animation-charging-framerate = 1000
+label-muted-foreground = ${colors.text}
+label-muted-background = ${colors.color10}
+label-muted = 婢 
+label-volume = %percentage%%
 
 [module/powermenu]
 type = custom/menu
 
 format-spacing = 1
+format-padding = 1
+format-background = ${colors.background}
 
 label-open = 
-label-open-foreground = ${colors.faded}
+label-open-foreground = ${colors.text}
 label-close =  cancel
-label-close-foreground = ${colors.highlight}
+label-close-foreground = ${colors.faded}
 label-separator = |
 
 menu-0-0 = reboot
-menu-0-0-exec = menu-open-1
-menu-0-1 = power off
-menu-0-1-exec = menu-open-2
+menu-0-0-exec = #powermenu.open.1
+menu-0-1 = shutdown
+menu-0-1-exec = #powermenu.open.2
+menu-0-2 = logout
+menu-0-2-exec = #powermenu.open.3
 
-menu-1-0 = cancel
-menu-1-0-exec = menu-open-0
-menu-1-1 = reboot
-menu-1-1-exec = reboot
+menu-1-0 = reboot
+menu-1-0-exec = reboot
+menu-1-0-foreground = ${colors.alert}
 
-menu-2-0 = power off
+menu-2-0 = shutdown
 menu-2-0-exec = poweroff
-menu-2-1 = cancel
-menu-2-1-exec = menu-open-0
+menu-2-0-foreground = ${colors.alert}
 
-[module/jpndate]
-type = custom/script
-
-exec = jpndate.sh
-tail = true
-interval = 10
-format =  <label>
+menu-3-0 = logout
+menu-3-0-exec = bspwmclose.sh
+menu-3-0-foreground = ${colors.alert}
 
 [settings]
 screenchange-reload = true
+pseudo-transparency = true
 ;compositing-background = xor
 ;compositing-background = screen
 ;compositing-foreground = source
 ;compositing-border = over
-
-[global/wm]
-margin-top = 4
-margin-bottom = 4
-
-; vim:ft=dosini
