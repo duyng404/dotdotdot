@@ -3,7 +3,7 @@
 cat ~/.cache/wal/sequences
 
 # sourcing ubuntu's default bashrc
-if [ -r ~/.oldbashrc ]; then . ~/.oldbashrc; fi
+#if [ -r ~/.oldbashrc ]; then . ~/.oldbashrc; fi
 
 # aliases
 if [ -f ~/.aliases ]; then
@@ -11,6 +11,11 @@ if [ -f ~/.aliases ]; then
 fi
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+	    PATH="$HOME/bin:$PATH"
 fi
 
 # EZ COLOR ------------------------
@@ -33,6 +38,7 @@ nofg='\[\e[0m\]'
 # PROMPT -------------------------
 # prompt will now show git dirty state
 source ~/.git-prompt.sh
+source ~/.git-completion.bash
 export GIT_PS1_SHOWDIRTYSTATE=1
 # '\$(__git_ps1)' adds git-related stuff
 export PS1="${debian_chroot:+($debian_chroot)}${fg[06]}\u${fg[03]}\$(__git_ps1) ${fg[01]}\W$nofg "
@@ -48,3 +54,15 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 export PATH="$HOME/.local/bin:$PATH"
 export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
+
+export PATH=$PATH:/usr/local/go/bin
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
+export AFFINDA_ROOT="$HOME/work/affinda"
+
+export PATH=$PATH:/home/rei/.cargo/bin
+
+# homebrew
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

@@ -1,0 +1,13 @@
+# aliases
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrup='egrep --color=auto'
+alias ll='ls -alF'
+alias la='ls -A'
+alias dkm='sudo !!'
+alias reload='exec ${SHELL} -l'
+alias at='python -m affinda_tools'
+alias vpnplz='eval $(op signin) && AFFINDA_PW=$(op item get "affinda account" --fields label=password) && sudo AFFINDA_PW=$AFFINDA_PW /home/rei/bin/connectvpn.py'
+alias novpnplz='sudo /home/rei/bin/disconnectvpn.py'
+alias logoutplz='bspwmclose.sh'

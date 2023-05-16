@@ -240,7 +240,7 @@ shift + Print
 	gnome-screenshot -i
 
 ctrl + alt + 4
-	gnome-screenshot -a
+	scrot -s -f '/home/rei/Pictures/Screenshots/%Y-%m-%d-%H%M%S.png'
 
 # file manager
 super + t

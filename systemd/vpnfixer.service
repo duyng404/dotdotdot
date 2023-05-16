@@ -1,0 +1,12 @@
+[Unit]
+Description=vpnfixer service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+ExecStart=/home/rei/bin/vpnfixer.sh
+Restart=always
+User=root
+
+[Install]
+WantedBy=default.target

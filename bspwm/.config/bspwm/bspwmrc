@@ -1,8 +1,15 @@
 #!/bin/bash
+rm log.out
+exec 3>&1 4>&2
+trap 'exec 2>&4 1>&3' 0 1 2 3
+exec 1>~/tmp/bspwmrc.log 2>&1
+# Everything below will go to the file 'bspwmrc.log'
 
 #workspaces_multimonitor.sh
 # monitor layout
-. ~/.screenlayout/default.sh
+#. ~/.screenlayout/default.sh
+. ~/.screenlayout/onemonitor.sh
+sleep 1
 
 # start sxhkd
 pgrep -x sxhkd > /dev/null || sxhkd &
@@ -19,7 +26,6 @@ bspc config border_width         3
 
 bspc config borderless_monocle   false
 bspc config gapless_monocle      false
-bspc config paddingless_monocle  false
 bspc config initial_polarity first_child
 
 bspc config click_to_focus		button1
@@ -34,10 +40,9 @@ bspc config remove_disabled_monitors true
 bspc config remove_unplugged_monitors true
 bspc config merge_overlapping_monitors true
 
-#bspc monitor LVDS1 -d 1 2 3 4 5 6
-#bspc monitor HDMI1 -d 7 8 9 10 11 12
-bspc monitor HDMI-A-0 -d 1 2 3 4 5 6
-bspc monitor DVI-D-0 -d 7 8 9 0
+#bspc monitor HDMI-1 -d 1 2 3 4 5 6
+#bspc monitor HDMI-0 -d 7 8 9 0
+bspc monitor HDMI-1 -d 1 2 3 4 5 6 7
 
 # colors
 bspc config normal_border_color $colorgrey
@@ -63,12 +68,10 @@ bspc config external_rules_command "${HOME}/bin/bspwm_external_rules.sh"
 pkill autogap.sh
 autogap.sh &
 
-usermodmap=$HOME/.Xmodmap
-if [ -f "$usermodmap" ]; then
-    xmodmap "$usermodmap"
-fi
-
-~/.config/polybar/launch.sh &
+xsetroot -cursor_name left_ptr&
 wal -R
+~/.config/polybar/launch.sh &
 dunstcolors.sh
 pasystray &
+nm-applet &
+drata-agent &

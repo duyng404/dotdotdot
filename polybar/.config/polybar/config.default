@@ -52,7 +52,7 @@ font-2 = Noto Sans CJK HK:style=Regular:size=10;2
 font-3 = Noto Sans CJK KR:style=Regular:size=10;2
 font-4 = Ubuntu Nerd Font:style=Regular:size=10;2
 
-modules-left = spotify
+modules-left = wintitle
 modules-center = bspwm
 modules-right = cpu memory pulseaudio date caff powermenu
 #filesystem volume memory cpu battery temperature date powermenu

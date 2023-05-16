@@ -1,0 +1,12 @@
+[Unit]
+Description=bore service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+ExecStart=/home/rei/.cargo/bin/bore local 420 --to silerhand.anythingbut.me --port 42069 
+Restart=always
+User=root
+
+[Install]
+WantedBy=default.target

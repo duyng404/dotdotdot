@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/bash
 
 # Terminate already running bar instances
 killall -q polybar
@@ -15,7 +15,8 @@ while pgrep -x polybar >/dev/null; do sleep 1; done
 #	export MONITOR=$monitor && polybar baru &
 #done
 
-polybar main 2>&1 | tee -a /tmp/polybar-main.log & disown
-polybar sub 2>&1 | tee -a /tmp/polybar-sub.log & disown
+rm ~/tmp/polybar-*.log
+polybar main 2>&1 | tee -a ~/tmp/polybar-main.log & disown
+polybar sub 2>&1 | tee -a ~/tmp/polybar-sub.log & disown
 
 echo "Polybar launched ..."

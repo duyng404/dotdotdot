@@ -1,0 +1,40 @@
+things to install:
+bspwm + sxhkd
+polybar
+dunst
+nm-applet
+pasystray
+pavucontrol
+playerctl
+scrot
+openvpn3 (need googling)
+arandr
+*config monitor, put setting into .screenlayout, modify bspwmrc
+python-is-python3
+python (need googling -- or use pyenv)
+cargo (> bore)
+code (deb)
+spotify (snap)
+ferdium (deb)
+1password (deb)
+1passwordcli (google)
+pywal (pip3) + imagemagick (apt) + wal backends (pip3)
+alacritty
+rofi
+vlc
+git
+make
+git-lfs
+build-essential
+setup work code
+feh
+stow
+picom (needs review -- config missing)
+nvidia driver
+ibus-unikey
+ibus-bamboo (google)
+
+
+systemd units:
+bore
+vpnfixer

@@ -22,25 +22,22 @@ fi
 setxkbmap -option terminate:ctrl_alt_bksp
 
 # Initialize screen config
-initscreens.sh
+#initscreens.sh
 
 # Set the friggin numlock
-numlockx &
+#numlockx &
 
 # Set default cursor to not be X-shaped
 xsetroot -cursor_name left_ptr&
 
 # Notification server
-dunst &
+#dunst &
 
 # Start ibus
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 ibus-daemon -drx
-
-# Network Manager tray applet
-nm-applet &
 
 # Trackpoint middle button scroll
 #tpset() { xinput set-prop "TPPS/2 IBM TrackPoint" "$@"; }
@@ -53,37 +50,37 @@ nm-applet &
 #xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Middle Button Timeout" 50
 
 # fix gnome-keyring idk why
-. /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
+#. /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 
 # check if existing socket exists and killl for bspwm(doesn't play nice with logging out and in)
 # I don't know why I had this in tbh
 rm /tmp/$(ls /tmp | grep bspwm)
 
 # MPD
-if [ -z "`ps -aux | grep [m]pd`" ] && [ -S ~/.mpd/socket ]; then pkill mpd; rm ~/.mpd/socket; mpd; fi
-if [ -z "`ps -aux | grep [m]pd`" ] && [ ! -S ~/.mpd/socket ]; then pkill mpd; mpd; fi
+#if [ -z "`ps -aux | grep [m]pd`" ] && [ -S ~/.mpd/socket ]; then pkill mpd; rm ~/.mpd/socket; mpd; fi
+#if [ -z "`ps -aux | grep [m]pd`" ] && [ ! -S ~/.mpd/socket ]; then pkill mpd; mpd; fi
 
 # mopidy
 #if [ -z "`ps -aux | grep [m]opidy`" ]; then mopidy & fi
 
 # Delete annoying folder
-[ -d ~/Downloads ] && rm -r ~/Downloads
-[ -d ~/Desktop ] && rm -r ~/Desktop
+#[ -d ~/Downloads ] && rm -r ~/Downloads
+#[ -d ~/Desktop ] && rm -r ~/Desktop
 
 # Thunar daemon for detect hot plugs of hard drive / usb drive
-thunar --daemon &
+#thunar --daemon &
 
 # Protect yer eyes at night
-redshift -t 6500:4000 &
+#redshift -t 6500:4000 &
 
 # Restore wal colorschemes
-wal -i "$(< "${HOME}/.cache/wal/wal")" -a 90
-wal -f ~/dot/walcolors -a 90
+#wal -i "$(< "${HOME}/.cache/wal/wal")" -a 90
+#wal -f ~/dot/walcolors -a 90
 
 # set up autolock
-xautolock -time 15 -locker i3lock.sh &
+#xautolock -time 15 -locker i3lock.sh &
 
 # WM
-compton -b
-sxhkd &
-exec bspwm
+#compton -b
+#sxhkd &
+#exec bspwm
