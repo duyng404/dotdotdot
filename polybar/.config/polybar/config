@@ -54,7 +54,7 @@ font-4 = Ubuntu Nerd Font:style=Regular:size=10;2
 
 modules-left = spotify
 modules-center = bspwm
-modules-right = cpu memory pulseaudio date caff powermenu
+modules-right = pulseaudio date caff powermenu
 #filesystem volume memory cpu battery temperature date powermenu
 
 dim-value = 1.0

@@ -6,15 +6,18 @@ nm-applet
 pasystray
 pavucontrol
 playerctl
+pulsemixer
 scrot
 openvpn3 (need googling)
 arandr
 *config monitor, put setting into .screenlayout, modify bspwmrc
 python-is-python3
+python3-pip
 python (need googling -- or use pyenv)
 cargo (> bore)
 code (deb)
 spotify (snap)
+slack (snap)
 ferdium (deb)
 1password (deb)
 1passwordcli (google)
@@ -29,6 +32,7 @@ build-essential
 setup work code
 feh
 stow
+brew
 picom (needs review -- config missing)
 nvidia driver
 ibus-unikey
