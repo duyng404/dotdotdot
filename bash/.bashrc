@@ -66,3 +66,5 @@ export PATH=$PATH:/home/rei/.cargo/bin
 
 # homebrew
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+source <(kubectl completion bash)

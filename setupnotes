@@ -14,7 +14,7 @@ arandr
 python-is-python3
 python3-pip
 python (need googling -- or use pyenv)
-cargo (> bore)
+cargo (> bore-cli)
 code (deb)
 spotify (snap)
 slack (snap)
